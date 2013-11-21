@@ -2,6 +2,12 @@ parameters:
 #    bloggerblog.example.class: blogger\blogBundle\Example
 
 services:
+  acme_blog.registration.form.type:
+      class: blogger\blogBundle\Form\RegistrationFormType
+      arguments: [%fos_user.model.user.class%]
+      tags:
+          - { name: form.type, alias: blog_user_registration }
+
 #    bloggerblog.example:
 #        class: %bloggerblog.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]

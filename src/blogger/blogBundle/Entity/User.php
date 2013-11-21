@@ -23,9 +23,47 @@ class User extends BaseUser{
      */
     protected $id;
 
+    /**
+     * @ORM\Column(type="string", length=100, unique=true)
+     */
+    protected $blogName;
+
     public function __construct()
     {
         parent::__construct();
         // your own logic
     }
-} 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set blogName
+     *
+     * @param string $blogName
+     * @return User
+     */
+    public function setBlogName($blogName)
+    {
+        $this->blogName = $blogName;
+    
+        return $this;
+    }
+
+    /**
+     * Get blogName
+     *
+     * @return string 
+     */
+    public function getBlogName()
+    {
+        return $this->blogName;
+    }
+}
