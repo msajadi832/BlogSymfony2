@@ -1,0 +1,42 @@
+body{
+    direction: rtl;
+    font-family: Tahoma, "Times New Roman",serif;
+}
+.header{
+    background-color: #ccccff;
+    line-height: 100px;
+    width: 100%;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bolder;
+    margin-top: 10px;
+}
+.wrapper{
+    width: 100%;
+    margin-top: 10px;
+}
+.wrapper .content{
+    border-radius: 5px;
+    float: left;
+    width: 710px;
+    padding: 10px;
+    background-color: #ddddff;
+}
+.wrapper .sidebar{
+    border-radius: 5px;
+    float: right;
+    width: 180px;
+    padding: 10px;
+    background-color: #ddddff;
+}
+.wrapper .sidebar .header_sidebar{
+    border-bottom: 1px solid #0077b3;
+    text-align: right;
+    font-weight: bold;
+    color: blue;
+    width: 100%;
+}
+.wrapper .sidebar .content_sidebar{
+    width: 100%;
+}
