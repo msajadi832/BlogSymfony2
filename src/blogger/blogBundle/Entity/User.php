@@ -30,6 +30,16 @@ class User extends BaseUser{
     protected $blogName;
 
     /**
+     * @ORM\Column(type="string", length=100, unique=true)
+     */
+    protected $blogAddress;
+
+    /**
+     * @ORM\Column(name="blogDescription", type="text")
+     */
+    protected $blogDescription;
+
+    /**
      * @ORM\OneToMany(targetEntity="Article", mappedBy="user")
      */
     protected $articles;
@@ -105,5 +115,51 @@ class User extends BaseUser{
     public function getArticles()
     {
         return $this->articles;
+    }
+
+    /**
+     * Set blogAddress
+     *
+     * @param string $blogAddress
+     * @return User
+     */
+    public function setBlogAddress($blogAddress)
+    {
+        $this->blogAddress = $blogAddress;
+    
+        return $this;
+    }
+
+    /**
+     * Get blogAddress
+     *
+     * @return string 
+     */
+    public function getBlogAddress()
+    {
+        return $this->blogAddress;
+    }
+
+    /**
+     * Set blogDescription
+     *
+     * @param string $blogDescription
+     * @return User
+     */
+    public function setBlogDescription($blogDescription)
+    {
+        $this->blogDescription = $blogDescription;
+    
+        return $this;
+    }
+
+    /**
+     * Get blogDescription
+     *
+     * @return string 
+     */
+    public function getBlogDescription()
+    {
+        return $this->blogDescription;
     }
 }
