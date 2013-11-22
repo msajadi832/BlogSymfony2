@@ -8,6 +8,22 @@
     {% endfor %}
 {% endblock %}
 {% block content %}
-    <div class="article_date">تاریخ آخرین ویرایش: {{ article_date }}</div>
-    <div class="article_body">{{ article_body }}</div>
+    <div class="content">
+        <div class="headers_wrapper">{{ article_title }}</div>
+        <div class="content_in">
+            <div class="article_date" style="width: 100%">تاریخ آخرین ویرایش: {{ article_date }}</div>
+            <div class="article_body">{{ article_body }}</div>
+            <div class="headers_wrapper">نظرات</div>
+            {% for article_comment in article_comments %}
+                {{ include(
+                '@bloggerblog/Blog/Article/comment.html.twig',
+                { 'article_comment': article_comment }
+                ) }}
+            {% endfor %}
+            <div class="headers_wrapper">ارسال نظر جدید</div>
+            <div class="article_comment_new">
+                نظر جدید
+            </div>
+        </div>
+    </div>
 {% endblock %}

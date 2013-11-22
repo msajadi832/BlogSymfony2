@@ -13,12 +13,7 @@
             {{ blog_name }}
         </div>
         <div class="wrapper">
-            <div class="content">
-                <div class="headers_wrapper">{{ content_name }}</div>
-                <div class="content_in">
-                    {% block content %}asdasdwad{% endblock %}
-                </div>
-            </div>
+            <div class="content_out">{% block content %}{% endblock %}</div>
             <div class="sidebar">
                 <div class="headers_wrapper">{{ sidebar_name }}</div>
                 <div class="sidebar_in">
