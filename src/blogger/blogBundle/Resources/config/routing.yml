@@ -1,3 +1,6 @@
-bloggerblog_homepage:
+bloggerblog_blogHomepage:
     pattern:  /{blog_name}
     defaults: { _controller: bloggerblogBundle:blog:blog }
+bloggerblog_blogArticle:
+    pattern:  /{blog_name}/{article_name}
+    defaults: { _controller: bloggerblogBundle:blog:article }

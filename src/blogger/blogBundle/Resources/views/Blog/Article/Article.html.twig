@@ -1,4 +1,13 @@
-{% extends "bloggerblogBundle:Blog/Article:ArticleBase.html.twig" %}
+{% extends "bloggerblogBundle:Blog:blogBase.html.twig" %}
+{% block sidebar %}
+    {% for recent_comment in recent_comments %}
+        {{ include(
+        '@bloggerblog/Blog/recent_comment/recentComment.twig',
+        { 'recent_comment': recent_comment }
+        ) }}
+    {% endfor %}
+{% endblock %}
 {% block content %}
-    اولین وبلاگ
+    <div class="article_date">تاریخ آخرین ویرایش: {{ article_date }}</div>
+    <div class="article_body">{{ article_body }}</div>
 {% endblock %}

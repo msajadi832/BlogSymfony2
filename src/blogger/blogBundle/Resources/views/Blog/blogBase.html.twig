@@ -14,11 +14,14 @@
         </div>
         <div class="wrapper">
             <div class="content">
-                {% block content %}asdasdwad{% endblock %}
+                <div class="headers_wrapper">{{ content_name }}</div>
+                <div class="content_in">
+                    {% block content %}asdasdwad{% endblock %}
+                </div>
             </div>
             <div class="sidebar">
-                <div class="header_sidebar">{{ sidebar_name }}</div>
-                <div class="content_sidebar">
+                <div class="headers_wrapper">{{ sidebar_name }}</div>
+                <div class="sidebar_in">
                     {% block sidebar %}{% endblock %}
                 </div>
             </div>
