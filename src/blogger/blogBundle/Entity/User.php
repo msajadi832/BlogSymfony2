@@ -35,7 +35,7 @@ class User extends BaseUser{
     protected $blogAddress;
 
     /**
-     * @ORM\Column(name="blogDescription", type="text")
+     * @ORM\Column(type="text")
      */
     protected $blogDescription;
 
