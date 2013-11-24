@@ -10,6 +10,7 @@ class blogController extends Controller
 {
     public function blogAction($blog_name)
     {
+        var_dump($blog_name);
         $user = $this->getDoctrine() ->getRepository('bloggerblogBundle:User') ->find(1);
 
         $articlesa = $user->getArticles();
@@ -31,6 +32,7 @@ class blogController extends Controller
     }
     public function articleAction($blog_name,$article_name)
     {
+        var_dump($blog_name);
         $recent_comment = array(array("name" => "علی", "comment" => "سلام"),array("name" => "حسین", "comment" => "بیا"),
             array("name" => "رضا", "comment" => "بای"));
 

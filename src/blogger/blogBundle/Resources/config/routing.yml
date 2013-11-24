@@ -1,6 +1,11 @@
+bloggerblog_homepage:
+    path:     /
+    defaults: { _controller: bloggerblogBundle:Default:index}
 bloggerblog_blogHomepage:
-    pattern:  /{blog_name}
-    defaults: { _controller: bloggerblogBundle:blog:blog }
+    path:     /
+    host:     "{blog_name}.blog"
+    defaults: { _controller: bloggerblogBundle:blog:blog}
 bloggerblog_blogArticle:
-    pattern:  /{blog_name}/{article_name}
+    path:     /{article_name}/
+    host:     "{blog_name}.blog"
     defaults: { _controller: bloggerblogBundle:blog:article }
