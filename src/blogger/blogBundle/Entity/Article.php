@@ -46,7 +46,7 @@ class Article
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="modify_date", type="date")
+     * @ORM\Column(name="modify_date", type="date", nullable=true)
      */
     private $modifyDate;
 
