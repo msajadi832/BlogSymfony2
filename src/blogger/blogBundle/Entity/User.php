@@ -35,7 +35,7 @@ class User extends BaseUser{
     protected $blogAddress;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text",nullable=true)
      */
     protected $blogDescription;
 
@@ -44,10 +44,16 @@ class User extends BaseUser{
      */
     protected $articles;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="user")
+     */
+    protected $comments;
+
     public function __construct()
     {
         parent::__construct();
         $this->articles = new ArrayCollection();
+        $this->comments = new ArrayCollection();
         // your own logic
     }
 
@@ -161,5 +167,38 @@ class User extends BaseUser{
     public function getBlogDescription()
     {
         return $this->blogDescription;
+    }
+
+    /**
+     * Add comments
+     *
+     * @param \blogger\blogBundle\Entity\Comment $comments
+     * @return User
+     */
+    public function addComment(\blogger\blogBundle\Entity\Comment $comments)
+    {
+        $this->comments[] = $comments;
+    
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \blogger\blogBundle\Entity\Comment $comments
+     */
+    public function removeComment(\blogger\blogBundle\Entity\Comment $comments)
+    {
+        $this->comments->removeElement($comments);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 }

@@ -32,6 +32,13 @@ class Article
     /**
      * @var string
      *
+     * @ORM\Column(name="address", type="string", length=50)
+     */
+    private $address;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="body", type="text")
      */
     private $body;
@@ -223,5 +230,27 @@ class Article
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * Set address
+     *
+     * @return Article
+     */
+    public function setAddress()
+    {
+        $this->address = urlencode($this->title);
+    
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return string 
+     */
+    public function getAddress()
+    {
+        return $this->address;
     }
 }

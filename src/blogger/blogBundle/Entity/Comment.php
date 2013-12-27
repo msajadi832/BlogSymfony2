@@ -150,4 +150,33 @@ class Comment
     {
         return $this->article;
     }
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="comments")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    protected $user;
+
+    /**
+     * Set user
+     *
+     * @param \blogger\blogBundle\Entity\User $user
+     * @return Comment
+     */
+    public function setUser(\blogger\blogBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \blogger\blogBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }
