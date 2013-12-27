@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="text/html">
-    <title>{{ blog_name }}</title>
+    <title>{{ blog_info.name }}</title>
     <link rel="stylesheet" href="{{ asset("bundles/bloggerblog/css/bootstrap.css") }}">
     <link rel="stylesheet" href="{{ asset("bundles/bloggerblog/css/style_blog.css") }}">
     {% block head_page %}{% endblock %}
@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <div class="header">
-            {{ blog_name }}
+            {{ blog_info.name }}
         </div>
         <div class="wrapper">
             <div class="content_out">{% block content %}{% endblock %}</div>

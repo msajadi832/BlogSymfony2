@@ -3,7 +3,7 @@ bloggerblog_blogHomepage:
     host:     "{blog_name}.blog"
     defaults: { _controller: bloggerblogBundle:blog:blog}
 bloggerblog_blogArticle:
-    path:     /{article_name}/
+    path:     /{article_name}
     host:     "{blog_name}.blog"
     defaults: { _controller: bloggerblogBundle:blog:article }
 bloggerblog_homepage:
