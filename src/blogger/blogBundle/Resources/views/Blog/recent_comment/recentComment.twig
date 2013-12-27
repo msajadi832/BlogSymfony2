@@ -1,4 +1,4 @@
 <div class="recent_comment">
-    <div class="recent_comment_name">{{ recent_comment.name }}</div>
+    <div class="recent_comment_name"><a href="{{ path('bloggerblog_blogArticle',{'blog_name':blog_info.address,'article_name' : recent_comment.article_id}) }}#comment{{ recent_comment.id }}">{{ recent_comment.name }}</a></div>
     <div class="recent_comment_comment">{{ recent_comment.comment }}</div>
 </div>

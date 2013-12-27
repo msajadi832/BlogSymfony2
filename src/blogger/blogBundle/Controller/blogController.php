@@ -19,10 +19,10 @@ class blogController extends Controller
                 "article_body" => $singleArticle->getBody(),"article_comment_count" => $singleArticle->getComments()->count());
         }
 
-        $comments_doc = $this->getDoctrine()->getRepository('bloggerblogBundle:Comment')->findBy(array("user" => $user->getId()),array("date" => 'DESC'),1);
+        $comments_doc = $this->getDoctrine()->getRepository('bloggerblogBundle:Comment')->findBy(array("user" => $user->getId()),array("date" => 'DESC'),10);
         $recent_comment = array();
         foreach($comments_doc as $singleComment){
-            $recent_comment[] = array("name" => $singleComment->getName(), "comment" => $singleComment->getComment());
+            $recent_comment[] = array("article_id" => $singleComment->getArticle()->getAddress(),"id" =>$singleComment->getId(),"name" => $singleComment->getName(), "comment" => $singleComment->getComment());
         }
 
         return $this->render('bloggerblogBundle:Blog/homepage:homepage.html.twig',
@@ -35,11 +35,13 @@ class blogController extends Controller
         $article = $this->getDoctrine() ->getRepository('bloggerblogBundle:Article') ->findOneBy(array("user" => $user->getId(),"address" => $article_name));
         $comment_article = array();
         foreach($article->getComments() as $singleComment){
-            $comment_article[] = array("name" => $singleComment->getName(), "date" => date_format($singleComment->getDate(),"Y-m-d"), "comment" => $singleComment->getComment());
+            $comment_article[] = array("id" =>$singleComment->getId(),"name" => $singleComment->getName(), "date" => date_format($singleComment->getDate(),"Y-m-d"), "comment" => $singleComment->getComment());
         }
-        $recent_comment = array(array("name" => "علی", "comment" => "سلام"),array("name" => "حسین", "comment" => "بیا"),
-            array("name" => "رضا", "comment" => "بای"));
-
+        $comments_doc = $this->getDoctrine()->getRepository('bloggerblogBundle:Comment')->findBy(array("user" => $user->getId()),array("date" => 'DESC'),10);
+        $recent_comment = array();
+        foreach($comments_doc as $singleComment){
+            $recent_comment[] = array("article_id" => $singleComment->getArticle()->getAddress(),"id" =>$singleComment->getId(),"name" => $singleComment->getName(), "comment" => $singleComment->getComment());
+        }
 
 
         return $this->render('bloggerblogBundle:Blog/Article:Article.html.twig',
