@@ -48,7 +48,7 @@ body{
 .article_date{
     text-align: left;
     font-size: 12px;
-    color: #aaaaaa;
+    color: #999999;
     width: 300px;
     float: left;
 }
@@ -66,11 +66,14 @@ body{
     border-bottom: 1px solid #5bc0de;
     margin-bottom: 10px;
 }
-.recent_comment div{
-    width: 100%;
-}
 .recent_comment .recent_comment_name{
+    float: right;
     font-weight: bold;
+}
+.recent_comment .recent_comment_date{
+    font-size: 12px;
+    color:#999999;
+    float: left;
 }
 .article_comment{
     width: 690px;
@@ -95,6 +98,7 @@ body{
     font-weight: bold;
 }
 .article_comment_date{
+    font-size: 12px;
      width: 250px;
      float: left;
      text-align: left;

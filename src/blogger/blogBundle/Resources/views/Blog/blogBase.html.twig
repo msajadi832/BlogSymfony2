@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <div class="header">
-            {{ blog_info.name }}
+            <a href="{{ path('bloggerblog_blogHomepage',{'blog_name': blog_info.address}) }}">{{ blog_info.name }}</a>
         </div>
         <div class="wrapper">
             <div class="content_out">{% block content %}{% endblock %}</div>
