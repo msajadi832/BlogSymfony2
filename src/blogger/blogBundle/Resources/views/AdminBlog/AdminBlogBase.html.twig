@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="text/html">
+    <title>{{ blog_info.name }}</title>
+    <link rel="stylesheet" href="{{ asset("bundles/bloggerblog/css/bootstrap.css") }}">
+    <link rel="stylesheet" href="{{ asset("bundles/bloggerblog/css/style_blog.css") }}">
+    {% block head_page %}{% endblock %}
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="{{ path('bloggerblog_blogHomepage',{'blog_name': blog_info.address}) }}">{{ blog_info.name }}</a>
+        </div>
+        <div class="wrapper">
+            <div class="content_out">{% block content %}{% endblock %}</div>
+            <div class="sidebar">
+                <div class="headers_wrapper">{{ sidebar_name }}</div>
+                <div class="sidebar_in">
+                    {% block sidebar %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% block before_end_body %}{% endblock %}
+    <script src="{{ asset("bundles/bloggerblog/js/jquery.min.js") }}" ></script>
+</body>
+</html>

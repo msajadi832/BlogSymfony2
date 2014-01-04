@@ -9,3 +9,9 @@ bloggerblog_blogArticle:
 bloggerblog_homepage:
     path:     /
     defaults: { _controller: bloggerblogBundle:Default:index}
+bloggerblog_blogAdmin:
+    path:     /admin/
+    defaults: { _controller: bloggerblogBundle:Default:blogAdmin}
+bloggerblog_blogAdminShowAll:
+    path:     /admin/showArticles
+    defaults: { _controller: bloggerblogBundle:adminBlog:showAll}
