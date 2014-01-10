@@ -21,3 +21,9 @@ bloggerblog_blogAdminAddArticle:
 bloggerblog_blogAdminShowRecentArticles:
     path:     /admin/showRecentArticles
     defaults: { _controller: bloggerblogBundle:adminBlog:showRecentArticles}
+bloggerblog_blogAdminRemoveArticle:
+    path:     /admin/removeArticle/{address}
+    defaults: { _controller: bloggerblogBundle:adminBlog:removeArticle}
+bloggerblog_blogAdminEditArticle:
+    path:     /admin/editArticle/{address}
+    defaults: { _controller: bloggerblogBundle:adminBlog:editArticle}

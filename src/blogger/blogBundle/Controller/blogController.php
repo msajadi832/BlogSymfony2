@@ -19,7 +19,6 @@ class blogController extends Controller
             ->setParameter("user",$user->getId())
             ->andWhere('a.publishDate < :now')
             ->setParameter("now",new \DateTime())
-            ->orderBy('a.publishDate', 'DESC')
             ->orderBy('a.id', 'DESC')
             ->getQuery();
         $articlesa =$qb->getResult(); //$this->getDoctrine()->getRepository('bloggerblogBundle:Article')->findBy(array("user" => $user->getId(), "publishDate" ),array("publishDate" => 'DESC'),10);

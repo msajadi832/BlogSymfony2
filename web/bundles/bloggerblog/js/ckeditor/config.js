@@ -8,6 +8,7 @@ CKEDITOR.editorConfig = function( config ) {
 	config.language = 'fa';
 	config.uiColor = '#ccccff';
     config.contentsLangDirection = 'rtl';
+    config.height = '300px';
     config.toolbar = [
         { name: 'document', groups: [ 'mode', 'document', 'doctools' ], items: [ 'Preview', 'Print' ] },
         { name: 'clipboard', groups: [ 'clipboard', 'undo' ], items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },

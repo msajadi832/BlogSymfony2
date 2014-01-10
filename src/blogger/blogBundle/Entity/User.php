@@ -40,7 +40,7 @@ class User extends BaseUser{
     protected $blogDescription;
 
     /**
-     * @ORM\OneToMany(targetEntity="Article", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="Article", mappedBy="user" ,cascade={"all"})
      */
     protected $articles;
 

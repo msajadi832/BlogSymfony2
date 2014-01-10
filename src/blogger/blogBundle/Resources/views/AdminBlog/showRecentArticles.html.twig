@@ -1,0 +1,36 @@
+{% extends "bloggerblogBundle:AdminBlog:AdminBlogBase.html.twig" %}
+{% block head_page %}
+    <script type="text/javascript">
+        function removeArticle(id,title){
+            result = confirm("آیا واقعا می خواهید مطلب زیر را حذف کنید\n"+title);
+            if(result){
+                window.location.assign("../admin/removeArticle/"+id);
+            }
+        }
+    </script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="headers_wrapper">مقالات اخیر</div>
+    <div class="content_in">
+        <table>
+            <tbody>
+            {% for article in articles %}
+                {% if article.article_comment_count == 0 %}
+                    {% set comment_count = "بدون" %}
+                {% else %}
+                    {% set comment_count = article.article_comment_count%}
+                {% endif %}
+                <tr>
+                    <td>{{ article.article_date|date("Y/m/d") }}</td>
+                    <td style="width: 430px"><a href="{{ path('bloggerblog_blogArticle',{'blog_name':blog_info.address,'article_name' : article.article_address}) }}">{{ article.article_title }}</a></td>
+                    <td style="width: 60px">{{ comment_count }} نظر</td>
+                    <td><div class="btn" onclick="removeArticle('{{ article.article_address }}','{{ article.article_title }}')" title="حذف مقاله"><i class="icon-remove"></i></div></td>
+                    <td><a class="btn" href="{{ path("bloggerblog_blogAdminEditArticle",{'address' : article.article_address}) }}" title="ویرایش مقاله"><i class="icon-pencil"></i></a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -26,16 +26,21 @@ img{
     width: 200px;
     background-color: #ddddff;
 }
-.wrapper .headers_wrapper{
-    border-bottom: 1px solid #0077b3;
+.wrapper .content .headers_wrapper{
     text-align: right;
+    padding: 5px 10px;
+    border-radius: 5px;
     font-weight: bold;
     color: blue;
-    width: 100%;
+    width: 690px;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px #ffffff;
 }
 .wrapper .content_in,
 .wrapper .sidebar_in{
     width: 100%;
+}
+.wrapper .content_in{
     margin-top: 5px;
 }
 .header{
@@ -93,4 +98,8 @@ img{
 }
 .width_100_percent{
     width: 100%;
+}
+.content_in table{
+    border-spacing: 10px 2px;
+    border-collapse: separate;
 }
