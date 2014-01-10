@@ -11,7 +11,7 @@ bloggerblog_homepage:
     defaults: { _controller: bloggerblogBundle:Default:index}
 bloggerblog_blogAdmin:
     path:     /admin/
-    defaults: { _controller: bloggerblogBundle:Default:blogAdmin}
+    defaults: { _controller: bloggerblogBundle:adminBlog:dashboard}
 bloggerblog_blogAdminShowAll:
     path:     /admin/showArticles
     defaults: { _controller: bloggerblogBundle:adminBlog:showAll}

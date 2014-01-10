@@ -2,9 +2,9 @@
 <head>
     <meta charset="utf-8">
     <meta content="text/html">
-    <title>{{ blog_info.name }}</title>
+    <title>مدیریت {{ blog_info.name }}</title>
     <link rel="stylesheet" href="{{ asset("bundles/bloggerblog/css/bootstrap.css") }}">
-    <link rel="stylesheet" href="{{ asset("bundles/bloggerblog/css/style_blog.css") }}">
+    <link rel="stylesheet" href="{{ asset("bundles/bloggerblog/css/style_admin.css") }}">
     {% block head_page %}{% endblock %}
 </head>
 <body>
@@ -12,10 +12,21 @@
         <div class="header">
             <a href="{{ path('bloggerblog_blogHomepage',{'blog_name': blog_info.address}) }}">{{ blog_info.name }}</a>
         </div>
+        <div class="navbar">
+            <div class="navbar-inner">
+                <ul class="nav pull-right">
+                    <li><a href="{{ path('fos_user_security_logout') }}">خروج</a></li>
+                    <li class="divider-vertical"></li>
+                    <li><a href="{{ path('bloggerblog_blogHomepage',{'blog_name': blog_info.address}) }}">وبلاگ {{ blog_info.name }}</a></li>
+                </ul>
+                <ul class="nav pull-left">
+                    <li class="pull-left"><a href="{{ path('bloggerblog_homepage') }}">صفحه اصلی</a></li>
+                </ul>
+            </div>
+        </div>
         <div class="wrapper">
             <div class="content_out">{% block content %}{% endblock %}</div>
             <div class="sidebar">
-                <div class="headers_wrapper">{{ sidebar_name }}</div>
                 <div class="sidebar_in">
                     {% block sidebar %}{% endblock %}
                 </div>

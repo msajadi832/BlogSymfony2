@@ -4,7 +4,11 @@
     </thead>
     <tbody>
     {% for article in articles %}
-        <tr><td>{{ article.article_title }}</td><td>{{ article.article_date|date("Y/m/d") }}</td><td>{{ article.article_comment_count }}</td></tr>
+        <tr>
+            <td>{{ article.article_title }}</td>
+            <td>{{ article.article_date|date("Y/m/d") }}</td>
+            <td>{{ article.article_comment_count }}</td>
+        </tr>
     {% endfor %}
     </tbody>
 </table>

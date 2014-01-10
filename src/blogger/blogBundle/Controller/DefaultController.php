@@ -10,9 +10,4 @@ class DefaultController extends Controller
     {
         return $this->render('bloggerblogBundle:Default:index.html.twig');
     }
-
-    public function blogAdminAction()
-    {
-        return $this->render('bloggerblogBundle:AdminBlog/addBlog:addBlog.html.twig');
-    }
 }
