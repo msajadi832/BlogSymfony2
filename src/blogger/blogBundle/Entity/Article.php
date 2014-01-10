@@ -231,15 +231,16 @@ class Article
     {
         return $this->comments;
     }
-
+    
     /**
      * Set address
      *
+     * @param string $body
      * @return Article
      */
-    public function setAddress()
+    public function setAddress($address)
     {
-        $this->address = urlencode($this->title);
+        $this->address = $address;
     
         return $this;
     }

@@ -10,7 +10,7 @@
         <div class="headers_wrapper">{{ article_info.title }}</div>
         <div class="content_in">
             <div class="article_date" style="width: 100%">تاریخ آخرین ویرایش: {{ article_info.date|date("Y/m/d") }}</div>
-            <div class="article_body">{{ article_info.body }}</div>
+            <div class="article_body">{{ article_info.body | raw }}</div>
             <div class="headers_wrapper">نظرات</div>
             {% for article_comment in article_info.comments %}
                 {{ include(
@@ -19,7 +19,7 @@
                 ) }}
             {% endfor %}
             <div class="headers_wrapper">ارسال نظر جدید</div>
-            <div class="article_comment_new">
+            <div class="width_100_percent">
                 {{ form(comment_form) }}
             </div>
         </div>

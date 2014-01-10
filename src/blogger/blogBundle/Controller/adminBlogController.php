@@ -12,51 +12,32 @@ class adminBlogController extends Controller
     public function dashboardAction()
     {
         $user = $this->getUser();
-
-//        $articlesa = $user->getArticles();
-//        $articles = array();
-//        foreach($articlesa as $singleArticle){
-//            $articles[] = array("article_title" => $singleArticle->getTitle(),"article_address" => $singleArticle->getAddress(), "article_date" => $singleArticle->getPublishDate(),
-//                "article_body" => (strlen($singleArticle->getBody())> 500)?mb_substr($singleArticle->getBody(),0,500, 'UTF-8')." ...":$singleArticle->getBody(),
-//                "article_comment_count" => $singleArticle->getComments()->count());
-//        }
-
-//        $comments_doc = $this->getDoctrine()->getRepository('bloggerblogBundle:Comment')->findBy(array("user" => $user->getId()),array("date" => 'DESC'),10);
-//        $recent_comments = array();
-//        foreach($comments_doc as $singleComment){
-//            $recent_comments[] = array("article_address" => $singleComment->getArticle()->getAddress(),"id" =>$singleComment->getId(),
-//                "name" => (strlen($singleComment->getName())> 50)?mb_substr($singleComment->getName(),0,50, 'UTF-8')." ...":$singleComment->getName(),
-//                "date" => $singleComment->getDate(),
-//                "comment" => (strlen($singleComment->getComment())> 150)?mb_substr($singleComment->getComment(),0,150, 'UTF-8')." ...":$singleComment->getComment());
-//        }
-
         return $this->render('bloggerblogBundle:AdminBlog:dashboard.html.twig',
             array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress())));
     }
 
-    public function showAllAction()
+    public function addArticleAction(Request $request)
     {
         $user = $this->getUser();
 
-        $articlesa = $user->getArticles();
-        $articles = array();
-        foreach($articlesa as $singleArticle){
-            $articles[] = array("article_title" => $singleArticle->getTitle(),"article_address" => $singleArticle->getAddress(), "article_date" => $singleArticle->getPublishDate(),
-                "article_body" => (strlen($singleArticle->getBody())> 500)?mb_substr($singleArticle->getBody(),0,500, 'UTF-8')." ...":$singleArticle->getBody(),
-                "article_comment_count" => $singleArticle->getComments()->count());
+        $article = new Article();
+        $article->setUser($user);
+
+        $article_form = $this->createFormBuilder($article)
+            ->add('title','text',array('label'  => 'عنوان', 'attr' => array('style' => 'height:25px')))
+            ->add('body','textarea',array('label'  => 'بدنه', 'attr' => array('class' => "ckeditor",'style' => 'width:100%')))
+            ->add('publishDate','date',array('data' => new \DateTime(),'label'  => 'تاریخ انتشار', 'attr' => array('style' => 'height:25px;margin-bottom:10px;')))
+            ->add('submit', 'submit', array('label'  => 'ثبت مطلب'))
+            ->getForm();
+        $article_form->handleRequest($request);
+        if ($article_form->isValid()) {
+            $article->setAddress(time());
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($article);
+            $em->flush();
         }
-
-//        $comments_doc = $this->getDoctrine()->getRepository('bloggerblogBundle:Comment')->findBy(array("user" => $user->getId()),array("date" => 'DESC'),10);
-//        $recent_comments = array();
-//        foreach($comments_doc as $singleComment){
-//            $recent_comments[] = array("article_address" => $singleComment->getArticle()->getAddress(),"id" =>$singleComment->getId(),
-//                "name" => (strlen($singleComment->getName())> 50)?mb_substr($singleComment->getName(),0,50, 'UTF-8')." ...":$singleComment->getName(),
-//                "date" => $singleComment->getDate(),
-//                "comment" => (strlen($singleComment->getComment())> 150)?mb_substr($singleComment->getComment(),0,150, 'UTF-8')." ...":$singleComment->getComment());
-//        }
-
-        return $this->render('bloggerblogBundle:AdminBlog:showAll.html.twig',
+        return $this->render('bloggerblogBundle:AdminBlog:addBlog.html.twig',
             array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress()),
-                "articles" => $articles));
+                "article_form" => $article_form->createView()));
     }
 }

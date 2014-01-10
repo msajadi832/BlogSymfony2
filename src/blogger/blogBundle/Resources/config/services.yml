@@ -8,6 +8,10 @@ services:
       tags:
           - { name: form.type, alias: blog_user_registration }
 
+  authentication_handler:
+      class: blogger\blogBundle\Handler\AuthenticationHandler
+      arguments: [@router, @security.context]
+
 #    bloggerblog.example:
 #        class: %bloggerblog.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]

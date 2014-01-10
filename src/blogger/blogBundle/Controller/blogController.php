@@ -13,7 +13,17 @@ class blogController extends Controller
     {
         $user = $this->getDoctrine()->getRepository('bloggerblogBundle:User') ->findOneBy(array('blogAddress' => $blog_name));
 
-        $articlesa = $user->getArticles();
+        $article = $this->getDoctrine()->getRepository('bloggerblogBundle:Article');
+        $qb = $article->createQueryBuilder('a')
+            ->where("a.user = :user")
+            ->setParameter("user",$user->getId())
+            ->andWhere('a.publishDate < :now')
+            ->setParameter("now",new \DateTime())
+            ->orderBy('a.publishDate', 'DESC')
+            ->orderBy('a.id', 'DESC')
+            ->getQuery();
+        $articlesa =$qb->getResult(); //$this->getDoctrine()->getRepository('bloggerblogBundle:Article')->findBy(array("user" => $user->getId(), "publishDate" ),array("publishDate" => 'DESC'),10);
+//        $articlesa = $user->getArticles();
         $articles = array();
         foreach($articlesa as $singleArticle){
             $articles[] = array("article_title" => $singleArticle->getTitle(),"article_address" => $singleArticle->getAddress(), "article_date" => $singleArticle->getPublishDate(),

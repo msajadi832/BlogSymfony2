@@ -5,6 +5,7 @@
     <title>مدیریت {{ blog_info.name }}</title>
     <link rel="stylesheet" href="{{ asset("bundles/bloggerblog/css/bootstrap.css") }}">
     <link rel="stylesheet" href="{{ asset("bundles/bloggerblog/css/style_admin.css") }}">
+    <script type="text/javascript" src="{{ asset("bundles/bloggerblog/js/ckeditor/ckeditor.js") }}" ></script>
     {% block head_page %}{% endblock %}
 </head>
 <body>
@@ -25,10 +26,26 @@
             </div>
         </div>
         <div class="wrapper">
-            <div class="content_out">{% block content %}{% endblock %}</div>
+            <div class="content_out">
+                <div class="content">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
             <div class="sidebar">
                 <div class="sidebar_in">
-                    {% block sidebar %}{% endblock %}
+                    {% block sidebar_top %}
+                    {% endblock %}
+                        <div class="">
+                            <ul class="nav nav-list bs-docs-sidenav">
+                                <li><a href="{{ path("bloggerblog_blogAdminAddArticle") }}"> ایجاد مطلب جدید</a></li>
+                                <li><a href="#transitions"> ویرایش مطالب قبلی</a></li>
+                                <li><a href="#modals"> مشاهده نظرات تائید نشده</a></li>
+                                <li><a href="#dropdowns"> مشاهده آخرین نظرات</a></li>
+                                <li><a href="#scrollspy"> ویرایش پروفایل</a></li>
+                            </ul>
+                        </div>
+                    {% block sidebar_bottom %}
+                    {% endblock %}
                 </div>
             </div>
         </div>
