@@ -24,10 +24,10 @@
                 {% endif %}
                 <tr>
                     <td>{{ article.article_date|date("Y/m/d") }}</td>
-                    <td style="width: 430px"><a href="{{ path('bloggerblog_blogArticle',{'blog_name':blog_info.address,'article_name' : article.article_address}) }}">{{ article.article_title }}</a></td>
+                    <td style="width: 430px"><a href="{{ path("bloggerblog_blogAdminEditArticle",{'address' : article.article_address}) }}">{{ article.article_title }}</a></td>
                     <td style="width: 60px">{{ comment_count }} نظر</td>
                     <td><div class="btn" onclick="removeArticle('{{ article.article_address }}','{{ article.article_title }}')" title="حذف مقاله"><i class="icon-remove"></i></div></td>
-                    <td><a class="btn" href="{{ path("bloggerblog_blogAdminEditArticle",{'address' : article.article_address}) }}" title="ویرایش مقاله"><i class="icon-pencil"></i></a></td>
+                    <td><a class="btn" href="{{ path('bloggerblog_blogArticle',{'blog_name':blog_info.address,'article_name' : article.article_address}) }}" title="مشاهده مقاله"><i class="icon-search"></i></a></td>
                 </tr>
             {% endfor %}
             </tbody>
