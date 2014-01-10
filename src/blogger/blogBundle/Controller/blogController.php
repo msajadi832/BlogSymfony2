@@ -47,7 +47,8 @@ class blogController extends Controller
     public function articleAction($blog_name,$article_name,Request $request)
     {
         $user = $this->getDoctrine()->getRepository('bloggerblogBundle:User') ->findOneBy(array('blogAddress' => $blog_name));
-        $article = $this->getDoctrine() ->getRepository('bloggerblogBundle:Article') ->findOneBy(array("user" => $user->getId(),"address" => $article_name));
+        $articleRepo = $this->getDoctrine() ->getRepository('bloggerblogBundle:Article');
+        $article = $articleRepo->findOneBy(array("user" => $user->getId(),"address" => $article_name));
         $comments = $this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId(),"article" => $article->getId()),array("date" => 'DESC',"id" => 'DESC'));
         $comment_article = array();
         foreach($comments as $singleComment){
@@ -56,9 +57,19 @@ class blogController extends Controller
             "date" => date_format($singleComment->getDate(),"Y-m-d"),
             "comment" => $singleComment->getComment());
         }
-        $article_doc = $this->getDoctrine()->getRepository('bloggerblogBundle:Article')->findBy(array("user" => $user->getId()),array("publishDate" => 'DESC'),10);
+
+
+        $qb = $articleRepo->createQueryBuilder('a')
+            ->where("a.user = :user")
+            ->setParameter("user",$user->getId())
+            ->andWhere('a.publishDate < :now')
+            ->setParameter("now",new \DateTime())
+            ->orderBy('a.publishDate', 'DESC')
+            ->orderBy('a.id', 'DESC')
+            ->getQuery();
+        $articlesa =$qb->getResult();
         $recent_articles = array();
-        foreach($article_doc as $singleArticle){
+        foreach($articlesa as $singleArticle){
             $recent_articles[] = array("title" => $singleArticle->getTitle(), "address" => $singleArticle->getAddress());
         }
 

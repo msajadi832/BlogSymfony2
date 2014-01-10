@@ -12,12 +12,16 @@
             <div class="article_date" style="width: 100%">تاریخ آخرین ویرایش: {{ article_info.date|date("Y/m/d") }}</div>
             <div class="article_body">{{ article_info.body | raw }}</div>
             <div class="headers_wrapper">نظرات</div>
-            {% for article_comment in article_info.comments %}
-                {{ include(
-                '@bloggerblog/Blog/Article/comment.html.twig',
-                { 'article_comment': article_comment }
-                ) }}
-            {% endfor %}
+            {% if article_info.comments is empty %}
+                <div>بدون نظر</div>
+            {% else %}
+                {% for article_comment in article_info.comments %}
+                    {{ include(
+                    '@bloggerblog/Blog/Article/comment.html.twig',
+                    { 'article_comment': article_comment }
+                    ) }}
+                {% endfor %}
+            {% endif %}
             <div class="headers_wrapper">ارسال نظر جدید</div>
             <div class="width_100_percent">
                 {{ form(comment_form) }}

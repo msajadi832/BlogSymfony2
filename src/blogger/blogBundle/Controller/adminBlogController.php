@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class adminBlogController extends Controller
 {
+
     public function dashboardAction()
     {
         $user = $this->getUser();
@@ -31,7 +32,7 @@ class adminBlogController extends Controller
             ->getForm();
         $article_form->handleRequest($request);
         if ($article_form->isValid()) {
-            $article->setAddress(time());
+            $article->setAddress($user->getId().time().mt_rand(0,100));
             $em = $this->getDoctrine()->getManager();
             $em->persist($article);
             $em->flush();
@@ -39,5 +40,10 @@ class adminBlogController extends Controller
         return $this->render('bloggerblogBundle:AdminBlog:addBlog.html.twig',
             array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress()),
                 "article_form" => $article_form->createView()));
+    }
+
+    public function showRecentArticlesAction(){
+
+
     }
 }

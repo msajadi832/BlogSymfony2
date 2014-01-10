@@ -18,3 +18,6 @@ bloggerblog_blogAdmin:
 bloggerblog_blogAdminAddArticle:
     path:     /admin/addArticle
     defaults: { _controller: bloggerblogBundle:adminBlog:addArticle}
+bloggerblog_blogAdminShowRecentArticles:
+    path:     /admin/showRecentArticles
+    defaults: { _controller: bloggerblogBundle:adminBlog:showRecentArticles}
