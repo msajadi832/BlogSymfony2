@@ -1,7 +1,9 @@
 {% extends "bloggerblogBundle:AdminBlog:AdminBlogBase.html.twig" %}
 {% block content %}
 
-    <div class="headers_wrapper">ویرایش مطلب</div>
+    <div class="headers_wrapper">
+        <div class="pull-left"><a href="{{ path('bloggerblog_blogAdminShowRecentArticles') }}">بازگشت به صفحه مطالب اخیر <i class="icon-arrow-left"></i></a> </div>
+        ویرایش مطلب</div>
     <div class="content_in">
         <div class="width_100_percent">
             {{ form(article_form) }}

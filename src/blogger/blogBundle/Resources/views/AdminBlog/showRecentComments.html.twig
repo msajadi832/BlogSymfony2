@@ -4,14 +4,24 @@
         function removeComment(id,title){
             result = confirm("آیا واقعا می خواهید نظر زیر را حذف کنید\n"+title);
             if(result){
-                window.location.assign("../admin/removeComment/"+id);
+                window.location.assign("../../admin/removeComment/"+id+"/{{ showType }}");
             }
         }
     </script>
 {% endblock %}
 
 {% block content %}
-    <div class="headers_wrapper">نظرات اخیر</div>
+    <div class="headers_wrapper">
+        {% if showType == "all" %}
+            نظرات اخیر
+        {% elseif showType == "notApprove" %}
+نظرات تائید نشده
+        {% else %}
+        نظرات اخیر
+            <div class="pull-left"><a href="{{ path('bloggerblog_blogAdminShowRecentArticles') }}">بازگشت به صفحه مطالب اخیر <i class="icon-arrow-left"></i></a> </div>
+        {% endif %}
+
+    </div>
     <div class="content_in">
         <table class="table table-condensed">
             <tbody>
@@ -30,7 +40,7 @@
                         <td style="width: 40px"><div class="btn btn-danger" onclick="removeComment('{{ comment.id }}','{{ comment.name }}')" title="حذف نظر"><i class="icon-remove"></i></div></td>
                     {% else %}
                         <td style="width: 80px">تائید نشده</td>
-                        <td style="width: 40px"><a class="btn btn-success" href="{{ path('bloggerblog_blogAdminApproveComment',{'id': comment.id}) }}" title="تایید نظر"><i class="icon-ok"></i></a></td>
+                        <td style="width: 40px"><a class="btn btn-success" href="{{ path('bloggerblog_blogAdminApproveComment',{'id': comment.id, 'articleId': showType}) }}" title="تایید نظر"><i class="icon-ok"></i></a></td>
                         <td style="width: 40px"><div class="btn btn-danger" onclick="removeComment('{{ comment.id }}','{{ comment.name }}')" title="حذف نظر"><i class="icon-remove"></i></div></td>
                     {% endif %}
                 </tr>

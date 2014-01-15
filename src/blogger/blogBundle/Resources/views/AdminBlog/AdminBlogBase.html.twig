@@ -52,8 +52,8 @@
                                 <li><a href="{{ path("bloggerblog_blogAdmin") }}"> داشبورد</a></li>
                                 <li><a href="{{ path("bloggerblog_blogAdminAddArticle") }}"> ایجاد مطلب جدید</a></li>
                                 <li><a href="{{ path("bloggerblog_blogAdminShowRecentArticles") }}"> ویرایش مطالب قبلی</a></li>
-                                <li><a href="#modals"> مشاهده نظرات تائید نشده</a></li>
-                                <li><a href="{{ path("bloggerblog_blogAdminShowRecentComments") }}"> مشاهده آخرین نظرات</a></li>
+                                <li><a href="{{ path("bloggerblog_blogAdminShowRecentComments",{'articleId' : 'notApprove'}) }}"> مشاهده نظرات تائید نشده</a></li>
+                                <li><a href="{{ path("bloggerblog_blogAdminShowRecentComments",{'articleId' : 'all'}) }}"> مشاهده آخرین نظرات</a></li>
                                 <li><a href="#scrollspy"> ویرایش پروفایل</a></li>
                             </ul>
                         </div>

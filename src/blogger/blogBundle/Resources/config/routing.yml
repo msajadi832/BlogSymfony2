@@ -28,11 +28,11 @@ bloggerblog_blogAdminEditArticle:
     path:     /admin/editArticle/{address}
     defaults: { _controller: bloggerblogBundle:adminBlog:editArticle}
 bloggerblog_blogAdminShowRecentComments:
-    path:     /admin/showRecentComments
+    path:     /admin/showRecentComments/{articleId}
     defaults: { _controller: bloggerblogBundle:adminBlog:showRecentComments}
 bloggerblog_blogAdminRemoveComment:
-    path:     /admin/removeComment/{id}
+    path:     /admin/removeComment/{id}/{articleId}
     defaults: { _controller: bloggerblogBundle:adminBlog:removeComment}
 bloggerblog_blogAdminApproveComment:
-    path:     /admin/approveComment/{id}
+    path:     /admin/approveComment/{id}/{articleId}
     defaults: { _controller: bloggerblogBundle:adminBlog:approveComment}

@@ -65,11 +65,10 @@ class adminBlogController extends Controller
             ->setParameter("user",$user->getId())
             ->orderBy('a.id', 'DESC')
             ->getQuery();
-        $articlesa =$qb->getResult(); //$this->getDoctrine()->getRepository('bloggerblogBundle:Article')->findBy(array("user" => $user->getId(), "publishDate" ),array("publishDate" => 'DESC'),10);
-//        $articlesa = $user->getArticles();
+        $articlesa =$qb->getResult();
         $articles = array();
         foreach($articlesa as $singleArticle){
-            $articles[] = array("article_title" => $singleArticle->getTitle(),"article_address" => $singleArticle->getAddress(),
+            $articles[] = array("article_id" => $singleArticle->getId(),"article_title" => $singleArticle->getTitle(),"article_address" => $singleArticle->getAddress(),
                 "article_date" => $singleArticle->getPublishDate(), "article_comment_count" => $singleArticle->getComments()->count());
         }
         return $this->render('bloggerblogBundle:AdminBlog:showRecentArticles.html.twig',
@@ -91,7 +90,7 @@ class adminBlogController extends Controller
         $this->get('session')->getFlashBag()->add('adminSuccess', 'مطلب '.$article->getTitle().' با موفقیت حذف شد.');
         return $this->redirect($this->generateUrl('bloggerblog_blogAdminShowRecentArticles'));
     }
-    public function removeCommentAction($id){
+    public function removeCommentAction($id,$articleId){
         $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
         $comment = $em->getRepository('bloggerblogBundle:Comment')->findOneBy(array("user" => $user, "id" => $id));
@@ -104,7 +103,7 @@ class adminBlogController extends Controller
         $em->remove($comment);
         $em->flush();
         $this->get('session')->getFlashBag()->add('adminSuccess', 'نظر '.$comment->getName().' با موفقیت حذف شد.');
-        return $this->redirect($this->generateUrl('bloggerblog_blogAdminShowRecentComments'));
+        return $this->redirect($this->generateUrl('bloggerblog_blogAdminShowRecentComments',array('articleId' => $articleId)));
     }
 
     public function editArticleAction($address,Request $request)
@@ -123,7 +122,6 @@ class adminBlogController extends Controller
             ->add('body','textarea',array('label'  => 'بدنه', 'attr' => array('class' => "ckeditor",'style' => 'width:100%')))
             ->add('publishDate','date',array('data' => new \DateTime(),'label'  => 'تاریخ انتشار', 'attr' => array('style' => 'height:25px;margin-bottom:10px;')))
             ->add('submit', 'submit', array('label'  => 'ویرایش مطلب', 'attr' => array("class" => "btn")))
-            ->add('a', 'button', array('label'  => 'لغو', 'attr' => array("class" => "btn")))
             ->getForm();
         $article_form->handleRequest($request);
         if ($article_form->isValid()) {
@@ -136,9 +134,15 @@ class adminBlogController extends Controller
             array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress()),
                 "article_form" => $article_form->createView()));
     }
-    public function showRecentCommentsAction(){
+    public function showRecentCommentsAction($articleId){
+
         $user = $this->getUser();
-        $commentsRes = $this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId()),array("date" => 'DESC',"id" => 'DESC'));
+        if($articleId == "all")
+            $commentsRes = $this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId()),array("date" => 'DESC',"id" => 'DESC'));
+        elseif($articleId == "notApprove")
+            $commentsRes = $this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId(),"confirmed" => false),array("date" => 'DESC',"id" => 'DESC'));
+        else
+            $commentsRes = $this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId(),"article" => $articleId),array("date" => 'DESC',"id" => 'DESC'));
         $comments = array();
         foreach($commentsRes as $singleComment){
             $article_comment = $singleComment->getArticle();
@@ -153,9 +157,9 @@ class adminBlogController extends Controller
         }
         return $this->render('bloggerblogBundle:AdminBlog:showRecentComments.html.twig',
             array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress()),
-                'comments' => $comments));
+                'comments' => $comments,'showType' => $articleId));
     }
-    public function approveCommentAction($id){
+    public function approveCommentAction($id,$articleId){
         $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
         $comment = $em->getRepository('bloggerblogBundle:Comment')->findOneBy(array("user" => $user, "id" => $id));
@@ -169,6 +173,6 @@ class adminBlogController extends Controller
         $em->persist($comment);
         $em->flush();
         $this->get('session')->getFlashBag()->add('adminSuccess', 'نظر '.$comment->getName().' با موفقیت تائید شد.');
-        return $this->redirect($this->generateUrl('bloggerblog_blogAdminShowRecentComments'));
+        return $this->redirect($this->generateUrl('bloggerblog_blogAdminShowRecentComments',array('articleId' => $articleId)));
     }
 }
