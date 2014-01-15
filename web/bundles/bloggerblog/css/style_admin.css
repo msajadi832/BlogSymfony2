@@ -9,6 +9,21 @@ body{
 img{
     border-radius: 3px;
 }
+.alert{
+    padding: 14px 14px 14px 35px;
+    margin-bottom: 10px;
+}
+.alert .close{
+    float: left;
+    right: 20px;
+}
+.table-hover tbody tr:hover > td, .table-hover tbody tr:hover > th {
+    background-color: #bbddbb;
+}
+.table td{
+    text-align: justify;
+    border-width: 0;
+}
 .wrapper .content_out{
     float: left;
     width: 730px;
@@ -35,6 +50,12 @@ img{
     width: 690px;
     background-color: #ffffff;
     box-shadow: 0 0 5px #ffffff;
+}
+.wrapper .content_in_dashboard .headers_wrapper{
+    width: 670px;
+    background-color: rgb(221, 221, 255);
+    box-shadow: 0 0 5px #aaaaff;
+    margin-bottom: 10px;
 }
 .wrapper .content_in,
 .wrapper .sidebar_in{
@@ -90,16 +111,13 @@ img{
     -moz-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
     box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
 }
-.content_in_two_part{
+.content_in_dashboard{
     background-color: #fff;
     margin-top: 10px;
     padding: 10px;
     border-radius: 5px;
+    width: 690px;
 }
 .width_100_percent{
     width: 100%;
-}
-.content_in table{
-    border-spacing: 10px 2px;
-    border-collapse: separate;
 }

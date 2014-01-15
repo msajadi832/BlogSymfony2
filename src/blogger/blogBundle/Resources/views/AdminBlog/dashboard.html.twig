@@ -1,20 +1,47 @@
 {% extends "bloggerblogBundle:AdminBlog:AdminBlogBase.html.twig" %}
+{% block head_page %}
+    <script type="text/javascript">
+        function removeComment(id,title){
+            result = confirm("آیا واقعا می خواهید نظر زیر را حذف کنید\n"+title);
+            if(result){
+                window.location.assign("../admin/removeArticle/"+id);
+            }
+        }
+    </script>
+{% endblock %}
 {% block content %}
 
         <div class="headers_wrapper">داشبورد</div>
         <div class="content_in">
-            <div class="row-fluid">
-                <div class="span6 content_in_two_part">
-                    <div class="headers_wrapper">مطالب اخیر</div>
-                    <div>
-                        sdfsfwefwef
-                    </div>
-                </div>
-                <div class="span6 content_in_two_part">
-                    <div class="headers_wrapper">نظرات اخیر</div>
-                    <div>
-                        sdfsfwefwef
-                    </div>
+            <div class="content_in_dashboard">
+                <div class="headers_wrapper">نظرات اخیر</div>
+                <table class="table table-hover table-condensed">
+                    {% for comment in comments %}
+                        <tr {% if comment.confirmed %}
+                        class="success"
+                        {% else %}
+                            class="error"
+                        {% endif %}>
+                            <td style="width: 80px">{{ comment.date | date("Y/m/d") }}</td>
+                            <td>{{ comment.name }}</td>
+                            <td><a href="{{ path('bloggerblog_blogArticle',{'blog_name':blog_info.address,'article_name' : comment.articleAddress}) }}" title="مشاهده مقاله">{{ comment.articleTitle }}</a></td>
+                            {% if comment.confirmed %}
+                                <td style="width: 80px">تایید شده</td>
+                                <td style="width: 40px"></td>
+                                <td style="width: 40px"><div class="btn" onclick="removeArticle('')" title="حذف مقاله"><i class="icon-remove"></i></div></td>
+                            {% else %}
+                                <td style="width: 80px">تایید نشده</td>
+                                <td style="width: 40px"><div class="btn btn-success" onclick="removeArticle('')" title="حذف مقاله"><i class="icon-ok"></i></div></td>
+                                <td style="width: 40px"><div class="btn btn-danger" onclick="removeArticle('')" title="حذف مقاله"><i class="icon-remove"></i></div></td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="content_in_dashboard">
+                <div class="headers_wrapper">مطالب اخیر</div>
+                <div>
+                    sdfsfwefwef
                 </div>
             </div>
         </div>

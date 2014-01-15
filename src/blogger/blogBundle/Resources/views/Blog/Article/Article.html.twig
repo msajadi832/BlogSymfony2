@@ -24,6 +24,12 @@
                 {% endfor %}
             {% endif %}
             <div class="headers_wrapper">ارسال نظر جدید</div>
+            {% for flashMessage in app.session.flashbag.get('commentAddSuccess') %}
+                <div class="alert alert-block alert-success" data-dismiss="alert">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ flashMessage|raw}}
+                </div>
+            {% endfor %}
             <div class="width_100_percent">
                 {{ form(comment_form) }}
             </div>

@@ -7,6 +7,14 @@ img{
     box-shadow: 0 0 5px #999999;
     margin: 10px;
 }
+.alert{
+    padding: 14px 14px 14px 35px;
+    margin-top: 10px;
+}
+.alert .close{
+    float: left;
+    right: 20px;
+}
 .header{
     background-color: #ccccff;
     line-height: 100px;

@@ -30,7 +30,7 @@ class blogController extends Controller
                 "article_comment_count" => $singleArticle->getComments()->count());
         }
 
-        $comments_doc = $this->getDoctrine()->getRepository('bloggerblogBundle:Comment')->findBy(array("user" => $user->getId()),array("date" => 'DESC'),10);
+        $comments_doc = $this->getDoctrine()->getRepository('bloggerblogBundle:Comment')->findBy(array("user" => $user->getId(),"confirmed" => true),array("date" => 'DESC'),10);
         $recent_comments = array();
         foreach($comments_doc as $singleComment){
             $recent_comments[] = array("article_address" => $singleComment->getArticle()->getAddress(),"id" =>$singleComment->getId(),
@@ -48,7 +48,7 @@ class blogController extends Controller
         $user = $this->getDoctrine()->getRepository('bloggerblogBundle:User') ->findOneBy(array('blogAddress' => $blog_name));
         $articleRepo = $this->getDoctrine() ->getRepository('bloggerblogBundle:Article');
         $article = $articleRepo->findOneBy(array("user" => $user->getId(),"address" => $article_name));
-        $comments = $this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId(),"article" => $article->getId()),array("date" => 'DESC',"id" => 'DESC'));
+        $comments = $this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId(),"article" => $article->getId(),"confirmed" => true),array("date" => 'DESC',"id" => 'DESC'));
         $comment_article = array();
         foreach($comments as $singleComment){
             $comment_article[] = array("id" =>$singleComment->getId(),
@@ -56,7 +56,6 @@ class blogController extends Controller
             "date" => date_format($singleComment->getDate(),"Y-m-d"),
             "comment" => $singleComment->getComment());
         }
-
 
         $qb = $articleRepo->createQueryBuilder('a')
             ->where("a.user = :user")
@@ -76,7 +75,7 @@ class blogController extends Controller
         $comment->setArticle($article);
         $comment->setUser($user);
         $comment->setDate(new \DateTime());
-
+        $comment->setConfirmed(false);
         $comment_form = $this->createFormBuilder($comment)
             ->add('name','text',array('label'  => 'نام', 'attr' => array('style' => 'height:25px')))
             ->add('comment','textarea',array('label'  => 'نظر', 'attr' => array('style' => 'width:100%;max-width:100%;min-width:100%;')))
@@ -89,7 +88,7 @@ class blogController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($comment);
             $em->flush();
-
+            $this->get('session')->getFlashBag()->add('commentAddSuccess', '<h4>نظر شما با موفقیت ثبت شد! </h4>نظر شما بعد از تایید نمایش داده خواهد شد.');
             return $this->redirect($this->generateUrl('bloggerblog_blogArticle',array('article_name' => $article_name,'blog_name' => $blog_name)));
         }
 
