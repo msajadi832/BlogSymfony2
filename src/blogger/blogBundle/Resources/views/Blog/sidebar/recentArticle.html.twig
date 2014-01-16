@@ -1,5 +1,10 @@
-{% for recent_article in recent_articles %}
-    <div class="recent_article">
-        <div class="recent_article_name"><a href="{{ path('bloggerblog_blogArticle',{'blog_name':blog_info.address,'article_name' : recent_article.address}) }}">{{ recent_article.title }}</a></div>
+<div class="sidebar">
+    <div class="headers_wrapper">{{ sidebar_name2 }}</div>
+    <div class="sidebar_in">
+    {% for recent_article in recent_articles %}
+        <div class="recent_article">
+            <div class="recent_article_name"><a href="{{ path('bloggerblog_blogArticle',{'blog_name':blog_info.address,'article_name' : recent_article.address}) }}">{{ recent_article.title }}</a></div>
+        </div>
+    {% endfor %}
     </div>
-{% endfor %}
+</div>

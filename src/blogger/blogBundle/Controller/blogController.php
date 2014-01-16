@@ -41,8 +41,9 @@ class blogController extends Controller
         }
 
         return $this->render('bloggerblogBundle:Blog/homepage:homepage.html.twig',
-            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress()),
-                "sidebar_name" => "نظرات اخیر", "recent_comments" => $recent_comments,"articles" => $articles));
+            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress(), "description" => $user->getBlogDescription(),
+                "authorEmail" => str_replace("@","%at%", $user->getEmail()), "authorName" => $user->getName(), "authorFamily" => $user->getFamily()),
+                "sidebar_name1" => "درباره وبلاگ","sidebar_name2" => "نظرات اخیر", "recent_comments" => $recent_comments,"articles" => $articles));
     }
     public function articleAction($blog_name,$article_name,Request $request)
     {
@@ -94,9 +95,10 @@ class blogController extends Controller
         }
 
         return $this->render('bloggerblogBundle:Blog/Article:Article.html.twig',
-            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress()),
+            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress(),"description" => $user->getBlogDescription(),
+                "authorEmail" => str_replace("@","%at%", $user->getEmail()),"authorName" => $user->getName(), "authorFamily" => $user->getFamily()),
                 "article_info" => array("title" => $article->getTitle(),"address" => $article->getAddress(), "date" => $article->getPublishDate(),"body" => $article->getBody(),"comments" => $comment_article),
-                "sidebar_name" => "مقالات اخیر","recent_articles" => $recent_articles,
+                "sidebar_name1" => "درباره وبلاگ","sidebar_name2" => "مقالات اخیر","recent_articles" => $recent_articles,
             "comment_form" => $comment_form->createView()));
     }
 }

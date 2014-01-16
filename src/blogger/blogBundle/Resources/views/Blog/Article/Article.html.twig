@@ -1,6 +1,9 @@
 {% extends "bloggerblogBundle:Blog:blogBase.html.twig" %}
 {% block sidebar %}
     {{ include(
+    '@bloggerblog/Blog/sidebar/descriptionArticle.html.twig'
+    ) }}
+    {{ include(
     '@bloggerblog/Blog/sidebar/recentArticle.html.twig',
     { 'recent_articles': recent_articles }
     ) }}

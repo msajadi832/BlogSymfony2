@@ -180,6 +180,7 @@ class adminBlogController extends Controller
         $user_form = $this->createFormBuilder($user)
             ->add('blogName','text',array('label'  => 'عنوان وبلاگ', 'attr' => array('style' => 'height:25px')))
             ->add('blogDescription','textarea',array('label'  => 'درباره وبلاگ','required' => false, 'attr' => array('style' => 'width:100%')))
+            ->add('email','email',array('label'  => 'ایمیل', 'attr' => array('style' => 'height:25px; direction: ltr;text-align:left;height:30px')))
             ->add('name','text',array('label'  => 'نام','required' => false, 'attr' => array('style' => 'height:25px')))
             ->add('family','text',array('label'  => 'نام خانوادگی','required' => false, 'attr' => array('style' => 'height:25px')))
             ->add('submit', 'submit', array('label'  => 'ویرایش', 'attr' => array("class" => "btn")))
@@ -189,7 +190,7 @@ class adminBlogController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
-            $this->get('session')->getFlashBag()->add('adminSuccess', 'پروفایل ما موفقیت ویرایش شد.');
+            $this->get('session')->getFlashBag()->add('adminSuccess', 'پروفایل با موفقیت ویرایش شد.');
         }
         return $this->render('bloggerblogBundle:AdminBlog:editProfile.html.twig',
             array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress()),

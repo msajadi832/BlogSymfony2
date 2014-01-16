@@ -1,0 +1,17 @@
+<div class="sidebar">
+    <div class="headers_wrapper">{{ sidebar_name1 }}</div>
+    <div class="sidebar_in">
+        <div class="width_100_percent">
+            این وبلاگ
+            {{ blog_info.authorName }} {{ blog_info.authorFamily }}
+            است
+        </div>
+        <div class="width_100_percent">
+            {{ blog_info.description }}
+        </div>
+        <div class="width_100_percent">
+            ایمیل:
+            <a href="mailto:{{ blog_info.authorEmail|replace({"%at%" : "@"}) }}">{{ blog_info.authorEmail|replace({"%at%" : " (at) "}) }}</a>
+        </div>
+    </div>
+</div>

@@ -46,6 +46,7 @@ img{
     width: 180px;
     padding: 10px;
     background-color: #ddddff;
+    margin-bottom: 10px;
 }
 .wrapper .headers_wrapper{
     text-align: right;

@@ -1,9 +1,12 @@
 {% extends "bloggerblogBundle:Blog:blogBase.html.twig" %}
 {% block sidebar %}
-        {{ include(
-        '@bloggerblog/Blog/sidebar/recentComment.html.twig',
-        { 'recent_comments': recent_comments }
-        ) }}
+    {{ include(
+    '@bloggerblog/Blog/sidebar/descriptionArticle.html.twig'
+    ) }}
+    {{ include(
+    '@bloggerblog/Blog/sidebar/recentComment.html.twig',
+    { 'recent_comments': recent_comments }
+    ) }}
 {% endblock %}
 {% block content %}
     {% for article in articles %}
