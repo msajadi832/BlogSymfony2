@@ -36,3 +36,6 @@ bloggerblog_blogAdminRemoveComment:
 bloggerblog_blogAdminApproveComment:
     path:     /admin/approveComment/{id}/{articleId}
     defaults: { _controller: bloggerblogBundle:adminBlog:approveComment}
+bloggerblog_blogAdminEditProfile:
+    path:     /admin/editProfile/
+    defaults: { _controller: bloggerblogBundle:adminBlog:editProfile}

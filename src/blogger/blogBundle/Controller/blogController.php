@@ -25,9 +25,10 @@ class blogController extends Controller
 //        $articlesa = $user->getArticles();
         $articles = array();
         foreach($articlesa as $singleArticle){
+            $comment_article_count = count($this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId(),"article" => $singleArticle->getId(),"confirmed" => true)));
             $articles[] = array("article_title" => $singleArticle->getTitle(),"article_address" => $singleArticle->getAddress(), "article_date" => $singleArticle->getPublishDate(),
                 "article_body" => (strlen($singleArticle->getBody())> 500)?mb_substr($singleArticle->getBody(),0,500, 'UTF-8')." ...":$singleArticle->getBody(),
-                "article_comment_count" => $singleArticle->getComments()->count());
+                "article_comment_count" => $comment_article_count);
         }
 
         $comments_doc = $this->getDoctrine()->getRepository('bloggerblogBundle:Comment')->findBy(array("user" => $user->getId(),"confirmed" => true),array("date" => 'DESC'),10);
@@ -94,7 +95,7 @@ class blogController extends Controller
 
         return $this->render('bloggerblogBundle:Blog/Article:Article.html.twig',
             array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress()),
-                "article_info" => array("title" => $article->getTitle(), "date" => $article->getPublishDate(),"body" => $article->getBody(),"comments" => $comment_article),
+                "article_info" => array("title" => $article->getTitle(),"address" => $article->getAddress(), "date" => $article->getPublishDate(),"body" => $article->getBody(),"comments" => $comment_article),
                 "sidebar_name" => "مقالات اخیر","recent_articles" => $recent_articles,
             "comment_form" => $comment_form->createView()));
     }

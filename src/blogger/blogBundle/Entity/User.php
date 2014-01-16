@@ -25,7 +25,7 @@ class User extends BaseUser{
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=100, unique=true)
+     * @ORM\Column(type="string", length=100)
      */
     protected $blogName;
 
@@ -38,6 +38,16 @@ class User extends BaseUser{
      * @ORM\Column(type="text",nullable=true)
      */
     protected $blogDescription;
+
+    /**
+     * @ORM\Column(type="string", length=100,nullable=true)
+     */
+    protected $name;
+
+    /**
+     * @ORM\Column(type="string", length=100,nullable=true)
+     */
+    protected $family;
 
     /**
      * @ORM\OneToMany(targetEntity="Article", mappedBy="user" ,cascade={"all"})
@@ -201,5 +211,51 @@ class User extends BaseUser{
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return User
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set family
+     *
+     * @param string $family
+     * @return User
+     */
+    public function setFamily($family)
+    {
+        $this->family = $family;
+    
+        return $this;
+    }
+
+    /**
+     * Get family
+     *
+     * @return string 
+     */
+    public function getFamily()
+    {
+        return $this->family;
     }
 }

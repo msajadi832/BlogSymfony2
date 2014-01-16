@@ -54,7 +54,7 @@
                                 <li><a href="{{ path("bloggerblog_blogAdminShowRecentArticles") }}"> ویرایش مطالب قبلی</a></li>
                                 <li><a href="{{ path("bloggerblog_blogAdminShowRecentComments",{'articleId' : 'notApprove'}) }}"> مشاهده نظرات تائید نشده</a></li>
                                 <li><a href="{{ path("bloggerblog_blogAdminShowRecentComments",{'articleId' : 'all'}) }}"> مشاهده آخرین نظرات</a></li>
-                                <li><a href="#scrollspy"> ویرایش پروفایل</a></li>
+                                <li><a href="{{ path("bloggerblog_blogAdminEditProfile") }}"> ویرایش پروفایل</a></li>
                             </ul>
                         </div>
                     {% block sidebar_bottom %}

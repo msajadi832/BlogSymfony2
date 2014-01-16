@@ -175,4 +175,24 @@ class adminBlogController extends Controller
         $this->get('session')->getFlashBag()->add('adminSuccess', 'نظر '.$comment->getName().' با موفقیت تائید شد.');
         return $this->redirect($this->generateUrl('bloggerblog_blogAdminShowRecentComments',array('articleId' => $articleId)));
     }
+    public function editProfileAction(Request $request){
+        $user = $this->getUser();
+        $user_form = $this->createFormBuilder($user)
+            ->add('blogName','text',array('label'  => 'عنوان وبلاگ', 'attr' => array('style' => 'height:25px')))
+            ->add('blogDescription','textarea',array('label'  => 'درباره وبلاگ','required' => false, 'attr' => array('style' => 'width:100%')))
+            ->add('name','text',array('label'  => 'نام','required' => false, 'attr' => array('style' => 'height:25px')))
+            ->add('family','text',array('label'  => 'نام خانوادگی','required' => false, 'attr' => array('style' => 'height:25px')))
+            ->add('submit', 'submit', array('label'  => 'ویرایش', 'attr' => array("class" => "btn")))
+            ->getForm();
+        $user_form->handleRequest($request);
+        if ($user_form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+            $this->get('session')->getFlashBag()->add('adminSuccess', 'پروفایل ما موفقیت ویرایش شد.');
+        }
+        return $this->render('bloggerblogBundle:AdminBlog:editProfile.html.twig',
+            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress()),
+                "user_form" => $user_form->createView()));
+    }
 }
