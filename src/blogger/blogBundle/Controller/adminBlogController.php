@@ -196,4 +196,31 @@ class adminBlogController extends Controller
             array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress()),
                 "user_form" => $user_form->createView()));
     }
+
+    public function editcommentAction($id,Request $request){
+        $user = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $comment = $em->getRepository('bloggerblogBundle:Article')->findOneBy(array("user" => $user, "id" => $id));
+        if (!$comment) {
+            throw $this->createNotFoundException(
+                "خطا: این نظر پیدا نشد<br />"
+            );
+        }
+
+        $comment_form = $this->createFormBuilder($comment)
+            ->add('comment','textarea',array('label'  => 'نظر', 'attr' => array('style' => 'width:100%')))
+            ->add('confirmed','checkbox')
+            ->add('submit', 'submit', array('label'  => 'ویرایش نظر', 'attr' => array("class" => "btn")))
+            ->getForm();
+        $comment_form->handleRequest($request);
+        if ($comment_form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($comment);
+            $em->flush();
+            $this->get('session')->getFlashBag()->add('adminSuccess', 'نظر '.$comment->getName().' با موفقیت ویرایش شد.');
+        }
+        return $this->render('bloggerblogBundle:AdminBlog:editComment.html.twig',
+            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress()),
+                "comment_form" => $comment_form->createView()));
+    }
 }

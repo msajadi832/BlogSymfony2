@@ -1,0 +1,12 @@
+{% extends "bloggerblogBundle:AdminBlog:AdminBlogBase.html.twig" %}
+{% block content %}
+
+    <div class="headers_wrapper">
+        <div class="pull-left"><a href="#">بازگشت به صفحه مطالب اخیر <i class="icon-arrow-left"></i></a> </div>
+        ویرایش نظر</div>
+    <div class="content_in">
+        <div class="width_100_percent">
+            {{ form(article_form) }}
+        </div>
+    </div>
+{% endblock %}
