@@ -80,7 +80,7 @@ class blogController extends Controller
         $comment->setConfirmed(false);
         $comment_form = $this->createFormBuilder($comment)
             ->add('name','text',array('label'  => 'نام', 'attr' => array('style' => 'height:25px')))
-            ->add('comment','textarea',array('label'  => 'نظر', 'attr' => array('style' => 'width:100%;max-width:100%;min-width:100%;')))
+            ->add('comment','textarea',array('label'  => 'نظر', 'attr' => array('class' => "ckeditor")))
             ->add('submit', 'submit', array('label'  => 'ثبت نظر'))
             ->getForm();
 

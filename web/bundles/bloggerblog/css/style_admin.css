@@ -121,3 +121,9 @@ img{
 .width_100_percent{
     width: 100%;
 }
+.showRecent{
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+
+}

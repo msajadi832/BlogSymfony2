@@ -120,7 +120,7 @@ class adminBlogController extends Controller
         $article_form = $this->createFormBuilder($article)
             ->add('title','text',array('label'  => 'عنوان', 'attr' => array('style' => 'height:25px')))
             ->add('body','textarea',array('label'  => 'بدنه', 'attr' => array('class' => "ckeditor",'style' => 'width:100%')))
-            ->add('publishDate','date',array('data' => new \DateTime(),'label'  => 'تاریخ انتشار', 'attr' => array('style' => 'height:25px;margin-bottom:10px;')))
+            ->add('publishDate','date',array('label'  => 'تاریخ انتشار', 'attr' => array('style' => 'height:25px;margin-bottom:10px;')))
             ->add('submit', 'submit', array('label'  => 'ویرایش مطلب', 'attr' => array("class" => "btn")))
             ->getForm();
         $article_form->handleRequest($request);
@@ -135,7 +135,6 @@ class adminBlogController extends Controller
                 "article_form" => $article_form->createView()));
     }
     public function showRecentCommentsAction($articleId){
-
         $user = $this->getUser();
         if($articleId == "all")
             $commentsRes = $this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId()),array("date" => 'DESC',"id" => 'DESC'));
@@ -179,7 +178,7 @@ class adminBlogController extends Controller
         $user = $this->getUser();
         $user_form = $this->createFormBuilder($user)
             ->add('blogName','text',array('label'  => 'عنوان وبلاگ', 'attr' => array('style' => 'height:25px')))
-            ->add('blogDescription','textarea',array('label'  => 'درباره وبلاگ','required' => false, 'attr' => array('style' => 'width:100%')))
+            ->add('blogDescription','textarea',array('label'  => 'درباره وبلاگ','required' => false, 'attr' => array('style' => 'max-width: 100%;min-width: 100%;min-height: 100px;')))
             ->add('email','email',array('label'  => 'ایمیل', 'attr' => array('style' => 'height:25px; direction: ltr;text-align:left;height:30px')))
             ->add('name','text',array('label'  => 'نام','required' => false, 'attr' => array('style' => 'height:25px')))
             ->add('family','text',array('label'  => 'نام خانوادگی','required' => false, 'attr' => array('style' => 'height:25px')))
@@ -197,10 +196,10 @@ class adminBlogController extends Controller
                 "user_form" => $user_form->createView()));
     }
 
-    public function editcommentAction($id,Request $request){
+    public function editCommentAction($id,$articleId,Request $request){
         $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
-        $comment = $em->getRepository('bloggerblogBundle:Article')->findOneBy(array("user" => $user, "id" => $id));
+        $comment = $em->getRepository('bloggerblogBundle:Comment')->findOneBy(array("id" => $id,"user" => $user));
         if (!$comment) {
             throw $this->createNotFoundException(
                 "خطا: این نظر پیدا نشد<br />"
@@ -208,8 +207,7 @@ class adminBlogController extends Controller
         }
 
         $comment_form = $this->createFormBuilder($comment)
-            ->add('comment','textarea',array('label'  => 'نظر', 'attr' => array('style' => 'width:100%')))
-            ->add('confirmed','checkbox')
+            ->add('comment','textarea',array('label'  => 'نظر', 'attr' => array('class' => "ckeditor")))
             ->add('submit', 'submit', array('label'  => 'ویرایش نظر', 'attr' => array("class" => "btn")))
             ->getForm();
         $comment_form->handleRequest($request);
@@ -218,9 +216,11 @@ class adminBlogController extends Controller
             $em->persist($comment);
             $em->flush();
             $this->get('session')->getFlashBag()->add('adminSuccess', 'نظر '.$comment->getName().' با موفقیت ویرایش شد.');
+            return $this->redirect($this->generateUrl('bloggerblog_blogAdminShowRecentComments',array('articleId' => 'all')));
         }
         return $this->render('bloggerblogBundle:AdminBlog:editComment.html.twig',
             array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress()),
-                "comment_form" => $comment_form->createView()));
+                "comment_form" => $comment_form->createView(), "comment_name" => $comment->getName(),
+                "articleId" => $articleId));
     }
 }

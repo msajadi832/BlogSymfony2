@@ -3,5 +3,6 @@
         <div class="article_comment_name"><a href="{{ path('bloggerblog_blogArticle',{'blog_name':blog_info.address,'article_name' : article_info.address}) }}#comment{{ article_comment.id }}">{{ article_comment.name }}</a></div>
         <div class="article_comment_date">تاریخ ارسال نظر: {{ article_comment.date }}</div>
     </div>
-    <div class="article_comment_comment">{{ article_comment.comment }}</div>
+    <div class="article_comment_comment">{{ article_comment.comment|raw }}</div>
+    <div style="clear: both"></div>
 </div>

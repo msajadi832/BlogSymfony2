@@ -2,11 +2,13 @@
 {% block content %}
 
     <div class="headers_wrapper">
-        <div class="pull-left"><a href="#">بازگشت به صفحه مطالب اخیر <i class="icon-arrow-left"></i></a> </div>
-        ویرایش نظر</div>
+        <div class="pull-left"><a href="{{ path('bloggerblog_blogAdminShowRecentComments',{'articleId' : articleId}) }}">بازگشت به صفحه مطالب اخیر <i class="icon-arrow-left"></i></a> </div>
+        ویرایش نظر
+         {{ comment_name }}
+    </div>
     <div class="content_in">
         <div class="width_100_percent">
-            {{ form(article_form) }}
+            {{ form(comment_form) }}
         </div>
     </div>
 {% endblock %}

@@ -8,7 +8,6 @@ CKEDITOR.editorConfig = function( config ) {
 	config.language = 'fa';
 	config.uiColor = '#ccccff';
     config.contentsLangDirection = 'rtl';
-    config.height = '300px';
     config.toolbar = [
         { name: 'document', groups: [ 'mode', 'document', 'doctools' ], items: [ 'Preview', 'Print' ] },
         { name: 'clipboard', groups: [ 'clipboard', 'undo' ], items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
@@ -33,6 +32,6 @@ CKEDITOR.editorConfig = function( config ) {
         { name: 'insert' },
         { name: 'styles' },
         { name: 'colors' },
-        { name: 'tools' },
+        { name: 'tools' }
     ];
 };

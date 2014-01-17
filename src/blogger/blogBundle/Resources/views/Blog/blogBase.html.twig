@@ -5,6 +5,7 @@
     <title>{{ blog_info.name }}</title>
     <link rel="stylesheet" href="{{ asset("bundles/bloggerblog/css/bootstrap.css") }}">
     <link rel="stylesheet" href="{{ asset("bundles/bloggerblog/css/style_blog.css") }}">
+    <script type="text/javascript" src="{{ asset("bundles/bloggerblog/js/ckeditor/ckeditor.js") }}" ></script>
     {% block head_page %}{% endblock %}
 </head>
 <body>
@@ -21,5 +22,8 @@
     {% block before_end_body %}{% endblock %}
     <script src="{{ asset("bundles/bloggerblog/js/jquery.min.js") }}" ></script>
     <script src="{{ asset("bundles/bloggerblog/js/bootstrap.js") }}" ></script>
+    <script type="text/javascript">
+        CKEDITOR.config.height='150px';
+    </script>
 </body>
 </html>

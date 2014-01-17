@@ -37,19 +37,25 @@
                     {% if comment.confirmed %}
                         <td style="width: 80px">تائید شده</td>
                         <td style="width: 0"></td>
-                        <td style="width: 40px"><div class="btn btn-danger" onclick="removeComment('{{ comment.id }}','{{ comment.name }}')" title="حذف نظر"><i class="icon-remove"></i></div></td>
                     {% else %}
                         <td style="width: 80px">تائید نشده</td>
                         <td style="width: 40px"><a class="btn btn-success" href="{{ path('bloggerblog_blogAdminApproveComment',{'id': comment.id, 'articleId': showType}) }}" title="تایید نظر"><i class="icon-ok"></i></a></td>
-                        <td style="width: 40px"><div class="btn btn-danger" onclick="removeComment('{{ comment.id }}','{{ comment.name }}')" title="حذف نظر"><i class="icon-remove"></i></div></td>
                     {% endif %}
+                        <td style="width: 40px"><div class="btn btn-danger" onclick="removeComment('{{ comment.id }}','{{ comment.name }}')" title="حذف نظر"><i class="icon-remove"></i></div></td>
+                        <td style="width: 40px"><a class="btn btn-info" href="{{ path('bloggerblog_blogAdminEditComment',{'id': comment.id, 'articleId': showType}) }}" title="ویرایش نظر"><i class="icon-edit"></i></a></td>
+
                 </tr>
                 <tr {% if comment.confirmed %}
                     class="success"
                 {% else %}
                     class="error"
                         {% endif %}>
-                    <td colspan="6" style="border-bottom: 5px  #ddddff solid">{{ comment.comment }}</td>
+                    <td colspan="7" style="border-bottom: 5px  #ddddff solid">
+                        <div class="showRecent">
+                        {{ comment.comment|raw }}
+                            <div style="clear: both"></div>
+                        </div>
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>
