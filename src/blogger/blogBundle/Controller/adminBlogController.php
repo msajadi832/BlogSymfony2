@@ -57,22 +57,26 @@ class adminBlogController extends Controller
                 "article_form" => $article_form->createView()));
     }
 
-    public function showRecentArticlesAction(){
+    private $num_list_recent_articles = 10;
+    public function showRecentArticlesAction($start){
         $user = $this->getUser();
         $article = $this->getDoctrine()->getRepository('bloggerblogBundle:Article');
         $qb = $article->createQueryBuilder('a')
             ->where("a.user = :user")
             ->setParameter("user",$user->getId())
-            ->orderBy('a.id', 'DESC')
-            ->getQuery();
-        $articlesa =$qb->getResult();
+            ->orderBy('a.id', 'DESC');
+        $count = ceil(count($qb->getQuery()->getResult())/$this->num_list_recent_articles);
+
+        $articlesa =$qb->setFirstResult(($start-1)*$this->num_list_recent_articles)
+            ->setMaxResults($this->num_list_recent_articles )->getQuery()->getResult();
         $articles = array();
         foreach($articlesa as $singleArticle){
             $articles[] = array("article_id" => $singleArticle->getId(),"article_title" => $singleArticle->getTitle(),"article_address" => $singleArticle->getAddress(),
                 "article_date" => $singleArticle->getPublishDate(), "article_comment_count" => $singleArticle->getComments()->count());
         }
         return $this->render('bloggerblogBundle:AdminBlog:showRecentArticles.html.twig',
-            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress()),"articles" => $articles));
+            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress())
+            ,"articles" => $articles,"pagination" =>array("current" => $start ,"count" => $count)));
 
     }
     public function removeArticleAction($address){
@@ -134,18 +138,23 @@ class adminBlogController extends Controller
             array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress()),
                 "article_form" => $article_form->createView()));
     }
-    public function showRecentCommentsAction($articleId){
+
+    private $num_list_recent_comments = 10;
+    public function showRecentCommentsAction($articleId,$start){
         $user = $this->getUser();
-        if($articleId == "all")
-            $commentsRes = $this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId()),array("date" => 'DESC',"id" => 'DESC'));
-        elseif($articleId == "notApprove")
-            $commentsRes = $this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId(),"confirmed" => false),array("date" => 'DESC',"id" => 'DESC'));
-        else
-            $commentsRes = $this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId(),"article" => $articleId),array("date" => 'DESC',"id" => 'DESC'));
+        if($articleId == "all"){
+            $count = ceil(count($this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId())))/$this->num_list_recent_comments);
+            $commentsRes = $this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId()),array("date" => 'DESC',"id" => 'DESC'),$this->num_list_recent_comments,($start-1)*$this->num_list_recent_comments);
+        }elseif($articleId == "notApprove"){
+            $count = ceil(count($this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId(),"confirmed" => false)))/$this->num_list_recent_comments);
+            $commentsRes = $this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId(),"confirmed" => false),array("date" => 'DESC',"id" => 'DESC'),$this->num_list_recent_comments,($start-1)*$this->num_list_recent_comments);
+        }else{
+            $count = ceil(count($this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId(),"article" => $articleId)))/$this->num_list_recent_comments);
+            $commentsRes = $this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId(),"article" => $articleId),array("date" => 'DESC',"id" => 'DESC'),$this->num_list_recent_comments,($start-1)*$this->num_list_recent_comments);
+        }
         $comments = array();
         foreach($commentsRes as $singleComment){
             $article_comment = $singleComment->getArticle();
-//            $singleComment = new Comment();
             $comments[] = array("id" =>$singleComment->getId(),
                 "name" => $singleComment->getName(),
                 "comment" => $singleComment->getComment(),
@@ -156,8 +165,9 @@ class adminBlogController extends Controller
         }
         return $this->render('bloggerblogBundle:AdminBlog:showRecentComments.html.twig',
             array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress()),
-                'comments' => $comments,'showType' => $articleId));
+                'comments' => $comments,'showType' => $articleId,"pagination" =>array("current" => $start ,"count" => $count)));
     }
+
     public function approveCommentAction($id,$articleId){
         $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();

@@ -32,7 +32,7 @@
                     class="error"
                         {% endif %}>
                     <td style="width: 80px">{{ comment.date | date("Y/m/d") }}</td>
-                    <td>{{ comment.name }}</td>
+                    <td><a href="{{ path('bloggerblog_blogAdminEditComment',{'id': comment.id, 'articleId': showType}) }}">{{ comment.name }}</a></td>
                     <td>در <a href="{{ path('bloggerblog_blogArticle',{'blog_name':blog_info.address,'article_name' : comment.articleAddress}) }}#comment{{ comment.id }}" title="مشاهده نظر">{{ comment.articleTitle }}</a></td>
                     {% if comment.confirmed %}
                         <td style="width: 80px">تائید شده</td>
@@ -41,9 +41,7 @@
                         <td style="width: 80px">تائید نشده</td>
                         <td style="width: 40px"><a class="btn btn-success" href="{{ path('bloggerblog_blogAdminApproveComment',{'id': comment.id, 'articleId': showType}) }}" title="تایید نظر"><i class="icon-ok"></i></a></td>
                     {% endif %}
-                        <td style="width: 40px"><div class="btn btn-danger" onclick="removeComment('{{ comment.id }}','{{ comment.name }}')" title="حذف نظر"><i class="icon-remove"></i></div></td>
-                        <td style="width: 40px"><a class="btn btn-info" href="{{ path('bloggerblog_blogAdminEditComment',{'id': comment.id, 'articleId': showType}) }}" title="ویرایش نظر"><i class="icon-edit"></i></a></td>
-
+                    <td style="width: 40px"><div class="btn btn-danger" onclick="removeComment('{{ comment.id }}','{{ comment.name }}')" title="حذف نظر"><i class="icon-trash"></i></div></td>
                 </tr>
                 <tr {% if comment.confirmed %}
                     class="success"
@@ -60,5 +58,26 @@
             {% endfor %}
             </tbody>
         </table>
+        {% if pagination.count > 1 %}
+            <div class="pagination pagination-centered">
+                <ul>
+                    {% if pagination.current <  pagination.count %}
+                        <li><a href="{{ path('bloggerblog_blogAdminShowRecentComments',{'articleId': showType,'start': pagination.count}) }}">پایان</a></li>
+                        <li><a href="{{ path('bloggerblog_blogAdminShowRecentComments',{'articleId': showType,'start': pagination.current+1}) }}">بعدی</a></li>
+                    {% endif %}
+                    {% for i in pagination.count..1 %}
+                        {% if i == pagination.current %}
+                            <li class="active"><a href="{{ path('bloggerblog_blogAdminShowRecentComments',{'articleId': showType,'start': i}) }}">{{ i }}</a></li>
+                        {% else %}
+                            <li><a href="{{ path('bloggerblog_blogAdminShowRecentComments',{'articleId': showType,'start': i}) }}">{{ i }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if pagination.current > 1 %}
+                        <li><a href="{{ path('bloggerblog_blogAdminShowRecentComments',{'articleId': showType,'start': pagination.current-1}) }}">قبلی</a></li>
+                        <li><a href="{{ path('bloggerblog_blogAdminShowRecentComments',{'articleId': showType,'start': 1}) }}">شروع</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}

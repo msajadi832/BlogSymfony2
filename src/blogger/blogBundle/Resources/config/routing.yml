@@ -1,9 +1,9 @@
 bloggerblog_blogHomepage:
-    path:     /
+    path:     /{start}
     host:     "{blog_name}.blog"
-    defaults: { _controller: bloggerblogBundle:blog:blog}
+    defaults: { _controller: bloggerblogBundle:blog:blog,start : 1}
 bloggerblog_blogArticle:
-    path:     /{article_name}
+    path:     /post/{article_name}
     host:     "{blog_name}.blog"
     defaults: { _controller: bloggerblogBundle:blog:article }
 bloggerblog_homepage:
@@ -19,8 +19,8 @@ bloggerblog_blogAdminAddArticle:
     path:     /admin/addArticle
     defaults: { _controller: bloggerblogBundle:adminBlog:addArticle}
 bloggerblog_blogAdminShowRecentArticles:
-    path:     /admin/showRecentArticles
-    defaults: { _controller: bloggerblogBundle:adminBlog:showRecentArticles}
+    path:     /admin/showRecentArticles/{start}
+    defaults: { _controller: bloggerblogBundle:adminBlog:showRecentArticles,start : 1}
 bloggerblog_blogAdminRemoveArticle:
     path:     /admin/removeArticle/{address}
     defaults: { _controller: bloggerblogBundle:adminBlog:removeArticle}
@@ -28,8 +28,8 @@ bloggerblog_blogAdminEditArticle:
     path:     /admin/editArticle/{address}
     defaults: { _controller: bloggerblogBundle:adminBlog:editArticle}
 bloggerblog_blogAdminShowRecentComments:
-    path:     /admin/showRecentComments/{articleId}
-    defaults: { _controller: bloggerblogBundle:adminBlog:showRecentComments}
+    path:     /admin/showRecentComments/{articleId}/{start}
+    defaults: { _controller: bloggerblogBundle:adminBlog:showRecentComments,start : 1}
 bloggerblog_blogAdminRemoveComment:
     path:     /admin/removeComment/{id}/{articleId}
     defaults: { _controller: bloggerblogBundle:adminBlog:removeComment}
@@ -42,3 +42,6 @@ bloggerblog_blogAdminEditProfile:
 bloggerblog_blogAdminEditComment:
     path:     /admin/editComment/{id}/{articleId}
     defaults: { _controller: bloggerblogBundle:adminBlog:editComment}
+bloggerblog_showBlogList:
+    path:     /showBlogList/{start}
+    defaults: { _controller: bloggerblogBundle:Default:showBlogList,start : 1}

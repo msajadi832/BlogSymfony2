@@ -1,0 +1,61 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="text/html">
+    <title>سیستم وبلاگ من</title>
+    <link rel="stylesheet" href="{{ asset("bundles/bloggerblog/css/bootstrap.css") }}">
+    <link rel="stylesheet" href="{{ asset("bundles/bloggerblog/css/style_blog.css") }}">
+    {% block head_page %}{% endblock %}
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="{{ path('bloggerblog_homepage') }}">به سیستم وبلاگ من خوش آمدید!</a>
+        </div>
+        <div class="navbar">
+            <div class="navbar-inner">
+                <ul class="nav pull-right">
+                    <li><a href="{{ path('bloggerblog_showBlogList') }}">فهرست وبلاگ ها</a></li>
+                    <li class="divider-vertical"></li>
+                    <li><a href="{{ path('fos_user_registration_register') }}">ثبت وبلاگ جدید</a></li>
+                    <li class="divider-vertical"></li>
+                    <li class="pull-left"><a href="{{ path('bloggerblog_homepage') }}">صفحه اصلی</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="content_out">
+                {% for flashMessage in app.session.flashbag.get('homeSuccess') %}
+                    <div class="alert alert-block alert-success" data-dismiss="alert">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ flashMessage|raw}}
+                    </div>
+                {% endfor %}
+                {% for flashMessage in app.session.flashbag.get('homeError') %}
+                    <div class="alert alert-block alert-success" data-dismiss="alert">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ flashMessage|raw}}
+                    </div>
+                {% endfor %}
+                <div class="content">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+            <div class="sidebar">
+                <div class="headers_wrapper">ورود کاربران</div>
+                <div class="sidebar_in">
+                        {% render controller("FOSUserBundle:Security:login") %}
+                    {% block sidebar %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% block before_end_body %}{% endblock %}
+    <script src="{{ asset("bundles/bloggerblog/js/jquery.min.js") }}" ></script>
+    <script src="{{ asset("bundles/bloggerblog/js/bootstrap.js") }}" ></script>
+    <script type="text/javascript">
+        CKEDITOR.config.height='400px';
+    </script>
+</body>
+</html>

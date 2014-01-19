@@ -9,7 +9,10 @@ use Symfony\Component\HttpFoundation\Request;
 
 class blogController extends Controller
 {
-    public function blogAction($blog_name)
+    private $num_list_blog = 10;
+
+
+    public function blogAction($blog_name,$start)
     {
         $user = $this->getDoctrine()->getRepository('bloggerblogBundle:User') ->findOneBy(array('blogAddress' => $blog_name));
 
@@ -19,10 +22,12 @@ class blogController extends Controller
             ->setParameter("user",$user->getId())
             ->andWhere('a.publishDate < :now')
             ->setParameter("now",new \DateTime())
-            ->orderBy('a.id', 'DESC')
-            ->getQuery();
-        $articlesa =$qb->getResult(); //$this->getDoctrine()->getRepository('bloggerblogBundle:Article')->findBy(array("user" => $user->getId(), "publishDate" ),array("publishDate" => 'DESC'),10);
-//        $articlesa = $user->getArticles();
+            ->orderBy('a.id', 'DESC');
+
+        $count = ceil(count($qb->getQuery()->getResult())/$this->num_list_blog);
+
+        $articlesa =$qb->setFirstResult(($start-1)*$this->num_list_blog)
+            ->setMaxResults($this->num_list_blog )->getQuery()->getResult();
         $articles = array();
         foreach($articlesa as $singleArticle){
             $comment_article_count = count($this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId(),"article" => $singleArticle->getId(),"confirmed" => true)));
@@ -43,7 +48,8 @@ class blogController extends Controller
         return $this->render('bloggerblogBundle:Blog/homepage:homepage.html.twig',
             array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress(), "description" => $user->getBlogDescription(),
                 "authorEmail" => str_replace("@","%at%", $user->getEmail()), "authorName" => $user->getName(), "authorFamily" => $user->getFamily()),
-                "sidebar_name1" => "درباره وبلاگ","sidebar_name2" => "نظرات اخیر", "recent_comments" => $recent_comments,"articles" => $articles));
+                "sidebar_name1" => "درباره وبلاگ","sidebar_name2" => "نظرات اخیر", "recent_comments" => $recent_comments,"articles" => $articles
+                ,"pagination" =>array("current" => $start ,"count" => $count)));
     }
     public function articleAction($blog_name,$article_name,Request $request)
     {
@@ -66,6 +72,7 @@ class blogController extends Controller
             ->setParameter("now",new \DateTime())
             ->orderBy('a.publishDate', 'DESC')
             ->orderBy('a.id', 'DESC')
+            ->setMaxResults(10)
             ->getQuery();
         $articlesa =$qb->getResult();
         $recent_articles = array();

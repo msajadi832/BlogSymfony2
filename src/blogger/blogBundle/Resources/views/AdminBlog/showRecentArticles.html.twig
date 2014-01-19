@@ -25,11 +25,32 @@
                     {% else %}
                     <td style="width: 60px"><a href="{{ path('bloggerblog_blogAdminShowRecentComments',{'articleId': article.article_id}) }}">{{ article.article_comment_count }} نظر</a></td>
                     {% endif %}
-                    <td><div class="btn btn-danger" onclick="removeArticle('{{ article.article_address }}','{{ article.article_title }}')" title="حذف مقاله"><i class="icon-remove"></i></div></td>
+                    <td><div class="btn btn-danger" onclick="removeArticle('{{ article.article_address }}','{{ article.article_title }}')" title="حذف مقاله"><i class="icon-trash"></i></div></td>
                     <td><a class="btn btn-info" href="{{ path('bloggerblog_blogArticle',{'blog_name':blog_info.address,'article_name' : article.article_address}) }}" title="مشاهده مقاله"><i class="icon-search"></i></a></td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
+        {% if pagination.count > 1 %}
+            <div class="pagination pagination-centered">
+                <ul>
+                    {% if pagination.current <  pagination.count %}
+                        <li><a href="{{ path('bloggerblog_blogAdminShowRecentArticles',{'start': pagination.count}) }}">پایان</a></li>
+                        <li><a href="{{ path('bloggerblog_blogAdminShowRecentArticles',{'start': pagination.current+1}) }}">بعدی</a></li>
+                    {% endif %}
+                    {% for i in pagination.count..1 %}
+                        {% if i == pagination.current %}
+                            <li class="active"><a href="{{ path('bloggerblog_blogAdminShowRecentArticles',{'start': i}) }}">{{ i }}</a></li>
+                        {% else %}
+                            <li><a href="{{ path('bloggerblog_blogAdminShowRecentArticles',{'start': i}) }}">{{ i }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if pagination.current > 1 %}
+                        <li><a href="{{ path('bloggerblog_blogAdminShowRecentArticles',{'start': pagination.current-1}) }}">قبلی</a></li>
+                        <li><a href="{{ path('bloggerblog_blogAdminShowRecentArticles',{'start': 1}) }}">شروع</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}

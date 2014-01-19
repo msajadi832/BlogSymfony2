@@ -1,3 +1,24 @@
-Hello!
-<br />
-This is Home page!
+{% extends('@bloggerblog/Default/homeBase.html.twig') %}
+{% block content %}
+    <div class="headers_wrapper">معرفی</div>
+    <div class="content_in">
+        <h4>
+        این سیستم وبلاگ برای تست طراحی شده است
+        </h4>
+        سایت وبلاگ من برای کاربران خود امکانات و شرایط زیر را بصورت رایگان و در محیطی فارسی فراهم می‌سازد.
+        <ul style="padding-right: 15px">
+
+            <li>اختصاص یک آدرس اینترنتی (http://yourname.msblog.com )</li>
+            <li>ارسال و انتشار آسان مطالب در وبلاگ</li>
+            <li>درج آسان تصاویر، پیوندها و تغییر در رنگ یا اندازه نوشته ها</li>
+            <li>امکان درج تصویر نویسنده یا لوگو وبلاگ</li>
+            <li>امکان درج توضیحاتی درباره وبلاگ و ساخت پروفایل برای مدیر بلاگ</li>
+            <li>مدیریت آسان نظرات خوانندگان توسط مدیر وبلاگ</li>
+
+        </ul>
+        <br />
+        <div style="width: 100%;height: 30px;">
+            <a class="btn btn-success" style="display: block;margin: 0 auto;width: 120px;" href="{{ path('fos_user_registration_register') }}">ثبت وبلاگ جدید</a>
+        </div>
+    </div>
+{% endblock %}
