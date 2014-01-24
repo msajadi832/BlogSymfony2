@@ -1,11 +1,3 @@
-bloggerblog_blogHomepage:
-    path:     /{start}
-    host:     "{blog_name}.blog"
-    defaults: { _controller: bloggerblogBundle:blog:blog,start : 1}
-bloggerblog_blogArticle:
-    path:     /post/{article_name}
-    host:     "{blog_name}.blog"
-    defaults: { _controller: bloggerblogBundle:blog:article }
 bloggerblog_homepage:
     path:     /
     defaults: { _controller: bloggerblogBundle:Default:index}
@@ -45,3 +37,11 @@ bloggerblog_blogAdminEditComment:
 bloggerblog_showBlogList:
     path:     /showBlogList/{start}
     defaults: { _controller: bloggerblogBundle:Default:showBlogList,start : 1}
+bloggerblog_blogHomepage:
+    path:     /{blog_name}/{start}
+#    host:     "{blog_name}.blog"
+    defaults: { _controller: bloggerblogBundle:blog:blog,start : 1}
+bloggerblog_blogArticle:
+    path:     /{blog_name}/post/{article_name}
+#    host:     "{blog_name}.blog"
+    defaults: { _controller: bloggerblogBundle:blog:article }

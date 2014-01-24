@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Article
  *
- * @ORM\Table()
+ * @ORM\Table(name="article")
  * @ORM\Entity
  */
 class Article
