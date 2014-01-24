@@ -9,9 +9,9 @@ class RegistrationFormType extends BaseType
     {
         parent::buildForm($builder, $options);
         $builder
-            ->add('blogAddress')
-            ->add('blogName')
-            ->add('blogDescription')
+            ->add('blogAddress',null,array('label'=>"آدرس وبلاگ"))
+            ->add('blogName',null,array('label'=>"عنوان وبلاگ"))
+            ->add('blogDescription',null,array('label'=>"درباره وبلاگ"))
         ;
     }
 
