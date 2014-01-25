@@ -17,6 +17,13 @@ img{
 .table-hover tbody tr:hover > td{
     background-color: #ffa84c;
 }
+.fos_forms ul{
+    padding:7px 30px;
+    color: #b94a48;
+    background-color: #f2dede;
+    border: 1px solid #eed3d7;
+    border-radius: 5px;
+}
 .login_input{
 width: 100%;
 }
