@@ -1,6 +1,9 @@
 bloggerblog_homepage:
     path:     /
     defaults: { _controller: bloggerblogBundle:Default:index}
+bloggerblog_homepage:
+    path:     /login
+    defaults: { _controller: bloggerblogBundle:Default:login}
 bloggerblog_blogSuperAdmin:
     path:     /admin/showArticles
     defaults: { _controller: bloggerblogBundle:adminBlog:dashboard}

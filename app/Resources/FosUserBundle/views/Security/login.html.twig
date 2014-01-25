@@ -3,29 +3,26 @@
 {% endif %}
     <div>
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-شما قبلا  با نام کاربری زیر وارد شده اید:
-            <br />
-            <a href="{{ path("bloggerblog_blogAdmin") }}">{{ app.user.username }}</a>
-            <br />
-                <a class="btn" href="{{ path('fos_user_security_logout') }}">
-                خروج
+            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+            <a href="{{ path('fos_user_security_logout') }}">
+                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
             </a>
         {% else %}
-            <form action="{{ path("fos_user_security_check") }}" method="post"  style="margin-bottom: 0;">
+            <form action="{{ path("fos_user_security_check") }}" method="post">
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-                <label for="username">نام کاربری</label>
-                <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" style="width: 180px;" />
+                <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" class="login_input" />
 
-                <label for="password">رمز عبور</label>
-                <input type="password" id="password" name="_password" required="required"  style="width: 180px;"/>
+                <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+                <input type="password" id="password" name="_password" required="required"  class="login_input"/>
 
                 <label for="remember_me">
-                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                    مرا به خاطر داشته باش
+                <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                    {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
                 </label>
 
-                <input type="submit" id="_submit" name="_submit" class="btn" value="ورود" />
+                <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
             </form>
             <a href="{{ path("fos_user_resetting_request") }}">کلمه عبور را فراموش کرده ام</a>
         {% endif %}

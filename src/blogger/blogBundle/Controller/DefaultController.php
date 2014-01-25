@@ -14,6 +14,11 @@ class DefaultController extends Controller
         return $this->render('bloggerblogBundle:Default:index.html.twig');
     }
 
+    public function loginAction()
+    {
+        return $this->render('bloggerblogBundle:Default:login.html.twig');
+    }
+
     public function showBlogListAction($start){
         $count = ceil(count($this->getDoctrine()->getRepository('bloggerblogBundle:User')->findAll())/$this->num_list);
 

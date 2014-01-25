@@ -17,6 +17,9 @@ img{
 .table-hover tbody tr:hover > td{
     background-color: #ffa84c;
 }
+.login_input{
+width: 100%;
+}
 .header{
     background-color: #ccccff;
     line-height: 100px;

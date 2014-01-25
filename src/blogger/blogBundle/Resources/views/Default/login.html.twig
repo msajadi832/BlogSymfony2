@@ -1,0 +1,7 @@
+{% extends('@bloggerblog/Default/homeBase.html.twig') %}
+{% block content %}
+    <div class="headers_wrapper">ورود کاربران</div>
+    <div class="content_in">
+        {% render controller("FOSUserBundle:Security:login") %}
+    </div>
+{% endblock %}
