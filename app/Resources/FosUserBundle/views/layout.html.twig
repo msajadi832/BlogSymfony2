@@ -30,10 +30,13 @@
                 {#<a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>#}
             {#{% endif %}#}
         {#</div>#}
-
+    <div class="headers_wrapper">{% block fos_user_title %}{% endblock %}</div>
+    <div class="content_in">
 
         <div class="fos_forms">
+
             {% block fos_user_content %}
             {% endblock fos_user_content %}
         </div>
+    </div>
 {% endblock %}

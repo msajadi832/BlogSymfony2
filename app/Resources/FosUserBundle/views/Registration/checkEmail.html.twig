@@ -1,5 +1,8 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
-
+{% block fos_user_title %}ثبت وبلاگ جدید{% endblock %}
 {% block fos_user_content %}
+<div class="alert alert-block alert-success" data-dismiss="alert">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
     <p>{{ 'registration.check_email'|trans({'%email%': user.email}, 'FOSUserBundle') }}</p>
+</div>
 {% endblock fos_user_content %}

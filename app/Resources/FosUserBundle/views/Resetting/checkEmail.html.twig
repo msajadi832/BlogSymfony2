@@ -1,7 +1,9 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
-
+{% block fos_user_title %}درخواست ریست رمز عبور{% endblock %}
 {% block fos_user_content %}
-<p>
-{{ 'resetting.check_email'|trans({'%email%': email}, 'FOSUserBundle') }}
-</p>
+<div class="alert alert-block alert-success">
+    <p>
+    {{ 'resetting.check_email'|trans({'%email%': email}, 'FOSUserBundle') }}
+    </p>
+</div>
 {% endblock %}
