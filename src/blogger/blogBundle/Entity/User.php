@@ -43,6 +43,11 @@ class User extends BaseUser{
     protected $blogDescription;
 
     /**
+     * @ORM\Column(type="text",nullable=true)
+     */
+    protected $blogTemplate;
+
+    /**
      * @ORM\Column(type="string", length=100,nullable=true)
      */
     protected $name;
