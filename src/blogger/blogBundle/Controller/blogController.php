@@ -6,11 +6,258 @@ use blogger\blogBundle\Entity\Article;
 use blogger\blogBundle\Entity\Comment;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class blogController extends Controller
 {
-    private $num_list_blog = 10;
+    private $num_list_blog = 2;
+    private $date_format = 'Y/m/d';
 
+
+    private function hideBlock($retTemplate, $name){
+        $begin = '<'.$name.'>';
+        $end = '</'.$name.'>';
+        $beginPlace = strpos($retTemplate,$begin);
+        $endPlace = strpos($retTemplate,$end);
+
+        if( $beginPlace && $endPlace){
+            $lenContinue = strlen($end) + ($endPlace - $beginPlace);
+            $retTemplate = substr_replace($retTemplate,'',$beginPlace,$lenContinue);
+        }
+//        $retTemplate = "begin: ".$beginPlace." , End: ".$endPlace;
+
+        return $retTemplate;
+    }
+
+    private function replaceVariable($retTemplate, $search, $replace, $father = ""){
+        $retTemplate = str_replace('<-'.$search.'->','{{ '.$father.$replace.' }}',$retTemplate);
+        return $retTemplate;
+    }
+
+    private function replaceStartEndBlock($retTemplate, $search, $replaceStart, $replaceEnd){
+        $retTemplate = str_replace('<'.$search.'>',$replaceStart,$retTemplate);
+        $retTemplate = str_replace('</'.$search.'>',$replaceEnd,$retTemplate);
+        return $retTemplate;
+    }
+
+    private function hideBlockName($retTemplate, $name){
+        $retTemplate = str_replace('<'.$name.'>','',$retTemplate);
+        $retTemplate = str_replace('</'.$name.'>','',$retTemplate);
+        return $retTemplate;
+    }
+
+    private function createMainDetails($retTemplate){
+        $retTemplate = $this->replaceVariable($retTemplate, 'BlogName', 'name', 'Blog.');
+        $retTemplate = $this->replaceVariable($retTemplate, 'BlogAddress', 'address', 'Blog.');
+        $retTemplate = $this->replaceVariable($retTemplate, 'BlogEmail', 'email', 'Blog.');
+        $retTemplate = $this->replaceVariable($retTemplate, 'BlogAbout', 'about', 'Blog.');
+        return $retTemplate;
+    }
+
+    private function createPostList($retTemplate){
+        if( (strpos($retTemplate,'<PostList>')) ){
+            if((strpos($retTemplate,'</PostList>'))){
+                $retTemplate = $this->hideBlockName($retTemplate, 'PostList');
+                $retTemplate = $this->hideBlock($retTemplate, 'PostDetail');
+                if(strpos($retTemplate,'<SinglePost>')){
+                    if(strpos($retTemplate,'</SinglePost>')){
+                        $retTemplate = $this->replaceStartEndBlock($retTemplate, 'SinglePost', '{% for post in posts %}', '{% endfor %}');
+                        $retTemplate = $this->replaceVariable($retTemplate, 'SinglePostTitle', 'article_title', 'post.');
+                        $retTemplate = $this->replaceVariable($retTemplate, 'SinglePostContent', 'article_body | raw', 'post.');
+                        $retTemplate = $this->replaceVariable($retTemplate, 'SinglePostLastEdit', 'article_date', 'post.');
+                        $retTemplate = $this->replaceVariable($retTemplate, 'SinglePostCommentCount', 'article_comment_count', 'post.');
+                        $retTemplate = $this->replaceVariable($retTemplate, 'SinglePostAddress', 'article_address', 'post.');
+
+                    }else{
+                        $retTemplate = str_replace('<SinglePost>','تگ بسته &lt;SinglePost/&gt; موجود نیست یا اشتباه است',$retTemplate);
+                    }
+                }
+            }else{
+                $retTemplate = str_replace('<PostList>','تگ بسته &lt;PostList/&gt; موجود نیست یا اشتباه است',$retTemplate);
+            }
+        }
+
+
+        return $retTemplate;
+    }
+
+    private function createDetailPost($retTemplate){
+        if( (strpos($retTemplate,'<PostDetail>')) ){
+            if((strpos($retTemplate,'</PostDetail>'))){
+                $retTemplate = $this->hideBlockName($retTemplate, 'PostDetail');
+                $retTemplate = $this->hideBlock($retTemplate, 'PostList');
+
+                #main Detail Article
+                $retTemplate = $this->replaceVariable($retTemplate, 'PostDetailAddress','address','PostDetail.');
+                $retTemplate = $this->replaceVariable($retTemplate, 'PostDetailTitle','title','PostDetail.');
+                $retTemplate = $this->replaceVariable($retTemplate, 'PostDetailContent','body | raw','PostDetail.');
+                $retTemplate = $this->replaceVariable($retTemplate, 'PostDetailLastEdit','date','PostDetail.');
+
+                #Comments Detail for Article
+                if(strpos($retTemplate,'<PostDetailComments>')){
+                    if(strpos($retTemplate,'</PostDetailComments>')){
+                        if(strpos($retTemplate,'<SinglePostComment>')){
+                            if(strpos($retTemplate,'</SinglePostComment>')){
+                                $retTemplate = $this->replaceStartEndBlock($retTemplate, 'SinglePostComment', '{% for comment in comments %}', '{% endfor %}');
+                                $retTemplate = $this->replaceVariable($retTemplate, 'SinglePostCommentId', 'id', 'comment.');
+                                $retTemplate = $this->replaceVariable($retTemplate, 'SinglePostCommentLink', 'address', 'comment.');
+                                $retTemplate = $this->replaceVariable($retTemplate, 'SinglePostCommentName', 'name', 'comment.');
+                                $retTemplate = $this->replaceVariable($retTemplate, 'SinglePostCommentContent', 'content | raw', 'comment.');
+                                $retTemplate = $this->replaceVariable($retTemplate, 'SinglePostCommentDate', 'date', 'comment.');
+                            }else{
+                                $retTemplate = str_replace('<SinglePostComment>','تگ بسته &lt;SinglePostComment/&gt; موجود نیست یا اشتباه است',$retTemplate);
+                            }
+                        }
+                    }else{
+                        $retTemplate = str_replace('<PostDetailComments>','تگ بسته &lt;PostDetailComments/&gt; موجود نیست یا اشتباه است',$retTemplate);
+                    }
+                }
+                #New Comment For Article
+                $retTemplate = $this->replaceVariable($retTemplate, 'PostDetailNewCommentForm',"form(form)");
+//                $retTemplate = str_replace('<-PostDetailNewCommentForm->','{{ form_start(comment_form) }}
+//                    {{ form_errors(comment_form) }}
+//
+//                    {{ form_row(form.name) }}
+//                    {{ form_row(form.comment) }}
+//
+//                    <input type="submit" />
+//                    {{ form_end(comment_form) }}',$retTemplate);
+
+                return $retTemplate;
+
+            }else{
+                $retTemplate = str_replace('<PostDetail>','تگ بسته &lt;PostDetail/&gt; موجود نیست یا اشتباه است',$retTemplate);
+            }
+        }
+        return $retTemplate;
+    }
+
+    private function recentComments($retTemplate){
+        if( (strpos($retTemplate,'<RecentComments>')) ){
+            if((strpos($retTemplate,'</RecentComments>'))){
+                $retTemplate = $this->hideBlockName($retTemplate, 'RecentComments');
+                if(strpos($retTemplate,'<SingleRecentComment>')){
+                    if(strpos($retTemplate,'</SingleRecentComment>')){
+                        $retTemplate = $this->replaceStartEndBlock($retTemplate, 'SingleRecentComment', '{% for comment in recentComments %}', '{% endfor %}');
+                        $retTemplate = $this->replaceVariable($retTemplate, 'SingleRecentCommentLink', 'address', 'comment.');
+                        $retTemplate = $this->replaceVariable($retTemplate, 'SingleRecentCommentName', 'name', 'comment.');
+                        $retTemplate = $this->replaceVariable($retTemplate, 'SingleRecentCommentDate', 'date', 'comment.');
+                        $retTemplate = $this->replaceVariable($retTemplate, 'SingleRecentCommentContent', 'content | raw', 'comment.');
+                    }else{
+                        $retTemplate = str_replace('<SingleRecentComment>','تگ بسته &lt;SingleRecentComment/&gt; موجود نیست یا اشتباه است',$retTemplate);
+                    }
+                }
+            }else{
+                $retTemplate = str_replace('<RecentComments>','تگ بسته &lt;RecentComments/&gt; موجود نیست یا اشتباه است',$retTemplate);
+            }
+        }
+        return $retTemplate;
+    }
+
+    private function recentPosts($retTemplate){
+        if( (strpos($retTemplate,'<RecentPosts>')) ){
+            if((strpos($retTemplate,'</RecentPosts>'))){
+                $retTemplate = $this->hideBlockName($retTemplate, 'RecentPosts');
+                if(strpos($retTemplate,'<SingleRecentPost>')){
+                    if(strpos($retTemplate,'</SingleRecentPost>')){
+                        $retTemplate = $this->replaceStartEndBlock($retTemplate, 'SingleRecentPost', '{% for post in recentPosts %}', '{% endfor %}');
+                        $retTemplate = $this->replaceVariable($retTemplate, 'SingleRecentPostAddress', 'address', 'post.');
+                        $retTemplate = $this->replaceVariable($retTemplate, 'SingleRecentPostTitle', 'title', 'post.');
+                    }else{
+                        $retTemplate = str_replace('<SingleRecentPost>','تگ بسته &lt;SingleRecentPost/&gt; موجود نیست یا اشتباه است',$retTemplate);
+                    }
+                }
+            }else{
+                $retTemplate = str_replace('<RecentPosts>','تگ بسته &lt;RecentPosts/&gt; موجود نیست یا اشتباه است',$retTemplate);
+            }
+        }
+        return $retTemplate;
+    }
+
+    private function pagination($retTemplate,$part,$show_next,$show_prev){
+        if($show_next){
+            if( (strpos($retTemplate,'<'.$part.'NextPage>')) ){
+                if((strpos($retTemplate,'</'.$part.'NextPage>'))){
+                    $retTemplate = $this->hideBlockName($retTemplate, $part.'NextPage');
+                    $retTemplate = $this->replaceVariable($retTemplate, $part.'NextPageAddress', 'next', $part.'Pagination.');
+                }else{
+                    $retTemplate = str_replace('<'.$part.'NextPage>','تگ بسته &lt;'.$part.'NextPage/&gt; موجود نیست یا اشتباه است',$retTemplate);
+                }
+            }
+        }else{
+            $retTemplate = $this->hideBlock($retTemplate, $part.'NextPage');
+        }
+        if($show_prev){
+            if( (strpos($retTemplate,'<'.$part.'PreviousPage>')) ){
+                if((strpos($retTemplate,'</'.$part.'PreviousPage>'))){
+                    $retTemplate = $this->hideBlockName($retTemplate, $part.'PreviousPage');
+                    $retTemplate = $this->replaceVariable($retTemplate, $part.'PreviousPageAddress', 'prev', $part.'Pagination.');
+                }else{
+                    $retTemplate = str_replace('<'.$part.'PreviousPage>','تگ بسته &lt;'.$part.'PreviousPage/&gt; موجود نیست یا اشتباه است',$retTemplate);
+                }
+            }
+        }else{
+            $retTemplate = $this->hideBlock($retTemplate, $part.'PreviousPage');
+        }
+        return $retTemplate;
+    }
+
+    private function CreateTemplate($retTemplate, $isHomePage = False){
+//        $retTemplate = $this->createMainDetails($retTemplate);
+//        $retTemplate = ($isHomePage)?$this->createPostList($retTemplate):$this->createDetailPost($retTemplate);
+//
+//        $retTemplate = $this->recentComments($retTemplate);
+//        $retTemplate = $this->recentPosts($retTemplate);
+        $retTemplate = $this->createDetailPost($retTemplate);
+
+        return $retTemplate;
+    }
+
+    private function renderTwig($retTemplate, array $context = array()){
+        $twig = new \Twig_Environment(new \Twig_Loader_String());
+        foreach( $this->get('twig')->getExtensions() as $ext ) {
+            $twig->addExtension( $ext );
+        }
+//        $twig->addExtension(new \Symfony\Bridge\Twig\Extension\HttpKernelExtension($this->get('fragment.handler')));
+        return new Response($twig->render($retTemplate, $context));
+    }
+
+    private function blogData($user){
+        return array("address"=>$this->generateUrl('bloggerblog_blogHomepage',array('blog_name'=>$user->getBlogAddress())), "name"=>$user->getBlogName(), "email"=>str_replace("@"," (at) ", $user->getEmail()),
+            "about"=>$user->getBlogDescription());
+    }
+
+    private function recentCommentsData($user){
+        $comments_doc = $this->getDoctrine()->getRepository('bloggerblogBundle:Comment')->findBy(array("user" => $user->getId(),"confirmed" => true),array("date" => 'DESC'),10);
+        $recent_comments = array();
+        foreach($comments_doc as $singleComment){
+            $recent_comments[] = array("name" => (strlen($singleComment->getName())> 50)?mb_substr($singleComment->getName(),0,50, 'UTF-8')." ...":$singleComment->getName(),
+                "address"=>$this->generateUrl('bloggerblog_blogArticle', array('blog_name'=>$user->getBlogAddress(),'article_name' => $singleComment->getArticle()->getAddress())).'#comment'.$singleComment->getId(),
+                "date" => $singleComment->getDate()->format($this->date_format),
+                "content" => strip_tags((strlen($singleComment->getComment())> 150)?mb_substr($singleComment->getComment(),0,150, 'UTF-8')." ...":$singleComment->getComment()));
+        }
+        return $recent_comments;
+    }
+
+    private function recentPostsData($user){
+        $articleRepo = $this->getDoctrine() ->getRepository('bloggerblogBundle:Article');
+        $qb = $articleRepo->createQueryBuilder('a')
+            ->where("a.user = :user")
+            ->setParameter("user",$user->getId())
+            ->andWhere('a.publishDate < :now')
+            ->setParameter("now",new \DateTime())
+            ->orderBy('a.publishDate', 'DESC')
+            ->orderBy('a.id', 'DESC')
+            ->setMaxResults(10)
+            ->getQuery();
+        $articlesa =$qb->getResult();
+        $recent_articles = array();
+        foreach($articlesa as $singleArticle){
+            $recent_articles[] = array("title" => $singleArticle->getTitle(),
+                "address" => $this->generateUrl('bloggerblog_blogArticle', array('blog_name'=>$user->getBlogAddress(),'article_name' => $singleArticle->getAddress())));
+        }
+        return $recent_articles;
+    }
 
     public function blogAction($blog_name,$start)
     {
@@ -31,27 +278,34 @@ class blogController extends Controller
         $articles = array();
         foreach($articlesa as $singleArticle){
             $comment_article_count = count($this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId(),"article" => $singleArticle->getId(),"confirmed" => true)));
-            $articles[] = array("article_title" => $singleArticle->getTitle(),"article_address" => $singleArticle->getAddress(), "article_date" => $singleArticle->getPublishDate(),
+            $articles[] = array("article_title" => $singleArticle->getTitle(),
+                "article_address" => $this->generateUrl('bloggerblog_blogArticle', array('blog_name'=>$user->getBlogAddress(),'article_name' => $singleArticle->getAddress())),
+                "article_date" => $singleArticle->getPublishDate()->format($this->date_format),
                 "article_body" => (strlen($singleArticle->getBody())> 500)?mb_substr($singleArticle->getBody(),0,500, 'UTF-8')." ...":$singleArticle->getBody(),
                 "article_comment_count" => $comment_article_count);
         }
 
-        $comments_doc = $this->getDoctrine()->getRepository('bloggerblogBundle:Comment')->findBy(array("user" => $user->getId(),"confirmed" => true),array("date" => 'DESC'),10);
-        $recent_comments = array();
-        foreach($comments_doc as $singleComment){
-            $recent_comments[] = array("article_address" => $singleComment->getArticle()->getAddress(),"id" =>$singleComment->getId(),
-                "name" => (strlen($singleComment->getName())> 50)?mb_substr($singleComment->getName(),0,50, 'UTF-8')." ...":$singleComment->getName(),
-                "date" => $singleComment->getDate(),
-                "comment" => (strlen($singleComment->getComment())> 150)?mb_substr($singleComment->getComment(),0,150, 'UTF-8')." ...":$singleComment->getComment());
+
+
+        $pagination = array("next"=>$this->generateUrl('bloggerblog_blogHomepage',array('blog_name'=> $user->getBlogAddress(),'start'=> $start+1)),
+                            "prev"=>$this->generateUrl('bloggerblog_blogHomepage',array('blog_name'=> $user->getBlogAddress(),'start'=> $start-1)));
+        $nextPage = $prevPage = false;
+        if($start < $count){
+            $nextPage = true;
+        }
+        if($start > 1){
+            $prevPage = true;
         }
 
-        return $this->render('bloggerblogBundle:Blog/homepage:homepage.html.twig',
-            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress(), "description" => $user->getBlogDescription(),
-                "authorEmail" => str_replace("@","%at%", $user->getEmail()), "authorName" => $user->getName(), "authorFamily" => $user->getFamily()),
-                "sidebar_name1" => "درباره وبلاگ","sidebar_name2" => "نظرات اخیر", "recent_comments" => $recent_comments,"articles" => $articles
-                ,"pagination" =>array("current" => $start ,"count" => $count)));
+        $theme = $user->getBlogTemplate();
+        $retTemplate = $this->CreateTemplate($theme, True);
+        $retTemplate = $this->pagination($retTemplate, 'PostList', $nextPage, $prevPage);
+
+        return $this->renderTwig($retTemplate,array('Blog' => $this->blogData($user), 'posts' => $articles, 'PostListPagination'=>$pagination,
+            'recentComments'=>$this->recentCommentsData($user), 'recentPosts'=>$this->recentPostsData($user)));
     }
-    public function articleAction($blog_name,$article_name,Request $request)
+
+    public function articleAction($blog_name,$article_name, Request $request)
     {
         $user = $this->getDoctrine()->getRepository('bloggerblogBundle:User') ->findOneBy(array('blogAddress' => $blog_name));
         $articleRepo = $this->getDoctrine() ->getRepository('bloggerblogBundle:Article');
@@ -59,25 +313,12 @@ class blogController extends Controller
         $comments = $this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId(),"article" => $article->getId(),"confirmed" => true),array("date" => 'DESC',"id" => 'DESC'));
         $comment_article = array();
         foreach($comments as $singleComment){
-            $comment_article[] = array("id" =>$singleComment->getId(),
+            $comment_article[] = array(
+                "id" =>'comment'.$singleComment->getId(),
+                "address" =>$this->generateUrl('bloggerblog_blogArticle', array('blog_name'=>$user->getBlogAddress(),'article_name' => $singleComment->getArticle()->getAddress())).'#comment'.$singleComment->getId(),
                 "name" => $singleComment->getName(),
-            "date" => date_format($singleComment->getDate(),"Y-m-d"),
-            "comment" => $singleComment->getComment());
-        }
-
-        $qb = $articleRepo->createQueryBuilder('a')
-            ->where("a.user = :user")
-            ->setParameter("user",$user->getId())
-            ->andWhere('a.publishDate < :now')
-            ->setParameter("now",new \DateTime())
-            ->orderBy('a.publishDate', 'DESC')
-            ->orderBy('a.id', 'DESC')
-            ->setMaxResults(10)
-            ->getQuery();
-        $articlesa =$qb->getResult();
-        $recent_articles = array();
-        foreach($articlesa as $singleArticle){
-            $recent_articles[] = array("title" => $singleArticle->getTitle(), "address" => $singleArticle->getAddress());
+                "date" => $singleComment->getDate()->format($this->date_format),
+                "content" => $singleComment->getComment());
         }
 
         $comment = new Comment();
@@ -88,7 +329,7 @@ class blogController extends Controller
         $comment_form = $this->createFormBuilder($comment)
             ->add('name','text',array('label'  => 'نام', 'attr' => array('style' => 'height:25px')))
             ->add('comment','textarea',array('label'  => 'نظر', 'attr' => array('class' => "ckeditor")))
-            ->add('submit', 'submit', array('label'  => 'ثبت نظر'))
+//            ->add('submit', 'submit', array('label'  => 'ثبت نظر'))
             ->getForm();
 
         $comment_form->handleRequest($request);
@@ -101,11 +342,23 @@ class blogController extends Controller
             return $this->redirect($this->generateUrl('bloggerblog_blogArticle',array('article_name' => $article_name,'blog_name' => $blog_name)));
         }
 
-        return $this->render('bloggerblogBundle:Blog/Article:Article.html.twig',
-            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress(),"description" => $user->getBlogDescription(),
-                "authorEmail" => str_replace("@","%at%", $user->getEmail()),"authorName" => $user->getName(), "authorFamily" => $user->getFamily()),
-                "article_info" => array("title" => $article->getTitle(),"address" => $article->getAddress(), "date" => $article->getPublishDate(),"body" => $article->getBody(),"comments" => $comment_article),
-                "sidebar_name1" => "درباره وبلاگ","sidebar_name2" => "مقالات اخیر","recent_articles" => $recent_articles,
-            "comment_form" => $comment_form->createView()));
+        $PostDetail = array("address"=> $article->getAddress(), "title"=>$article->getTitle(), "body"=>$article->getBody(),"date"=>$article->getPublishDate()->format($this->date_format));
+
+        $theme = $user->getBlogTemplate();
+        $retTemplate = $this->CreateTemplate($theme, False);
+
+        return $this->renderTwig($retTemplate,array('Blog' => $this->blogData($user), 'PostDetail' => $PostDetail, 'comments'=>$comment_article,
+            'recentComments'=>$this->recentCommentsData($user), 'recentPosts'=>$this->recentPostsData($user), 'form'=>$comment_form->createView()));
+
+
+//        return $this->render('bloggerblogBundle:Blog/Article:Article.html.twig',
+//            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress(),"description" => $user->getBlogDescription(),
+//                "authorEmail" => str_replace("@","%at%", $user->getEmail()),"authorName" => $user->getName(), "authorFamily" => $user->getFamily()),
+//                "article_info" => array("title" => $article->getTitle(),"address" => $article->getAddress(), "date" => $article->getPublishDate(),"body" => $article->getBody(),"comments" => $comment_article),
+//                "sidebar_name1" => "درباره وبلاگ","sidebar_name2" => "مقالات اخیر",//"recent_articles" => $recent_articles,
+//            //"comment_form" => $comment_form->createView()
+//            ));
     }
+
+
 }

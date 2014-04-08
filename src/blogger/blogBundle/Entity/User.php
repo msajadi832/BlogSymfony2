@@ -189,6 +189,29 @@ class User extends BaseUser{
     }
 
     /**
+     * Set blogTemplate
+     *
+     * @param string $blogTemplate
+     * @return User
+     */
+    public function setBlogTemplate($blogTemplate)
+    {
+        $this->blogTemplate = $blogTemplate;
+
+        return $this;
+    }
+
+    /**
+     * Get blogTemplate
+     *
+     * @return string
+     */
+    public function getBlogTemplate()
+    {
+        return $this->blogTemplate;
+    }
+
+    /**
      * Add comments
      *
      * @param \blogger\blogBundle\Entity\Comment $comments

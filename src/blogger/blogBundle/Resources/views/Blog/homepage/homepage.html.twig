@@ -24,23 +24,15 @@
             </div>
         </div>
     {% endif %}
+    <br />sdfsdfsdfsdf<br />
     {% if pagination.count > 1 %}
         <div class="pagination pagination-centered">
             <ul>
                 {% if pagination.current <  pagination.count %}
-                    <li><a href="{{ path('bloggerblog_blogHomepage',{'blog_name': blog_info.address,'start': pagination.count}) }}">پایان</a></li>
-                    <li><a href="{{ path('bloggerblog_blogHomepage',{'blog_name': blog_info.address,'start': pagination.current+1}) }}">بعدی</a></li>
+                    <li><a href="{{ path('bloggerblog_blogHomepage',{'blog_name': blog_info.address,'start': pagination.current+1}) }}">بعدی > </a></li>
                 {% endif %}
-                {% for i in pagination.count..1 %}
-                    {% if i == pagination.current %}
-                        <li class="active"><a href="{{ path('bloggerblog_blogHomepage',{'blog_name': blog_info.address,'start': i}) }}">{{ i }}</a></li>
-                    {% else %}
-                        <li><a href="{{ path('bloggerblog_blogHomepage',{'blog_name': blog_info.address,'start': i}) }}">{{ i }}</a></li>
-                    {% endif %}
-                {% endfor %}
                 {% if pagination.current > 1 %}
-                    <li><a href="{{ path('bloggerblog_blogHomepage',{'blog_name': blog_info.address,'start': pagination.current-1}) }}">قبلی</a></li>
-                    <li><a href="{{ path('bloggerblog_blogHomepage',{'blog_name': blog_info.address,'start': 1}) }}">شروع</a></li>
+                    <li><a href="{{ path('bloggerblog_blogHomepage',{'blog_name': blog_info.address,'start': pagination.current-1}) }}"> < قبلی</a></li>
                 {% endif %}
             </ul>
         </div>
