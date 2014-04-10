@@ -203,12 +203,11 @@ class blogController extends Controller
     }
 
     private function CreateTemplate($retTemplate, $isHomePage = False){
-//        $retTemplate = $this->createMainDetails($retTemplate);
-//        $retTemplate = ($isHomePage)?$this->createPostList($retTemplate):$this->createDetailPost($retTemplate);
-//
-//        $retTemplate = $this->recentComments($retTemplate);
-//        $retTemplate = $this->recentPosts($retTemplate);
-        $retTemplate = $this->createDetailPost($retTemplate);
+        $retTemplate = $this->createMainDetails($retTemplate);
+        $retTemplate = ($isHomePage)?$this->createPostList($retTemplate):$this->createDetailPost($retTemplate);
+
+        $retTemplate = $this->recentComments($retTemplate);
+        $retTemplate = $this->recentPosts($retTemplate);
 
         return $retTemplate;
     }
@@ -218,7 +217,6 @@ class blogController extends Controller
         foreach( $this->get('twig')->getExtensions() as $ext ) {
             $twig->addExtension( $ext );
         }
-//        $twig->addExtension(new \Symfony\Bridge\Twig\Extension\HttpKernelExtension($this->get('fragment.handler')));
         return new Response($twig->render($retTemplate, $context));
     }
 
@@ -350,14 +348,6 @@ class blogController extends Controller
         return $this->renderTwig($retTemplate,array('Blog' => $this->blogData($user), 'PostDetail' => $PostDetail, 'comments'=>$comment_article,
             'recentComments'=>$this->recentCommentsData($user), 'recentPosts'=>$this->recentPostsData($user), 'form'=>$comment_form->createView()));
 
-
-//        return $this->render('bloggerblogBundle:Blog/Article:Article.html.twig',
-//            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress(),"description" => $user->getBlogDescription(),
-//                "authorEmail" => str_replace("@","%at%", $user->getEmail()),"authorName" => $user->getName(), "authorFamily" => $user->getFamily()),
-//                "article_info" => array("title" => $article->getTitle(),"address" => $article->getAddress(), "date" => $article->getPublishDate(),"body" => $article->getBody(),"comments" => $comment_article),
-//                "sidebar_name1" => "درباره وبلاگ","sidebar_name2" => "مقالات اخیر",//"recent_articles" => $recent_articles,
-//            //"comment_form" => $comment_form->createView()
-//            ));
     }
 
 
