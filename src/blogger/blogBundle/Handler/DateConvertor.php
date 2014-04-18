@@ -1,6 +1,6 @@
 <?php
 
-namespace Hotel\reserveBundle\Handler;
+namespace blogger\blogBundle\Handler;
 
 use CybersExperts\Bundle\JalaliDateBundle\Service\DateConverter;
 use CybersExperts\Bundle\JalaliDateBundle\Service\JalaliDateTime;
@@ -8,7 +8,7 @@ use Symfony\Component\Form\Exception\TransformationFailedException;
 
 /**
  * Class DateConvertor
- * @package Hotel\reserveBundle\Handler
+ * @package blogger\blogBundle\Handler
  */
 class DateConvertor
 {
