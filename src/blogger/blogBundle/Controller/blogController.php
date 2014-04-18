@@ -264,7 +264,7 @@ class blogController extends Controller
         foreach($comments_doc as $singleComment){
             $recent_comments[] = array("name" => (strlen($singleComment->getName())> 50)?mb_substr($singleComment->getName(),0,50, 'UTF-8')." ...":$singleComment->getName(),
                 "address"=>$this->generateUrl('bloggerblog_blogArticle', array('blog_name'=>$user->getBlogAddress(),'article_name' => $singleComment->getArticle()->getAddress())).'#comment'.$singleComment->getId(),
-                "date" => $singleComment->getDate()->format($this->date_format),
+                "date" => $this->get('my_date_convert')->MiladiToShamsi($singleComment->getDate()),
                 "content" => strip_tags((strlen($singleComment->getComment())> 150)?mb_substr($singleComment->getComment(),0,150, 'UTF-8')." ...":$singleComment->getComment()));
         }
         return $recent_comments;
@@ -311,7 +311,7 @@ class blogController extends Controller
             $comment_article_count = count($this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId(),"article" => $singleArticle->getId(),"confirmed" => true)));
             $articles[] = array("article_title" => $singleArticle->getTitle(),
                 "article_address" => $this->generateUrl('bloggerblog_blogArticle', array('blog_name'=>$user->getBlogAddress(),'article_name' => $singleArticle->getAddress())),
-                "article_date" => $singleArticle->getPublishDate()->format($this->date_format),
+                "article_date" => $this->get('my_date_convert')->MiladiToShamsi($singleArticle->getPublishDate()),
                 "article_body" => (strlen($singleArticle->getBody())> 500)?mb_substr($singleArticle->getBody(),0,500, 'UTF-8')." ...":$singleArticle->getBody(),
                 "article_comment_count" => $comment_article_count);
         }
@@ -358,12 +358,13 @@ class blogController extends Controller
                 "id" =>'comment'.$singleComment->getId(),
                 "address" =>$this->generateUrl('bloggerblog_blogArticle', array('blog_name'=>$user->getBlogAddress(),'article_name' => $singleComment->getArticle()->getAddress())).'#comment'.$singleComment->getId(),
                 "name" => $singleComment->getName(),
-                "date" => $singleComment->getDate()->format($this->date_format),
+//                "date" => $singleComment->getDate()->format($this->date_format),
+                "date" => $this->get('my_date_convert')->MiladiToShamsi($singleComment->getDate()),
                 "content" => $singleComment->getComment());
         }
 
 
-        $PostDetail = array("address"=> $article->getAddress(), "title"=>$article->getTitle(), "body"=>$article->getBody(),"date"=>$article->getPublishDate()->format($this->date_format));
+        $PostDetail = array("address"=> $article->getAddress(), "title"=>$article->getTitle(), "body"=>$article->getBody(),"date"=>$this->get('my_date_convert')->MiladiToShamsi($article->getPublishDate()));
 
         $theme = $user->getBlogTemplate();
         $retTemplate = $this->createDetailPost($theme);
