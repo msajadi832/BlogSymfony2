@@ -65,3 +65,8 @@ bloggerblog_blogArticle:
     path:     /{blog_name}/post/{article_name}
 #    host:     "{blog_name}.blog"
     defaults: { _controller: bloggerblogBundle:blog:article }
+#bloggerblog_blogArticle_newComment:
+#    path:     /{blog_name}/post/{article_name}
+#    methods
+##    host:     "{blog_name}.blog"
+#    defaults: { _controller: bloggerblogBundle:blog:article }

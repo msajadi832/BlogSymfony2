@@ -34,6 +34,11 @@ class blogController extends Controller
         return $retTemplate;
     }
 
+    private function replaceText($retTemplate, $search, $replace){
+        $retTemplate = str_replace('<-'.$search.'->',$replace,$retTemplate);
+        return $retTemplate;
+    }
+
     private function replaceStartEndBlock($retTemplate, $search, $replaceStart, $replaceEnd){
         $retTemplate = str_replace('<'.$search.'>',$replaceStart,$retTemplate);
         $retTemplate = str_replace('</'.$search.'>',$replaceEnd,$retTemplate);
@@ -54,7 +59,11 @@ class blogController extends Controller
         return $retTemplate;
     }
 
-    private function createPostList($retTemplate){
+    private function createPostList($retTemplate, $start, $count){
+        $retTemplate = $this->createMainDetails($retTemplate);
+        $retTemplate = $this->recentComments($retTemplate);
+        $retTemplate = $this->recentPosts($retTemplate);
+
         if( (strpos($retTemplate,'<PostList>')) ){
             if((strpos($retTemplate,'</PostList>'))){
                 $retTemplate = $this->hideBlockName($retTemplate, 'PostList');
@@ -72,6 +81,14 @@ class blogController extends Controller
                         $retTemplate = str_replace('<SinglePost>','تگ بسته &lt;SinglePost/&gt; موجود نیست یا اشتباه است',$retTemplate);
                     }
                 }
+                $nextPage = $prevPage = false;
+                if($start < $count){
+                    $nextPage = true;
+                }
+                if($start > 1){
+                    $prevPage = true;
+                }
+                $retTemplate = $this->pagination($retTemplate, 'PostList', $nextPage, $prevPage);
             }else{
                 $retTemplate = str_replace('<PostList>','تگ بسته &lt;PostList/&gt; موجود نیست یا اشتباه است',$retTemplate);
             }
@@ -82,6 +99,10 @@ class blogController extends Controller
     }
 
     private function createDetailPost($retTemplate){
+        $retTemplate = $this->createMainDetails($retTemplate);
+        $retTemplate = $this->recentComments($retTemplate);
+        $retTemplate = $this->recentPosts($retTemplate);
+
         if( (strpos($retTemplate,'<PostDetail>')) ){
             if((strpos($retTemplate,'</PostDetail>'))){
                 $retTemplate = $this->hideBlockName($retTemplate, 'PostDetail');
@@ -112,16 +133,28 @@ class blogController extends Controller
                         $retTemplate = str_replace('<PostDetailComments>','تگ بسته &lt;PostDetailComments/&gt; موجود نیست یا اشتباه است',$retTemplate);
                     }
                 }
+
+                #New Comment For Article Flashbag
+                if(strpos($retTemplate,'<PostDetailNewCommentAlert>')){
+                    if(strpos($retTemplate,'</PostDetailNewCommentAlert>')){
+                        $retTemplate = $this->replaceStartEndBlock($retTemplate, 'PostDetailNewCommentAlert', '{% for flashMessage in app.session.flashbag.get("commentAddSuccess") %}', '{% endfor %}');
+                        $retTemplate = $this->replaceVariable($retTemplate, 'PostDetailNewCommentAlertContent','flashMessage|raw');
+                    }
+                }else{
+                    $retTemplate = str_replace('<PostDetailNewCommentAlert>','تگ بسته &lt;PostDetailNewComment/&gt; موجود نیست یا اشتباه است',$retTemplate);
+                }
+
                 #New Comment For Article
-                $retTemplate = $this->replaceVariable($retTemplate, 'PostDetailNewCommentForm',"form(form)");
-//                $retTemplate = str_replace('<-PostDetailNewCommentForm->','{{ form_start(comment_form) }}
-//                    {{ form_errors(comment_form) }}
-//
-//                    {{ form_row(form.name) }}
-//                    {{ form_row(form.comment) }}
-//
-//                    <input type="submit" />
-//                    {{ form_end(comment_form) }}',$retTemplate);
+                if(strpos($retTemplate,'<PostDetailNewComment>')){
+                    if(strpos($retTemplate,'</PostDetailNewComment>')){
+                        $retTemplate = $this->replaceText($retTemplate, 'PostDetailNewCommentName','name="NewCommentName" required="required"');
+                        $retTemplate = $this->replaceText($retTemplate, 'PostDetailNewCommentContent','name="NewCommentContent" required="required"');
+                    }
+                }else{
+                    $retTemplate = str_replace('<PostDetailNewComment>','تگ بسته &lt;PostDetailNewComment/&gt; موجود نیست یا اشتباه است',$retTemplate);
+                }
+
+
 
                 return $retTemplate;
 
@@ -202,15 +235,15 @@ class blogController extends Controller
         return $retTemplate;
     }
 
-    private function CreateTemplate($retTemplate, $isHomePage = False){
-        $retTemplate = $this->createMainDetails($retTemplate);
-        $retTemplate = ($isHomePage)?$this->createPostList($retTemplate):$this->createDetailPost($retTemplate);
-
-        $retTemplate = $this->recentComments($retTemplate);
-        $retTemplate = $this->recentPosts($retTemplate);
-
-        return $retTemplate;
-    }
+//    private function CreateTemplate($retTemplate, $isHomePage = False){
+//        $retTemplate = $this->createMainDetails($retTemplate);
+////        $retTemplate = ($isHomePage)?$this->createPostList($retTemplate):$this->createDetailPost($retTemplate);
+//
+//        $retTemplate = $this->recentComments($retTemplate);
+//        $retTemplate = $this->recentPosts($retTemplate);
+//
+//        return $retTemplate;
+//    }
 
     private function renderTwig($retTemplate, array $context = array()){
         $twig = new \Twig_Environment(new \Twig_Loader_String());
@@ -287,17 +320,10 @@ class blogController extends Controller
 
         $pagination = array("next"=>$this->generateUrl('bloggerblog_blogHomepage',array('blog_name'=> $user->getBlogAddress(),'start'=> $start+1)),
                             "prev"=>$this->generateUrl('bloggerblog_blogHomepage',array('blog_name'=> $user->getBlogAddress(),'start'=> $start-1)));
-        $nextPage = $prevPage = false;
-        if($start < $count){
-            $nextPage = true;
-        }
-        if($start > 1){
-            $prevPage = true;
-        }
+
 
         $theme = $user->getBlogTemplate();
-        $retTemplate = $this->CreateTemplate($theme, True);
-        $retTemplate = $this->pagination($retTemplate, 'PostList', $nextPage, $prevPage);
+        $retTemplate = $this->createPostList($theme, $start, $count);
 
         return $this->renderTwig($retTemplate,array('Blog' => $this->blogData($user), 'posts' => $articles, 'PostListPagination'=>$pagination,
             'recentComments'=>$this->recentCommentsData($user), 'recentPosts'=>$this->recentPostsData($user)));
@@ -305,9 +331,26 @@ class blogController extends Controller
 
     public function articleAction($blog_name,$article_name, Request $request)
     {
+        $params = $request->request->all();
         $user = $this->getDoctrine()->getRepository('bloggerblogBundle:User') ->findOneBy(array('blogAddress' => $blog_name));
         $articleRepo = $this->getDoctrine() ->getRepository('bloggerblogBundle:Article');
         $article = $articleRepo->findOneBy(array("user" => $user->getId(),"address" => $article_name));
+
+        if($params != []){
+            $comment = new Comment();
+            $comment->setArticle($article);
+            $comment->setUser($user);
+            $comment->setDate(new \DateTime());
+            $comment->setConfirmed(false);
+            $comment->setName($params['NewCommentName']);
+            $comment->setComment($params['NewCommentContent']);
+//            return new Response("data is: NewCommentName=" .$params['NewCommentName']. "  NewCommentContent=".$params['NewCommentContent']);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($comment);
+            $em->flush();
+            $this->get('session')->getFlashBag()->add('commentAddSuccess', '<h4>نظر شما با موفقیت ثبت شد! </h4>نظر شما بعد از تایید نمایش داده خواهد شد.');
+        }
+
         $comments = $this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId(),"article" => $article->getId(),"confirmed" => true),array("date" => 'DESC',"id" => 'DESC'));
         $comment_article = array();
         foreach($comments as $singleComment){
@@ -319,34 +362,14 @@ class blogController extends Controller
                 "content" => $singleComment->getComment());
         }
 
-        $comment = new Comment();
-        $comment->setArticle($article);
-        $comment->setUser($user);
-        $comment->setDate(new \DateTime());
-        $comment->setConfirmed(false);
-        $comment_form = $this->createFormBuilder($comment)
-            ->add('name','text',array('label'  => 'نام', 'attr' => array('style' => 'height:25px')))
-            ->add('comment','textarea',array('label'  => 'نظر', 'attr' => array('class' => "ckeditor")))
-//            ->add('submit', 'submit', array('label'  => 'ثبت نظر'))
-            ->getForm();
-
-        $comment_form->handleRequest($request);
-
-        if ($comment_form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($comment);
-            $em->flush();
-            $this->get('session')->getFlashBag()->add('commentAddSuccess', '<h4>نظر شما با موفقیت ثبت شد! </h4>نظر شما بعد از تایید نمایش داده خواهد شد.');
-            return $this->redirect($this->generateUrl('bloggerblog_blogArticle',array('article_name' => $article_name,'blog_name' => $blog_name)));
-        }
 
         $PostDetail = array("address"=> $article->getAddress(), "title"=>$article->getTitle(), "body"=>$article->getBody(),"date"=>$article->getPublishDate()->format($this->date_format));
 
         $theme = $user->getBlogTemplate();
-        $retTemplate = $this->CreateTemplate($theme, False);
+        $retTemplate = $this->createDetailPost($theme);
 
         return $this->renderTwig($retTemplate,array('Blog' => $this->blogData($user), 'PostDetail' => $PostDetail, 'comments'=>$comment_article,
-            'recentComments'=>$this->recentCommentsData($user), 'recentPosts'=>$this->recentPostsData($user), 'form'=>$comment_form->createView()));
+            'recentComments'=>$this->recentCommentsData($user), 'recentPosts'=>$this->recentPostsData($user)));
 
     }
 

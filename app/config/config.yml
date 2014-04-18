@@ -25,6 +25,9 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    globals:
+        DateConvert: "@my_date_convert"
+
 
 # Assetic Configuration
 assetic:

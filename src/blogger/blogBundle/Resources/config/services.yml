@@ -15,3 +15,6 @@ services:
 #    bloggerblog.example:
 #        class: %bloggerblog.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+  my_date_convert:
+      class: Hotel\reserveBundle\Handler\DateConvertor
+      arguments: [@ce.jalali_date.date_converter,@ce.jalali_date.date_time]

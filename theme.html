@@ -91,7 +91,19 @@
                         <hr size =1 color =#E8E8E8 style="background-color:#cfd7ff;margin-bottom:5px;margin-top:5px">
                     </SinglePostComment>
                 </PostDetailComments>
-                <-PostDetailNewCommentForm->
+                <PostDetailNewCommentAlert>
+                    <div class="post" style="background-color: #aaffaa">
+                        <-PostDetailNewCommentAlertContent->
+                    </div>
+                </PostDetailNewCommentAlert>
+                <PostDetailNewComment>
+                    <form method="post">
+                        <label for="inputName">name: <input <-PostDetailNewCommentName-> id="inputName" type="text"></label>
+                        <label for="inputComment">Comment:</label>
+                        <textarea <-PostDetailNewCommentContent-> id="inputComment"></textarea>
+                        <input type="submit" value="ثبت نظر">
+                    </form>
+                </PostDetailNewComment>
             </div>
         </PostDetail>
         <!-- end content -->
