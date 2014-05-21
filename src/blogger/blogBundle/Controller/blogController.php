@@ -11,7 +11,6 @@ use Symfony\Component\HttpFoundation\Response;
 class blogController extends Controller
 {
     private $num_list_blog = 2;
-    private $date_format = 'Y/m/d';
 
 
     private function hideBlock($retTemplate, $name){
@@ -24,7 +23,6 @@ class blogController extends Controller
             $lenContinue = strlen($end) + ($endPlace - $beginPlace);
             $retTemplate = substr_replace($retTemplate,'',$beginPlace,$lenContinue);
         }
-//        $retTemplate = "begin: ".$beginPlace." , End: ".$endPlace;
 
         return $retTemplate;
     }
@@ -358,7 +356,6 @@ class blogController extends Controller
                 "id" =>'comment'.$singleComment->getId(),
                 "address" =>$this->generateUrl('bloggerblog_blogArticle', array('blog_name'=>$user->getBlogAddress(),'article_name' => $singleComment->getArticle()->getAddress())).'#comment'.$singleComment->getId(),
                 "name" => $singleComment->getName(),
-//                "date" => $singleComment->getDate()->format($this->date_format),
                 "date" => $this->get('my_date_convert')->MiladiToShamsi($singleComment->getDate()),
                 "content" => $singleComment->getComment());
         }
