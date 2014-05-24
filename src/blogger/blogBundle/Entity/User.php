@@ -9,7 +9,7 @@
 namespace blogger\blogBundle\Entity;
 
 
-use FOS\UserBundle\Entity\User as BaseUser;
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -66,7 +66,6 @@ class User extends BaseUser{
         $this->articles = new ArrayCollection();
         $this->comments = new ArrayCollection();
         $this->roles = array('ROLE_USER');
-        $this->blogTemplate = "dgfg";
         // your own logic
     }
 
