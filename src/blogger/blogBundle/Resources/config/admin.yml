@@ -1,4 +1,4 @@
-bloggerblog_blogAdmin:
+bloggerblog_blogAdmin_index:
     path:     /
     defaults: { _controller: bloggerblogBundle:adminBlog:dashboard}
 

@@ -2,6 +2,7 @@
 
 namespace blogger\blogBundle\Controller;
 
+use blogger\blogBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
 
@@ -20,12 +21,24 @@ class DefaultController extends Controller
     }
 
     public function showBlogListAction($start){
-        $count = ceil(count($this->getDoctrine()->getRepository('bloggerblogBundle:User')->findAll())/$this->num_list);
+        $em = $this->getDoctrine()->getEntityManager();
+        $blog_list_base = $em->createQueryBuilder()
+            ->select('user')
+            ->from('bloggerblogBundle:User','user')
+            ->where('user.username <> :admin')
+            ->setParameter('admin','admin')
+            ->orderBy('user.id','DESC')
+            ->setFirstResult(($start-1)*$this->num_list)
+            ->setMaxResults($this->num_list)
+            ->getQuery()->getResult();
 
-        $blog_list_base = $this->getDoctrine()->getRepository('bloggerblogBundle:User')->findBy(array(),array("id" => 'DESC'),$this->num_list,($start-1)*$this->num_list);
+        $count = ceil((count($this->getDoctrine()->getRepository('bloggerblogBundle:User')->findAll())-1)/$this->num_list);
+
+//        $blog_list_base = $this->getDoctrine()->getRepository('bloggerblogBundle:User')->findBy(array(),array("id" => 'DESC'),$this->num_list,($start-1)*$this->num_list);
         $blog_list = array();
+        /** @var $singleBlog User */
         foreach($blog_list_base as $singleBlog){
-            $blog_list[] = array("blog_address" => $singleBlog->getBlogAddress(),"blog_name" =>$singleBlog->getBlogName(),
+            $blog_list[] = array("blog_address" => $singleBlog->getUsername(),"blog_name" =>$singleBlog->getBlogName(),
                 "blog_description" => $singleBlog->getBlogDescription());
         }
         return $this->render('bloggerblogBundle:Default:showBlogList.html.twig',

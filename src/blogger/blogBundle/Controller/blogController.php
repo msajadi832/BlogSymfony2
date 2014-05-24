@@ -7,6 +7,7 @@ use blogger\blogBundle\Entity\Comment;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class blogController extends Controller
 {
@@ -291,6 +292,9 @@ class blogController extends Controller
     public function blogAction($blog_name,$start)
     {
         $user = $this->getDoctrine()->getRepository('bloggerblogBundle:User') ->findOneBy(array('username' => $blog_name));
+//        $user->getr
+        if(!$user)
+            throw $this->createNotFoundException('صفحه مورد نظر پیدا نشد');
 
         $article = $this->getDoctrine()->getRepository('bloggerblogBundle:Article');
         $qb = $article->createQueryBuilder('a')
@@ -315,10 +319,8 @@ class blogController extends Controller
         }
 
 
-
         $pagination = array("next"=>$this->generateUrl('bloggerblog_blogHomepage',array('blog_name'=> $user->getUsername(),'start'=> $start+1)),
                             "prev"=>$this->generateUrl('bloggerblog_blogHomepage',array('blog_name'=> $user->getUsername(),'start'=> $start-1)));
-
 
         $theme = $user->getBlogTemplate();
         $retTemplate = $this->createPostList($theme, $start, $count);

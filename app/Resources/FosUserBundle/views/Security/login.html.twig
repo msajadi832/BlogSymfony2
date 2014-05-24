@@ -5,12 +5,16 @@
     </div>
 {% endif %}
     <div>
-        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-            <a href="{{ path('fos_user_security_logout') }}">
-                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-            </a>
-        {% else %}
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED")  %}
+            با نام کاربری زیر وارد شده اید:
+            <br />{{ app.user.username }}<br />
+            {% if "ROLE_ADMIN" not in app.user.roles %}
+                <a href="{{ path('bloggerblog_blogAdmin_index') }}">مدیریت وبلاگ</a> |
+            {% else %}
+                <a href="{{ path('bloggerblog_blog_masterAdmin_index') }}">مدیریت سیستم وبلاگ</a> |
+            {% endif %}
+            <a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
+        {% endif %}
             <form action="{{ path("fos_user_security_check") }}" method="post">
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
@@ -25,8 +29,8 @@
                     {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
                 </label>
 
-                <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+                <input type="submit" class="btn" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
             </form>
             <a href="{{ path("fos_user_resetting_request") }}">کلمه عبور را فراموش کرده ام</a>
-        {% endif %}
+
     </div>
