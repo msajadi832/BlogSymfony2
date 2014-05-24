@@ -19,7 +19,7 @@
         "sensio/framework-extra-bundle": "2.3.*",
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
-        "friendsofsymfony/user-bundle": "v1.3.3",
+        "friendsofsymfony/user-bundle": "~2.0@dev",
         "ce/jalali-date-bundle": "dev-master"
     },
     "scripts": {

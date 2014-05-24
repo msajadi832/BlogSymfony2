@@ -2,19 +2,25 @@ parameters:
 #    bloggerblog.example.class: blogger\blogBundle\Example
 
 services:
-  acme_blog.registration.form.type:
-      class: blogger\blogBundle\Form\RegistrationFormType
-      arguments: [%fos_user.model.user.class%]
-      tags:
-          - { name: form.type, alias: blog_user_registration }
+    acme_blog.registration.form.type:
+        class: blogger\blogBundle\Form\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: blog_user_registration }
 
-  authentication_handler:
-      class: blogger\blogBundle\Handler\AuthenticationHandler
-      arguments: [@router, @security.context]
+    authentication_handler:
+        class: blogger\blogBundle\Handler\AuthenticationHandler
+        arguments: [@router, @security.context]
 
 #    bloggerblog.example:
 #        class: %bloggerblog.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
-  my_date_convert:
-      class: blogger\blogBundle\Handler\DateConvertor
-      arguments: [@ce.jalali_date.date_converter,@ce.jalali_date.date_time]
+    my_date_convert:
+        class: blogger\blogBundle\Handler\DateConvertor
+        arguments: [@ce.jalali_date.date_converter,@ce.jalali_date.date_time]
+
+    event_on_fos:
+        class: blogger\blogBundle\EventListener\RegisterListener
+        arguments: [@doctrine.orm.default_entity_manager]
+        tags:
+            - { name: kernel.event_subscriber }
