@@ -11,12 +11,12 @@ class RegistrationFormType extends BaseType
     {
         parent::buildForm($builder, $options);
         $builder
-            ->add('blogAddress',null,array('label'=>"آدرس وبلاگ:",
+            ->add('username', null ,array('label'=>"آدرس وبلاگ (نام کاربری):",
                 'constraints' => array(
                     new NotBlank(),
                     new NotEqualTo(array('value' => 'admin', 'message' => 'آدرس وبلاگ نباید مقادیر admin و page باشد.')),
                     new NotEqualTo(array('value' => 'page', 'message' => 'آدرس وبلاگ نباید مقادیر admin و page باشد.')),
-            )))
+                )))
             ->add('blogName',null,array('label'=>"عنوان وبلاگ:"))
             ->add('blogDescription',null,array('label'=>"درباره وبلاگ:", "attr" => array('style' => "width:100%;min-width:100%;max-width:100%;")))
         ;

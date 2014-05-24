@@ -1,0 +1,43 @@
+bloggerblog_blogAdmin:
+    path:     /
+    defaults: { _controller: bloggerblogBundle:adminBlog:dashboard}
+
+bloggerblog_blogShowAdmin:
+    path:     /showArticles
+    defaults: { _controller: bloggerblogBundle:adminBlog:dashboard}
+
+bloggerblog_blogAdminAddArticle:
+    path:     /addArticle
+    defaults: { _controller: bloggerblogBundle:adminBlog:addArticle}
+
+bloggerblog_blogAdminShowRecentArticles:
+    path:     /showRecentArticles/{start}
+    defaults: { _controller: bloggerblogBundle:adminBlog:showRecentArticles,start : 1}
+
+bloggerblog_blogAdminRemoveArticle:
+    path:     /removeArticle/{address}
+    defaults: { _controller: bloggerblogBundle:adminBlog:removeArticle}
+
+bloggerblog_blogAdminEditArticle:
+    path:     /editArticle/{address}
+    defaults: { _controller: bloggerblogBundle:adminBlog:editArticle}
+
+bloggerblog_blogAdminShowRecentComments:
+    path:     /showRecentComments/{articleId}/{start}
+    defaults: { _controller: bloggerblogBundle:adminBlog:showRecentComments,start : 1}
+
+bloggerblog_blogAdminRemoveComment:
+    path:     /removeComment/{id}/{articleId}
+    defaults: { _controller: bloggerblogBundle:adminBlog:removeComment}
+
+bloggerblog_blogAdminApproveComment:
+    path:     /approveComment/{id}/{articleId}
+    defaults: { _controller: bloggerblogBundle:adminBlog:approveComment}
+
+bloggerblog_blogAdminEditProfile:
+    path:     /editProfile/
+    defaults: { _controller: bloggerblogBundle:adminBlog:editProfile}
+
+bloggerblog_blogAdminEditComment:
+    path:     /editComment/{id}/{articleId}
+    defaults: { _controller: bloggerblogBundle:adminBlog:editComment}

@@ -12,12 +12,10 @@ namespace blogger\blogBundle\Entity;
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
- * @UniqueEntity(fields="blogAddress", message="این آدرس قبلا استفاده شده است.")
  */
 class User extends BaseUser{
     /**
@@ -31,11 +29,6 @@ class User extends BaseUser{
      * @ORM\Column(type="string", length=100)
      */
     protected $blogName;
-
-    /**
-     * @ORM\Column(type="string", length=100, unique=true)
-     */
-    protected $blogAddress;
 
     /**
      * @ORM\Column(type="text")
@@ -73,6 +66,7 @@ class User extends BaseUser{
         $this->articles = new ArrayCollection();
         $this->comments = new ArrayCollection();
         $this->roles = array('ROLE_USER');
+        $this->blogTemplate = "dgfg";
         // your own logic
     }
 
@@ -140,29 +134,6 @@ class User extends BaseUser{
     public function getArticles()
     {
         return $this->articles;
-    }
-
-    /**
-     * Set blogAddress
-     *
-     * @param string $blogAddress
-     * @return User
-     */
-    public function setBlogAddress($blogAddress)
-    {
-        $this->blogAddress = $blogAddress;
-    
-        return $this;
-    }
-
-    /**
-     * Get blogAddress
-     *
-     * @return string 
-     */
-    public function getBlogAddress()
-    {
-        return $this->blogAddress;
     }
 
     /**

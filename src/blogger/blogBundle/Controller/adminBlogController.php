@@ -26,7 +26,7 @@ class adminBlogController extends Controller
                 "articleAddress" => $article_comment->getAddress());
         }
         return $this->render('bloggerblogBundle:AdminBlog:dashboard.html.twig',
-            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress()),
+            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getUsername()),
             'comments' => $comments));
 
     }
@@ -53,7 +53,7 @@ class adminBlogController extends Controller
             $this->get('session')->getFlashBag()->add('adminSuccess', 'مطلب '.$article->getTitle().' با موفقیت ثبت شد.');
         }
         return $this->render('bloggerblogBundle:AdminBlog:addArticle.html.twig',
-            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress()),
+            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getUsername()),
                 "article_form" => $article_form->createView()));
     }
 
@@ -75,7 +75,7 @@ class adminBlogController extends Controller
                 "article_date" => $singleArticle->getPublishDate(), "article_comment_count" => $singleArticle->getComments()->count());
         }
         return $this->render('bloggerblogBundle:AdminBlog:showRecentArticles.html.twig',
-            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress())
+            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getUsername())
             ,"articles" => $articles,"pagination" =>array("current" => $start ,"count" => $count)));
 
     }
@@ -135,7 +135,7 @@ class adminBlogController extends Controller
             $this->get('session')->getFlashBag()->add('adminSuccess', 'مطلب '.$article->getTitle().' با موفقیت ویرایش شد.');
         }
         return $this->render('bloggerblogBundle:AdminBlog:editArticle.html.twig',
-            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress()),
+            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getUsername()),
                 "article_form" => $article_form->createView()));
     }
 
@@ -164,7 +164,7 @@ class adminBlogController extends Controller
                 "articleAddress" => $article_comment->getAddress());
         }
         return $this->render('bloggerblogBundle:AdminBlog:showRecentComments.html.twig',
-            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress()),
+            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getUsername()),
                 'comments' => $comments,'showType' => $articleId,"pagination" =>array("current" => $start ,"count" => $count)));
     }
 
@@ -202,7 +202,7 @@ class adminBlogController extends Controller
             $this->get('session')->getFlashBag()->add('adminSuccess', 'پروفایل با موفقیت ویرایش شد.');
         }
         return $this->render('bloggerblogBundle:AdminBlog:editProfile.html.twig',
-            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress()),
+            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getUsername()),
                 "user_form" => $user_form->createView()));
     }
 
@@ -229,7 +229,7 @@ class adminBlogController extends Controller
             return $this->redirect($this->generateUrl('bloggerblog_blogAdminShowRecentComments',array('articleId' => 'all')));
         }
         return $this->render('bloggerblogBundle:AdminBlog:editComment.html.twig',
-            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getBlogAddress()),
+            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getUsername()),
                 "comment_form" => $comment_form->createView(), "comment_name" => $comment->getName(),
                 "articleId" => $articleId));
     }

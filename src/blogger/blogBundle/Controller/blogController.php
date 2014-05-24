@@ -252,7 +252,7 @@ class blogController extends Controller
     }
 
     private function blogData($user){
-        return array("address"=>$this->generateUrl('bloggerblog_blogHomepage',array('blog_name'=>$user->getBlogAddress())), "name"=>$user->getBlogName(), "email"=>str_replace("@"," (at) ", $user->getEmail()),
+        return array("address"=>$this->generateUrl('bloggerblog_blogHomepage',array('blog_name'=>$user->getUsername())), "name"=>$user->getBlogName(), "email"=>str_replace("@"," (at) ", $user->getEmail()),
             "about"=>$user->getBlogDescription());
     }
 
@@ -261,7 +261,7 @@ class blogController extends Controller
         $recent_comments = array();
         foreach($comments_doc as $singleComment){
             $recent_comments[] = array("name" => (strlen($singleComment->getName())> 50)?mb_substr($singleComment->getName(),0,50, 'UTF-8')." ...":$singleComment->getName(),
-                "address"=>$this->generateUrl('bloggerblog_blogArticle', array('blog_name'=>$user->getBlogAddress(),'article_name' => $singleComment->getArticle()->getAddress())).'#comment'.$singleComment->getId(),
+                "address"=>$this->generateUrl('bloggerblog_blogArticle', array('blog_name'=>$user->getUsername(),'article_name' => $singleComment->getArticle()->getAddress())).'#comment'.$singleComment->getId(),
                 "date" => $this->get('my_date_convert')->MiladiToShamsi($singleComment->getDate()),
                 "content" => strip_tags((strlen($singleComment->getComment())> 150)?mb_substr($singleComment->getComment(),0,150, 'UTF-8')." ...":$singleComment->getComment()));
         }
@@ -283,14 +283,14 @@ class blogController extends Controller
         $recent_articles = array();
         foreach($articlesa as $singleArticle){
             $recent_articles[] = array("title" => $singleArticle->getTitle(),
-                "address" => $this->generateUrl('bloggerblog_blogArticle', array('blog_name'=>$user->getBlogAddress(),'article_name' => $singleArticle->getAddress())));
+                "address" => $this->generateUrl('bloggerblog_blogArticle', array('blog_name'=>$user->getUsername(),'article_name' => $singleArticle->getAddress())));
         }
         return $recent_articles;
     }
 
     public function blogAction($blog_name,$start)
     {
-        $user = $this->getDoctrine()->getRepository('bloggerblogBundle:User') ->findOneBy(array('blogAddress' => $blog_name));
+        $user = $this->getDoctrine()->getRepository('bloggerblogBundle:User') ->findOneBy(array('username' => $blog_name));
 
         $article = $this->getDoctrine()->getRepository('bloggerblogBundle:Article');
         $qb = $article->createQueryBuilder('a')
@@ -308,7 +308,7 @@ class blogController extends Controller
         foreach($articlesa as $singleArticle){
             $comment_article_count = count($this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId(),"article" => $singleArticle->getId(),"confirmed" => true)));
             $articles[] = array("article_title" => $singleArticle->getTitle(),
-                "article_address" => $this->generateUrl('bloggerblog_blogArticle', array('blog_name'=>$user->getBlogAddress(),'article_name' => $singleArticle->getAddress())),
+                "article_address" => $this->generateUrl('bloggerblog_blogArticle', array('blog_name'=>$user->getUsername(),'article_name' => $singleArticle->getAddress())),
                 "article_date" => $this->get('my_date_convert')->MiladiToShamsi($singleArticle->getPublishDate()),
                 "article_body" => (strlen($singleArticle->getBody())> 500)?mb_substr($singleArticle->getBody(),0,500, 'UTF-8')." ...":$singleArticle->getBody(),
                 "article_comment_count" => $comment_article_count);
@@ -316,8 +316,8 @@ class blogController extends Controller
 
 
 
-        $pagination = array("next"=>$this->generateUrl('bloggerblog_blogHomepage',array('blog_name'=> $user->getBlogAddress(),'start'=> $start+1)),
-                            "prev"=>$this->generateUrl('bloggerblog_blogHomepage',array('blog_name'=> $user->getBlogAddress(),'start'=> $start-1)));
+        $pagination = array("next"=>$this->generateUrl('bloggerblog_blogHomepage',array('blog_name'=> $user->getUsername(),'start'=> $start+1)),
+                            "prev"=>$this->generateUrl('bloggerblog_blogHomepage',array('blog_name'=> $user->getUsername(),'start'=> $start-1)));
 
 
         $theme = $user->getBlogTemplate();
@@ -330,7 +330,7 @@ class blogController extends Controller
     public function articleAction($blog_name,$article_name, Request $request)
     {
         $params = $request->request->all();
-        $user = $this->getDoctrine()->getRepository('bloggerblogBundle:User') ->findOneBy(array('blogAddress' => $blog_name));
+        $user = $this->getDoctrine()->getRepository('bloggerblogBundle:User') ->findOneBy(array('username' => $blog_name));
         $articleRepo = $this->getDoctrine() ->getRepository('bloggerblogBundle:Article');
         $article = $articleRepo->findOneBy(array("user" => $user->getId(),"address" => $article_name));
 
@@ -354,7 +354,7 @@ class blogController extends Controller
         foreach($comments as $singleComment){
             $comment_article[] = array(
                 "id" =>'comment'.$singleComment->getId(),
-                "address" =>$this->generateUrl('bloggerblog_blogArticle', array('blog_name'=>$user->getBlogAddress(),'article_name' => $singleComment->getArticle()->getAddress())).'#comment'.$singleComment->getId(),
+                "address" =>$this->generateUrl('bloggerblog_blogArticle', array('blog_name'=>$user->getUsername(),'article_name' => $singleComment->getArticle()->getAddress())).'#comment'.$singleComment->getId(),
                 "name" => $singleComment->getName(),
                 "date" => $this->get('my_date_convert')->MiladiToShamsi($singleComment->getDate()),
                 "content" => $singleComment->getComment());

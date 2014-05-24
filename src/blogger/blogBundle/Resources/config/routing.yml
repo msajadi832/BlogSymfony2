@@ -1,9 +1,11 @@
 bloggerblog_homepage:
     path:     /
     defaults: { _controller: bloggerblogBundle:Default:index}
-bloggerblog_login:
-    path:     /page/login
-    defaults: { _controller: bloggerblogBundle:Default:login}
+
+bloggerblog_page:
+    resource: "@bloggerblogBundle/Resources/config/page.yml"
+    prefix: /page
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
@@ -11,61 +13,20 @@ fos_user_security:
 #    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
 #    prefix: /profile
 
-fos_user_register:
-    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
-    prefix: /page/register
+bloggerblog_blogAdmin_rout:
+    resource: "@bloggerblogBundle/Resources/config/admin.yml"
+    prefix: /admin
 
-fos_user_resetting:
-    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
-    prefix: /page/resetting
-
-fos_user_change_password:
-    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-    prefix: /page/profile
-bloggerblog_blogSuperAdmin:
-    path:     /admin/showArticles
-    defaults: { _controller: bloggerblogBundle:adminBlog:dashboard}
-bloggerblog_blogAdmin:
-    path:     /admin/
-    defaults: { _controller: bloggerblogBundle:adminBlog:dashboard}
-bloggerblog_blogAdminAddArticle:
-    path:     /admin/addArticle
-    defaults: { _controller: bloggerblogBundle:adminBlog:addArticle}
-bloggerblog_blogAdminShowRecentArticles:
-    path:     /admin/showRecentArticles/{start}
-    defaults: { _controller: bloggerblogBundle:adminBlog:showRecentArticles,start : 1}
-bloggerblog_blogAdminRemoveArticle:
-    path:     /admin/removeArticle/{address}
-    defaults: { _controller: bloggerblogBundle:adminBlog:removeArticle}
-bloggerblog_blogAdminEditArticle:
-    path:     /admin/editArticle/{address}
-    defaults: { _controller: bloggerblogBundle:adminBlog:editArticle}
-bloggerblog_blogAdminShowRecentComments:
-    path:     /admin/showRecentComments/{articleId}/{start}
-    defaults: { _controller: bloggerblogBundle:adminBlog:showRecentComments,start : 1}
-bloggerblog_blogAdminRemoveComment:
-    path:     /admin/removeComment/{id}/{articleId}
-    defaults: { _controller: bloggerblogBundle:adminBlog:removeComment}
-bloggerblog_blogAdminApproveComment:
-    path:     /admin/approveComment/{id}/{articleId}
-    defaults: { _controller: bloggerblogBundle:adminBlog:approveComment}
-bloggerblog_blogAdminEditProfile:
-    path:     /admin/editProfile/
-    defaults: { _controller: bloggerblogBundle:adminBlog:editProfile}
-bloggerblog_blogAdminEditComment:
-    path:     /admin/editComment/{id}/{articleId}
-    defaults: { _controller: bloggerblogBundle:adminBlog:editComment}
-bloggerblog_showBlogList:
-    path:     /page/showBlogList/{start}
-    defaults: { _controller: bloggerblogBundle:Default:showBlogList,start : 1}
 bloggerblog_blogHomepage:
     path:     /{blog_name}/{start}
 #    host:     "{blog_name}.blog"
     defaults: { _controller: bloggerblogBundle:blog:blog,start : 1}
+
 bloggerblog_blogArticle:
     path:     /{blog_name}/post/{article_name}
 #    host:     "{blog_name}.blog"
     defaults: { _controller: bloggerblogBundle:blog:article }
+
 #bloggerblog_blogArticle_newComment:
 #    path:     /{blog_name}/post/{article_name}
 #    methods
