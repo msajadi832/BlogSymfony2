@@ -11,7 +11,6 @@ namespace blogger\blogBundle\Handler;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
@@ -49,4 +48,4 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface
 //        return new Response("Error");
     }
 
-} 
+}

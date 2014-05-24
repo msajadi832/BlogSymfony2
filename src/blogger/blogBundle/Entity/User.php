@@ -38,22 +38,22 @@ class User extends BaseUser{
     protected $blogAddress;
 
     /**
-     * @ORM\Column(type="text",nullable=true)
+     * @ORM\Column(type="text")
      */
     protected $blogDescription;
 
     /**
-     * @ORM\Column(type="text",nullable=true)
+     * @ORM\Column(type="text")
      */
     protected $blogTemplate;
 
     /**
-     * @ORM\Column(type="string", length=100,nullable=true)
+     * @ORM\Column(type="string", length=100, nullable=true)
      */
     protected $name;
 
     /**
-     * @ORM\Column(type="string", length=100,nullable=true)
+     * @ORM\Column(type="string", length=100, nullable=true)
      */
     protected $family;
 

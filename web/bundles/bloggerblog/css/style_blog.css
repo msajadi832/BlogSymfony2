@@ -2,6 +2,10 @@ body{
     direction: rtl;
     font-family: Tahoma, "Times New Roman",serif;
 }
+
+input{
+    height: 30px !important;
+}
 img{
     border-radius: 3px;
     margin: 10px;

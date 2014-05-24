@@ -2,25 +2,26 @@ bloggerblog_homepage:
     path:     /
     defaults: { _controller: bloggerblogBundle:Default:index}
 bloggerblog_login:
-    path:     /login
+    path:     /page/login
     defaults: { _controller: bloggerblogBundle:Default:login}
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
-fos_user_profile:
-    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
-    prefix: /profile
+#fos_user_profile:
+#    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+#    prefix: /profile
 
 fos_user_register:
     resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
-    prefix: /register
+    prefix: /page/register
 
 fos_user_resetting:
     resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
-    prefix: /resetting
+    prefix: /page/resetting
+
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-    prefix: /profile
+    prefix: /page/profile
 bloggerblog_blogSuperAdmin:
     path:     /admin/showArticles
     defaults: { _controller: bloggerblogBundle:adminBlog:dashboard}
@@ -55,7 +56,7 @@ bloggerblog_blogAdminEditComment:
     path:     /admin/editComment/{id}/{articleId}
     defaults: { _controller: bloggerblogBundle:adminBlog:editComment}
 bloggerblog_showBlogList:
-    path:     /showBlogList/{start}
+    path:     /page/showBlogList/{start}
     defaults: { _controller: bloggerblogBundle:Default:showBlogList,start : 1}
 bloggerblog_blogHomepage:
     path:     /{blog_name}/{start}
