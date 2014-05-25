@@ -21,6 +21,6 @@ services:
 
     event_on_fos:
         class: blogger\blogBundle\EventListener\RegisterListener
-        arguments: [@doctrine.orm.default_entity_manager]
+        arguments: [@doctrine.orm.default_entity_manager, @router]
         tags:
             - { name: kernel.event_subscriber }

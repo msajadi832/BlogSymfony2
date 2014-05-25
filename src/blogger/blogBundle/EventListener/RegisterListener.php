@@ -3,10 +3,12 @@ namespace blogger\blogBundle\EventListener;
 
 use blogger\blogBundle\Entity\User;
 use Doctrine\ORM\EntityManager;
+use FOS\UserBundle\Event\FilterUserResponseEvent;
 use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\FOSUserEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * Listener responsible to change the redirection at the end of the password resetting
@@ -14,10 +16,12 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 class RegisterListener implements EventSubscriberInterface
 {
     private $em;
+    private $router;
 
-    public function __construct(EntityManager $em)
+    public function __construct(EntityManager $em, UrlGeneratorInterface $router)
     {
         $this->em = $em;
+        $this->router = $router;
     }
 
     /**
@@ -27,6 +31,7 @@ class RegisterListener implements EventSubscriberInterface
     {
         return array(
             FOSUserEvents::REGISTRATION_INITIALIZE => 'onRegister',
+            FOSUserEvents::REGISTRATION_COMPLETED => 'onRegisterCompleted',
         );
     }
 
@@ -37,5 +42,11 @@ class RegisterListener implements EventSubscriberInterface
         /** @var User $user */
         $user = $event->getUser();
         $user->setBlogTemplate($admin->getBlogTemplate());
+    }
+
+    public function onRegisterCompleted(FilterUserResponseEvent $response)
+    {
+        $url = $this->router->generate('bloggerblog_blogAdmin_index');
+        $response->getResponse()->headers->set('Location',$url);
     }
 }

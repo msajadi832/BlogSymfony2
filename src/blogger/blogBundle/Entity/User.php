@@ -65,7 +65,7 @@ class User extends BaseUser{
         parent::__construct();
         $this->articles = new ArrayCollection();
         $this->comments = new ArrayCollection();
-        $this->roles = array('ROLE_USER');
+        $this->roles = array('ROLE_BLOGGER');
         // your own logic
     }
 
