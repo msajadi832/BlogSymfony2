@@ -1,4 +1,14 @@
 {% extends "bloggerblogBundle:MasterAdminBlog:AdminBlogBase.html.twig" %}
+{% block head_page %}
+    <script type="text/javascript">
+        function removeBlog(address ,blogName){
+            result = confirm("آیا واقعا می خواهید وبلاک زیر را حذف کنید\n"+blogName);
+            if(result){
+                window.location.assign("{{ path('bloggerblog_blog_masterAdmin_blogRemove',{'blog':"-"})|slice(0,-1) }}"+address);
+            }
+        }
+    </script>
+{% endblock %}
 {% block content %}
     <div class="headers_wrapper">فهرست وبلاگ ها</div>
     <div class="content_in">
@@ -16,7 +26,9 @@
                         <td><a href="{{ path('bloggerblog_blog_masterAdmin_blogActive', {'blog' : blog.username}) }}" class="btn btn-warning">غیر فعال کردن</a></td>
                     {% else %}
                         <td><a href="{{ path('bloggerblog_blog_masterAdmin_blogActive', {'blog' : blog.username}) }}" class="btn btn-success">فعال کردن</a>
-                            <a href="#" class="btn btn-danger">حذف کردن</a></td>
+                            <div onclick="removeBlog('{{ blog.username }}','{{ blog.blogName }}')" class="btn btn-danger"  title="حذف وبلاگ">حذف کردن</div>
+
+                        </td>
                     {% endif %}
                 </tr>
             {% endfor %}

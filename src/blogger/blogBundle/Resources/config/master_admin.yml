@@ -9,3 +9,7 @@ bloggerblog_blog_masterAdmin_blogList:
 bloggerblog_blog_masterAdmin_blogActive:
     path:     /blogActive/{blog}
     defaults: { _controller: bloggerblogBundle:masterAdminBlog:blogActive}
+
+bloggerblog_blog_masterAdmin_blogRemove:
+    path:     /blogRemove/{blog}
+    defaults: { _controller: bloggerblogBundle:masterAdminBlog:removeBlog}

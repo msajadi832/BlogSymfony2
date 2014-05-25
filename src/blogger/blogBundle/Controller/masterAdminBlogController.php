@@ -49,7 +49,24 @@ class masterAdminBlogController extends Controller
 
         $em->persist($blog_db);
         $em->flush();
+        $this->get('session')->getFlashBag()->add('adminSuccess', 'وضعبت وبلاگ '.$blog_db->getBlogName().' با موفقیت تغییر یافت.');
+        return $this->redirect($this->generateUrl('bloggerblog_blog_masterAdmin_blogList'));
+    }
 
+    public function removeBlogAction($blog){
+        if($blog == "admin")
+            return $this->createNotFoundException('وبلاگ مورد نظر پیدا نشد');
+
+        $em = $this->getDoctrine()->getManager();
+        $blog_db = $this->getDoctrine()->getRepository('bloggerblogBundle:User')->findOneBy(array('username' => $blog));
+
+        if(!$blog_db)
+            return $this->createNotFoundException('وبلاگ مورد نظر پیدا نشد');
+
+
+        $em->remove($blog_db);
+        $em->flush();
+        $this->get('session')->getFlashBag()->add('adminSuccess', 'وبلاگ '.$blog_db->getBlogName().' با موفقیت حذف شد.');
         return $this->redirect($this->generateUrl('bloggerblog_blog_masterAdmin_blogList'));
     }
 }

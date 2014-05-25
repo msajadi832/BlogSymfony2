@@ -4,7 +4,7 @@
         function removeArticle(id,title){
             result = confirm("آیا واقعا می خواهید مطلب زیر را حذف کنید\n"+title);
             if(result){
-                window.location.assign("../admin/removeArticle/"+id);
+                window.location.assign("{{ path('bloggerblog_blogAdminRemoveArticle',{'address':"-"})|slice(0,-1) }}"+id);
             }
         }
     </script>

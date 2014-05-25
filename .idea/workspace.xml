@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="960b983e-0257-4860-88f9-61b72495d5a3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/MasterAdminBlog/showBlogList.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/MasterAdminBlog/AdminBlogBase.html.twig" afterPath="$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/MasterAdminBlog/AdminBlogBase.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/blogger/blogBundle/Handler/AuthenticationHandler.php" afterPath="$PROJECT_DIR$/src/blogger/blogBundle/Handler/AuthenticationHandler.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/blogger/blogBundle/Controller/masterAdminBlogController.php" afterPath="$PROJECT_DIR$/src/blogger/blogBundle/Controller/masterAdminBlogController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/master_admin.yml" afterPath="$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/master_admin.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/page.yml" afterPath="$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/page.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/MasterAdminBlog/showBlogList.html.twig" afterPath="$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/MasterAdminBlog/showBlogList.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/showRecentArticles.html.twig" afterPath="$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/showRecentArticles.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="6b787c4b-daa0-4d8d-8bc9-f22063a0843e" name="New changelist" comment="" />
@@ -37,25 +35,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="showBlogList.html.twig" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="showBlogList.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/MasterAdminBlog/showBlogList.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="75" selection-start="1297" selection-end="1297" vertical-scroll-proportion="0.46703297" vertical-offset="51" max-vertical-offset="901">
+            <state line="4" column="85" selection-start="265" selection-end="265" vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="1105">
               <folding>
                 <element signature="e#12#69#0" expanded="true" />
+                <element signature="e#339#378#0" expanded="true" />
                 <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="e#520#544#0" expanded="true" />
+                <element signature="e#919#943#0" expanded="true" />
                 <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="e#916#955#0" expanded="true" />
-                <element signature="e#1112#1151#0" expanded="true" />
-                <element signature="e#1650#1687#0" expanded="true" />
-                <element signature="e#1783#1820#0" expanded="true" />
-                <element signature="e#2082#2119#0" expanded="true" />
-                <element signature="e#2241#2278#0" expanded="true" />
-                <element signature="e#2482#2519#0" expanded="true" />
-                <element signature="e#2618#2655#0" expanded="true" />
+                <element signature="e#1315#1354#0" expanded="true" />
+                <element signature="e#1511#1550#0" expanded="true" />
+                <element signature="e#2155#2192#0" expanded="true" />
+                <element signature="e#2288#2325#0" expanded="true" />
+                <element signature="e#2587#2624#0" expanded="true" />
+                <element signature="e#2746#2783#0" expanded="true" />
+                <element signature="e#2987#3024#0" expanded="true" />
+                <element signature="e#3123#3160#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="adminBlogController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Controller/adminBlogController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="72" column="50" selection-start="3537" selection-end="3537" vertical-scroll-proportion="-6.6153846" vertical-offset="1001" max-vertical-offset="3893">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -63,8 +71,46 @@
       <file leaf-file-name="master_admin.yml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/master_admin.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="39" selection-start="286" selection-end="325" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+            <state line="14" column="73" selection-start="583" selection-end="583" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="showRecentArticles.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/showRecentArticles.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="14" selection-start="449" selection-end="449" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="1054">
+              <folding>
+                <element signature="e#323#357#0" expanded="true" />
+                <element signature="e#840#872#0" expanded="true" />
+                <element signature="e#1169#1208#0" expanded="true" />
+                <element signature="e#1588#1611#0" expanded="true" />
+                <element signature="e#2064#2103#0" expanded="true" />
+                <element signature="e#2199#2238#0" expanded="true" />
+                <element signature="e#2500#2539#0" expanded="true" />
+                <element signature="e#2661#2700#0" expanded="true" />
+                <element signature="e#2904#2943#0" expanded="true" />
+                <element signature="e#3042#3081#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="showRecentComments.html.twig" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/showRecentComments.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="78" selection-start="351" selection-end="351" vertical-scroll-proportion="0.19428572" vertical-offset="0" max-vertical-offset="1513">
+              <folding>
+                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#7;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -72,14 +118,16 @@
       <file leaf-file-name="masterAdminBlogController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Controller/masterAdminBlogController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="92" selection-start="1960" selection-end="1960" vertical-scroll-proportion="-16.923077" vertical-offset="444" max-vertical-offset="1037">
+            <state line="55" column="36" selection-start="2119" selection-end="2135" vertical-scroll-proportion="-9.730769" vertical-offset="682" max-vertical-offset="1326">
               <folding>
                 <element signature="e#49#87#0" expanded="true" />
                 <element signature="e#422#477#1" expanded="true" />
                 <element signature="e#1056#1080#1" expanded="true" />
                 <element signature="e#1145#1203#0" expanded="true" />
                 <element signature="e#1583#1607#1" expanded="true" />
-                <element signature="e#1918#1957#1" expanded="true" />
+                <element signature="e#2049#2088#1" expanded="true" />
+                <element signature="e#2357#2381#1" expanded="true" />
+                <element signature="e#2751#2790#1" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -170,7 +218,6 @@
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/ChangePassword/changePassword.html.twig" />
         <option value="$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/admin.yml" />
-        <option value="$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/showRecentArticles.html.twig" />
         <option value="$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/AdminBlogBase.html.twig" />
         <option value="$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/editTemplate.html.twig" />
         <option value="$PROJECT_DIR$/src/blogger/blogBundle/Controller/adminBlogController.php" />
@@ -179,9 +226,10 @@
         <option value="$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/MasterAdminBlog/AdminBlogBase.html.twig" />
         <option value="$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/page.yml" />
         <option value="$PROJECT_DIR$/src/blogger/blogBundle/Handler/AuthenticationHandler.php" />
-        <option value="$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/master_admin.yml" />
         <option value="$PROJECT_DIR$/src/blogger/blogBundle/Controller/masterAdminBlogController.php" />
+        <option value="$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/master_admin.yml" />
         <option value="$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/MasterAdminBlog/showBlogList.html.twig" />
+        <option value="$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/showRecentArticles.html.twig" />
       </list>
     </option>
   </component>
@@ -681,7 +729,11 @@
       <created>1400997003356</created>
       <updated>1400997003356</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="added pagination&#10;">
+      <created>1401028735084</created>
+      <updated>1401028735084</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -760,11 +812,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/SecurityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="20" selection-start="2475" selection-end="2475" vertical-scroll-proportion="0.5494506" vertical-offset="686" max-vertical-offset="1258" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.fa.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.5856644" vertical-offset="907" max-vertical-offset="1734">
@@ -985,22 +1032,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/showRecentArticles.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="58" selection-start="2018" selection-end="2023" vertical-scroll-proportion="0.33205375" vertical-offset="456" max-vertical-offset="1054">
-          <folding>
-            <element signature="e#787#819#0" expanded="true" />
-            <element signature="e#1116#1155#0" expanded="true" />
-            <element signature="e#1535#1558#0" expanded="true" />
-            <element signature="e#2146#2185#0" expanded="true" />
-            <element signature="e#2447#2486#0" expanded="true" />
-            <element signature="e#2608#2647#0" expanded="true" />
-            <element signature="e#2851#2890#0" expanded="true" />
-            <element signature="e#2989#3028#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/admin.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="34" column="69" selection-start="1330" selection-end="1342" vertical-scroll-proportion="0.0" vertical-offset="333" max-vertical-offset="918">
@@ -1044,33 +1075,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="35" selection-start="352" selection-end="352" vertical-scroll-proportion="0.15567766" vertical-offset="0" max-vertical-offset="546">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Controller/adminBlogController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="212" column="145" selection-start="12042" selection-end="12042" vertical-scroll-proportion="0.47069597" vertical-offset="3296" max-vertical-offset="3893">
-          <folding>
-            <element signature="e#1428#1478#0" expanded="true" />
-            <element signature="e#1741#1768#1" expanded="true" />
-            <element signature="e#2631#2689#0" expanded="true" />
-            <element signature="e#2977#3004#1" expanded="true" />
-            <element signature="e#3666#3693#1" expanded="true" />
-            <element signature="e#4388#4415#1" expanded="true" />
-            <element signature="e#5552#5603#0" expanded="true" />
-            <element signature="e#5924#5951#1" expanded="true" />
-            <element signature="e#6094#6121#1" expanded="true" />
-            <element signature="e#6394#6421#1" expanded="true" />
-            <element signature="e#6585#6612#1" expanded="true" />
-            <element signature="e#6876#6903#1" expanded="true" />
-            <element signature="e#7070#7097#1" expanded="true" />
-            <element signature="e#7914#7972#0" expanded="true" />
-            <element signature="e#8292#8319#1" expanded="true" />
-            <element signature="e#10207#10258#0" expanded="true" />
-            <element signature="e#10522#10549#1" expanded="true" />
-            <element signature="e#11534#11585#0" expanded="true" />
-            <element signature="e#12532#12584#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1175,42 +1179,86 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Controller/masterAdminBlogController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="92" selection-start="1960" selection-end="1960" vertical-scroll-proportion="-16.923077" vertical-offset="444" max-vertical-offset="1037">
+        <state line="55" column="36" selection-start="2119" selection-end="2135" vertical-scroll-proportion="-9.730769" vertical-offset="682" max-vertical-offset="1326">
           <folding>
             <element signature="e#49#87#0" expanded="true" />
             <element signature="e#422#477#1" expanded="true" />
             <element signature="e#1056#1080#1" expanded="true" />
             <element signature="e#1145#1203#0" expanded="true" />
             <element signature="e#1583#1607#1" expanded="true" />
-            <element signature="e#1918#1957#1" expanded="true" />
+            <element signature="e#2049#2088#1" expanded="true" />
+            <element signature="e#2357#2381#1" expanded="true" />
+            <element signature="e#2751#2790#1" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/master_admin.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="39" selection-start="286" selection-end="325" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+        <state line="14" column="73" selection-start="583" selection-end="583" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/MasterAdminBlog/showBlogList.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="75" selection-start="1297" selection-end="1297" vertical-scroll-proportion="0.46703297" vertical-offset="51" max-vertical-offset="901">
+        <state line="4" column="85" selection-start="265" selection-end="265" vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="1105">
           <folding>
             <element signature="e#12#69#0" expanded="true" />
+            <element signature="e#339#378#0" expanded="true" />
             <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="e#520#544#0" expanded="true" />
+            <element signature="e#919#943#0" expanded="true" />
             <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="e#916#955#0" expanded="true" />
-            <element signature="e#1112#1151#0" expanded="true" />
-            <element signature="e#1650#1687#0" expanded="true" />
-            <element signature="e#1783#1820#0" expanded="true" />
-            <element signature="e#2082#2119#0" expanded="true" />
-            <element signature="e#2241#2278#0" expanded="true" />
-            <element signature="e#2482#2519#0" expanded="true" />
-            <element signature="e#2618#2655#0" expanded="true" />
+            <element signature="e#1315#1354#0" expanded="true" />
+            <element signature="e#1511#1550#0" expanded="true" />
+            <element signature="e#2155#2192#0" expanded="true" />
+            <element signature="e#2288#2325#0" expanded="true" />
+            <element signature="e#2587#2624#0" expanded="true" />
+            <element signature="e#2746#2783#0" expanded="true" />
+            <element signature="e#2987#3024#0" expanded="true" />
+            <element signature="e#3123#3160#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/showRecentArticles.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="14" selection-start="449" selection-end="449" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="1054">
+          <folding>
+            <element signature="e#323#357#0" expanded="true" />
+            <element signature="e#840#872#0" expanded="true" />
+            <element signature="e#1169#1208#0" expanded="true" />
+            <element signature="e#1588#1611#0" expanded="true" />
+            <element signature="e#2064#2103#0" expanded="true" />
+            <element signature="e#2199#2238#0" expanded="true" />
+            <element signature="e#2500#2539#0" expanded="true" />
+            <element signature="e#2661#2700#0" expanded="true" />
+            <element signature="e#2904#2943#0" expanded="true" />
+            <element signature="e#3042#3081#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Controller/adminBlogController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="50" selection-start="3537" selection-end="3537" vertical-scroll-proportion="-6.6153846" vertical-offset="1001" max-vertical-offset="3893">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/showRecentComments.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="78" selection-start="351" selection-end="351" vertical-scroll-proportion="0.19428572" vertical-offset="0" max-vertical-offset="1513">
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#7;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
