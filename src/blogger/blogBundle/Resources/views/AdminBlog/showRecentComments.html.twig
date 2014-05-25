@@ -33,7 +33,7 @@
                         {% endif %}>
                     <td style="width: 80px">{{ comment.date | date("Y/m/d") }}</td>
                     <td><a href="{{ path('bloggerblog_blogAdminEditComment',{'id': comment.id, 'articleId': showType}) }}">{{ comment.name }}</a></td>
-                    <td>در <a href="{{ path('bloggerblog_blogArticle',{'blog_name':blog_info.address,'article_name' : comment.articleAddress}) }}#comment{{ comment.id }}" title="مشاهده نظر">{{ comment.articleTitle }}</a></td>
+                    <td>در <a href="{{ path('bloggerblog_blogArticle',{'blog_name':app.user.username,'article_name' : comment.articleAddress}) }}#comment{{ comment.id }}" title="مشاهده نظر">{{ comment.articleTitle }}</a></td>
                     {% if comment.confirmed %}
                         <td style="width: 80px">تائید شده</td>
                         <td style="width: 0"></td>
