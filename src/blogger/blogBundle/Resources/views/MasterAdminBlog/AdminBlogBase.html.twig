@@ -10,16 +10,6 @@
 </head>
 <body>
     <div class="container">
-        <div class="navbar" style="margin-top: 20px;">
-            <div class="navbar-inner">
-                <ul class="nav pull-right">
-                    <li><a href="{{ path('fos_user_security_logout') }}">خروج</a></li>
-                </ul>
-                <ul class="nav pull-left">
-                    <li class="pull-left"><a href="{{ path('bloggerblog_homepage') }}">صفحه اصلی</a></li>
-                </ul>
-            </div>
-        </div>
         <div class="wrapper">
             <div class="content_out">
                 {% for flashMessage in app.session.flashbag.get('adminSuccess') %}
@@ -44,7 +34,10 @@
                     {% endblock %}
                         <div class="">
                             <ul class="nav nav-list bs-docs-sidenav">
+                                <li><a href="{{ path('bloggerblog_homepage') }}">صفحه اصلی</a></li>
                                 <li><a href="{{ path("bloggerblog_blog_masterAdmin_index") }}"> داشبورد</a></li>
+                                <li><a href="{{ path("bloggerblog_blog_masterAdmin_blogList") }}"> مشاهده لیست وبلاگ ها</a></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}">خروج</a></li>
                             </ul>
                         </div>
                     {% block sidebar_bottom %}

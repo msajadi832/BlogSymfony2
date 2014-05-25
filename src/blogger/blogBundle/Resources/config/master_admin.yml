@@ -1,3 +1,11 @@
 bloggerblog_blog_masterAdmin_index:
     path:     /
     defaults: { _controller: bloggerblogBundle:masterAdminBlog:dashboard}
+
+bloggerblog_blog_masterAdmin_blogList:
+    path:     /blogList/{start}
+    defaults: { _controller: bloggerblogBundle:masterAdminBlog:showBlogList,start : 1}
+
+bloggerblog_blog_masterAdmin_blogActive:
+    path:     /blogActive/{blog}
+    defaults: { _controller: bloggerblogBundle:masterAdminBlog:blogActive}

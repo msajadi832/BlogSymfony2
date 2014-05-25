@@ -1,0 +1,47 @@
+{% extends "bloggerblogBundle:MasterAdminBlog:AdminBlogBase.html.twig" %}
+{% block content %}
+    <div class="headers_wrapper">فهرست وبلاگ ها</div>
+    <div class="content_in">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr><td>وبلاگ</td><td>نام و نام خانوادگی</td><td>آخرین ورود</td><td></td></tr>
+            </thead>
+            <tbody>
+            {% for blog in blog_list %}
+                <tr>
+                    <td style="text-align: justify"><a href="{{ path('bloggerblog_blogHomepage',{'blog_name': blog.username}) }}">{{ blog.blogName }}</a></td>
+                    <td style="text-align: justify">{{ blog.name }} {{ blog.family }}</td>
+                    <td style="text-align: right;direction: ltr;">{{ DateConvert.MiladiToShamsi(blog.lastLogin,true) }}</td>
+                    {% if blog.blogActive %}
+                        <td><a href="{{ path('bloggerblog_blog_masterAdmin_blogActive', {'blog' : blog.username}) }}" class="btn btn-warning">غیر فعال کردن</a></td>
+                    {% else %}
+                        <td><a href="{{ path('bloggerblog_blog_masterAdmin_blogActive', {'blog' : blog.username}) }}" class="btn btn-success">فعال کردن</a>
+                            <a href="#" class="btn btn-danger">حذف کردن</a></td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% if pagination.count > 1 %}
+            <div class="pagination pagination-centered">
+                <ul>
+                    {% if pagination.current <  pagination.count %}
+                        <li><a href="{{ path('bloggerblog_blog_masterAdmin_blogList',{'start': pagination.count}) }}">پایان</a></li>
+                        <li><a href="{{ path('bloggerblog_blog_masterAdmin_blogList',{'start': pagination.current+1}) }}">بعدی</a></li>
+                    {% endif %}
+                    {% for i in pagination.count..1 %}
+                        {% if i == pagination.current %}
+                            <li class="active"><a href="{{ path('bloggerblog_blog_masterAdmin_blogList',{'start': i}) }}">{{ i }}</a></li>
+                        {% else %}
+                            <li><a href="{{ path('bloggerblog_blog_masterAdmin_blogList',{'start': i}) }}">{{ i }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if pagination.current > 1 %}
+                        <li><a href="{{ path('bloggerblog_blog_masterAdmin_blogList',{'start': pagination.current-1}) }}">قبلی</a></li>
+                        <li><a href="{{ path('bloggerblog_blog_masterAdmin_blogList',{'start': 1}) }}">شروع</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

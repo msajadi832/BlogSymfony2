@@ -44,7 +44,7 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface
 //            return new RedirectResponse($this->router->generate('bloggerblog_blogSuperAdmin'));
 
         if ($this->security->isGranted('ROLE_BLOGGER'))
-            return new RedirectResponse('bloggerblog_blogAdminShowRecentComments', array('articleId' => 'all'));
+            return new RedirectResponse($this->router->generate('bloggerblog_blogAdminShowRecentComments', array('articleId' => 'all')));
 
         return new RedirectResponse('bloggerblog_homepage');
     }
