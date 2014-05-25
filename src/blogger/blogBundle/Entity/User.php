@@ -71,6 +71,7 @@ class User extends BaseUser{
         $this->articles = new ArrayCollection();
         $this->comments = new ArrayCollection();
         $this->roles = array('ROLE_BLOGGER');
+        $this->blogActive = true;
         // your own logic
     }
 

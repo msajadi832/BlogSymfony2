@@ -6,6 +6,9 @@ body{
 input{
     height: 30px !important;
 }
+ul{
+    padding-right: 15px;
+}
 img{
     border-radius: 3px;
     margin: 10px;

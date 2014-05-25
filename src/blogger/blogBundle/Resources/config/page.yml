@@ -20,3 +20,11 @@ bloggerblog_showBlogList:
 bloggerblog_blog_masterAdmin:
     resource: "@bloggerblogBundle/Resources/config/master_admin.yml"
     prefix: /master_admin
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /editProfile
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile

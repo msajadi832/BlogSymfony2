@@ -210,7 +210,7 @@ class adminBlogController extends Controller
     {
         $user = $this->getUser();
         $template_form = $this->createFormBuilder($user)
-            ->add('blogTemplate','textarea',array('label'  => 'قالب وبلاگ', 'attr' => array('style' => 'direction:ltr;text-align:justify;height:500px;width:100%;')))
+            ->add('blogTemplate','textarea',array('label'  => 'قالب وبلاگ', 'attr' => array('style' => 'direction:ltr;text-align:justify;width:100%;')))
             ->add('submit', 'submit', array('label'  => 'ویرایش', 'attr' => array("class" => "btn")))
             ->getForm();
         $template_form->handleRequest($request);

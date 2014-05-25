@@ -11,7 +11,7 @@
             {% if "ROLE_ADMIN" not in app.user.roles %}
                 <a href="{{ path('bloggerblog_blogAdminShowRecentComments', {'articleId' : 'all'}) }}">مدیریت وبلاگ</a> |
             {% else %}
-                <a href="{{ path('bloggerblog_blog_masterAdmin_index') }}">مدیریت سیستم وبلاگ</a> |
+                <a href="{{ path('bloggerblog_blog_masterAdmin_blogList') }}">مدیریت سیستم وبلاگ</a> |
             {% endif %}
             <a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
         {% endif %}

@@ -1,7 +1,3 @@
-bloggerblog_blog_masterAdmin_index:
-    path:     /
-    defaults: { _controller: bloggerblogBundle:masterAdminBlog:dashboard}
-
 bloggerblog_blog_masterAdmin_blogList:
     path:     /blogList/{start}
     defaults: { _controller: bloggerblogBundle:masterAdminBlog:showBlogList,start : 1}
@@ -13,3 +9,11 @@ bloggerblog_blog_masterAdmin_blogActive:
 bloggerblog_blog_masterAdmin_blogRemove:
     path:     /blogRemove/{blog}
     defaults: { _controller: bloggerblogBundle:masterAdminBlog:removeBlog}
+
+bloggerblog_blog_masterAdmin_editDefaultTemplate:
+    path:     /editDefaultTemplate
+    defaults: { _controller: bloggerblogBundle:masterAdminBlog:editDefaultTemplate}
+
+bloggerblog_blog_masterAdmin_editHomePageContent:
+    path:     /editHomePageContent
+    defaults: { _controller: bloggerblogBundle:masterAdminBlog:editHomePageContent}

@@ -38,10 +38,6 @@ bloggerblog_blogAdminEditProfile:
     path:     /editProfile/
     defaults: { _controller: bloggerblogBundle:adminBlog:editProfile}
 
-fos_user_change_password:
-    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-    prefix: /editProfile
-
 bloggerblog_blogAdminEditComment:
     path:     /editComment/{id}/{articleId}
     defaults: { _controller: bloggerblogBundle:adminBlog:editComment}

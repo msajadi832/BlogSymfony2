@@ -69,4 +69,40 @@ class masterAdminBlogController extends Controller
         $this->get('session')->getFlashBag()->add('adminSuccess', 'وبلاگ '.$blog_db->getBlogName().' با موفقیت حذف شد.');
         return $this->redirect($this->generateUrl('bloggerblog_blog_masterAdmin_blogList'));
     }
+
+    public function editDefaultTemplateAction(Request $request)
+    {
+        $user = $this->getUser();
+        $template_form = $this->createFormBuilder($user)
+            ->add('blogTemplate','textarea',array('label'  => 'قالب وبلاگ', 'attr' => array('style' => 'direction:ltr;text-align:justify;width:100%;')))
+            ->add('submit', 'submit', array('label'  => 'ویرایش', 'attr' => array("class" => "btn")))
+            ->getForm();
+        $template_form->handleRequest($request);
+        if ($template_form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+            $this->get('session')->getFlashBag()->add('adminSuccess', 'قالب پیشفرض با موفقیت ویرایش شد.');
+        }
+        return $this->render('bloggerblogBundle:MasterAdminBlog:editTemplate.html.twig',
+            array("template_form" => $template_form->createView()));
+    }
+
+    public function editHomePageContentAction(Request $request)
+    {
+        $user = $this->getUser();
+        $template_form = $this->createFormBuilder($user)
+            ->add('blogDescription','textarea',array('label'  => 'محتوای صفحه اصلی', 'attr' => array('class' => "ckeditor",'style' => 'width:100%')))
+            ->add('submit', 'submit', array('label'  => 'ویرایش', 'attr' => array("class" => "btn")))
+            ->getForm();
+        $template_form->handleRequest($request);
+        if ($template_form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+            $this->get('session')->getFlashBag()->add('adminSuccess', 'محتوای صفحه اصلی با موفقیت ویرایش شد.');
+        }
+        return $this->render('bloggerblogBundle:MasterAdminBlog:editHomePageContent.html.twig',
+            array("homePage_form" => $template_form->createView()));
+    }
 }

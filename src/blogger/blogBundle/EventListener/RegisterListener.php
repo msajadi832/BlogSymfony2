@@ -32,6 +32,7 @@ class RegisterListener implements EventSubscriberInterface
         return array(
             FOSUserEvents::REGISTRATION_INITIALIZE => 'onRegister',
             FOSUserEvents::REGISTRATION_COMPLETED => 'onRegisterCompleted',
+            FOSUserEvents::CHANGE_PASSWORD_COMPLETED => 'onChangePassCompleted',
         );
     }
 
@@ -47,6 +48,13 @@ class RegisterListener implements EventSubscriberInterface
     public function onRegisterCompleted(FilterUserResponseEvent $response)
     {
         $url = $this->router->generate('bloggerblog_blogAdminShowRecentComments', array('articleId' => 'all'));
+        $response->getResponse()->headers->set('Location',$url);
+    }
+
+    public function onChangePassCompleted(FilterUserResponseEvent $response)
+    {
+        $response->getRequest()->getSession()->getFlashBag()->add('adminSuccess', 'رمز عبور با موفقیت ویرایش شد.');
+        $url = $this->router->generate('fos_user_change_password');
         $response->getResponse()->headers->set('Location',$url);
     }
 }

@@ -12,7 +12,11 @@ class DefaultController extends Controller
 
     public function indexAction()
     {
-        return $this->render('bloggerblogBundle:Default:index.html.twig');
+        $blog_db = $this->getDoctrine()->getRepository('bloggerblogBundle:User')->findOneBy(array('username' => 'admin'));
+
+        if(!$blog_db)
+            return $this->createNotFoundException('وبلاگ مورد نظر پیدا نشد');
+        return $this->render('bloggerblogBundle:Default:index.html.twig', array('blog' => $blog_db));
     }
 
     public function loginAction()

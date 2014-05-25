@@ -40,7 +40,7 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface
     public function onAuthenticationSuccess(Request $request, TokenInterface $token)
     {
         if ($this->security->isGranted('ROLE_ADMIN'))
-            return new RedirectResponse($this->router->generate('bloggerblog_blog_masterAdmin_index'));
+            return new RedirectResponse($this->router->generate('bloggerblog_blog_masterAdmin_blogList'));
 //            return new RedirectResponse($this->router->generate('bloggerblog_blogSuperAdmin'));
 
         if ($this->security->isGranted('ROLE_BLOGGER'))
