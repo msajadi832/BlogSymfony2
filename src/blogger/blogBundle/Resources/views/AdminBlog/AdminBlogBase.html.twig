@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="text/html">
-    <title>مدیریت {{ blog_info.name }}</title>
+    <title>مدیریت {{ app.user.blogName }}</title>
     <link rel="stylesheet" href="{{ asset("bundles/bloggerblog/css/bootstrap.css") }}">
     <link rel="stylesheet" href="{{ asset("bundles/bloggerblog/css/style_admin.css") }}">
     <script type="text/javascript" src="{{ asset("bundles/bloggerblog/js/ckeditor/ckeditor.js") }}" ></script>
@@ -11,19 +11,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <a href="{{ path('bloggerblog_blogHomepage',{'blog_name': blog_info.address}) }}">{{ blog_info.name }}</a>
-        </div>
-        <div class="navbar">
-            <div class="navbar-inner">
-                <ul class="nav pull-right">
-                    <li><a href="{{ path('fos_user_security_logout') }}">خروج</a></li>
-                    <li class="divider-vertical"></li>
-                    <li><a href="{{ path('bloggerblog_blogHomepage',{'blog_name': blog_info.address}) }}">وبلاگ {{ blog_info.name }}</a></li>
-                </ul>
-                <ul class="nav pull-left">
-                    <li class="pull-left"><a href="{{ path('bloggerblog_homepage') }}">صفحه اصلی</a></li>
-                </ul>
-            </div>
+            <a href="{{ path('bloggerblog_blogHomepage',{'blog_name': app.user.username}) }}">{{ app.user.blogName }}</a>
         </div>
         <div class="wrapper">
             <div class="content_out">
@@ -49,12 +37,16 @@
                     {% endblock %}
                         <div class="">
                             <ul class="nav nav-list bs-docs-sidenav">
-                                <li><a href="{{ path("bloggerblog_blogAdmin_index") }}"> داشبورد</a></li>
+                                {#<li><a href="{{ path("bloggerblog_blogAdmin_index") }}"> داشبورد</a></li>#}
+                                <li><a target="_blank" href="{{ path('bloggerblog_blogHomepage',{'blog_name': app.user.username}) }}">مشاهده وبلاگ</a></li>
                                 <li><a href="{{ path("bloggerblog_blogAdminAddArticle") }}"> ایجاد مطلب جدید</a></li>
                                 <li><a href="{{ path("bloggerblog_blogAdminShowRecentArticles") }}"> ویرایش مطالب قبلی</a></li>
                                 <li><a href="{{ path("bloggerblog_blogAdminShowRecentComments",{'articleId' : 'notApprove'}) }}"> مشاهده نظرات تائید نشده</a></li>
                                 <li><a href="{{ path("bloggerblog_blogAdminShowRecentComments",{'articleId' : 'all'}) }}"> مشاهده آخرین نظرات</a></li>
+                                <li><a href="{{ path("bloggerblog_blogAdminEditTemplate") }}"> ویرایش قالب</a></li>
                                 <li><a href="{{ path("bloggerblog_blogAdminEditProfile") }}"> ویرایش پروفایل</a></li>
+                                <li><a href="{{ path("fos_user_change_password") }}"> ویرایش رمز عبور</a></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}">خروج</a></li>
                             </ul>
                         </div>
                     {% block sidebar_bottom %}

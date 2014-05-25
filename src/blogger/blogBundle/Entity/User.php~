@@ -9,15 +9,13 @@
 namespace blogger\blogBundle\Entity;
 
 
-use FOS\UserBundle\Entity\User as BaseUser;
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
- * @UniqueEntity(fields="blogAddress", message="این آدرس قبلا استفاده شده است.")
  */
 class User extends BaseUser{
     /**
@@ -33,22 +31,27 @@ class User extends BaseUser{
     protected $blogName;
 
     /**
-     * @ORM\Column(type="string", length=100, unique=true)
-     */
-    protected $blogAddress;
-
-    /**
-     * @ORM\Column(type="text",nullable=true)
+     * @ORM\Column(type="text")
      */
     protected $blogDescription;
 
     /**
-     * @ORM\Column(type="string", length=100,nullable=true)
+     * @ORM\Column(type="text")
+     */
+    protected $blogTemplate;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $blogActive;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
      */
     protected $name;
 
     /**
-     * @ORM\Column(type="string", length=100,nullable=true)
+     * @ORM\Column(type="string", length=100, nullable=true)
      */
     protected $family;
 
@@ -67,7 +70,7 @@ class User extends BaseUser{
         parent::__construct();
         $this->articles = new ArrayCollection();
         $this->comments = new ArrayCollection();
-        $this->roles = array('ROLE_USER');
+        $this->roles = array('ROLE_BLOGGER');
         // your own logic
     }
 
@@ -138,29 +141,6 @@ class User extends BaseUser{
     }
 
     /**
-     * Set blogAddress
-     *
-     * @param string $blogAddress
-     * @return User
-     */
-    public function setBlogAddress($blogAddress)
-    {
-        $this->blogAddress = $blogAddress;
-    
-        return $this;
-    }
-
-    /**
-     * Get blogAddress
-     *
-     * @return string 
-     */
-    public function getBlogAddress()
-    {
-        return $this->blogAddress;
-    }
-
-    /**
      * Set blogDescription
      *
      * @param string $blogDescription
@@ -181,6 +161,29 @@ class User extends BaseUser{
     public function getBlogDescription()
     {
         return $this->blogDescription;
+    }
+
+    /**
+     * Set blogTemplate
+     *
+     * @param string $blogTemplate
+     * @return User
+     */
+    public function setBlogTemplate($blogTemplate)
+    {
+        $this->blogTemplate = $blogTemplate;
+
+        return $this;
+    }
+
+    /**
+     * Get blogTemplate
+     *
+     * @return string
+     */
+    public function getBlogTemplate()
+    {
+        return $this->blogTemplate;
     }
 
     /**
@@ -260,5 +263,28 @@ class User extends BaseUser{
     public function getFamily()
     {
         return $this->family;
+    }
+
+    /**
+     * Set blogActive
+     *
+     * @param boolean $blogActive
+     * @return User
+     */
+    public function setBlogActive($blogActive)
+    {
+        $this->blogActive = $blogActive;
+    
+        return $this;
+    }
+
+    /**
+     * Get blogActive
+     *
+     * @return boolean 
+     */
+    public function getBlogActive()
+    {
+        return $this->blogActive;
     }
 }

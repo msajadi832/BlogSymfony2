@@ -41,6 +41,11 @@ class User extends BaseUser{
     protected $blogTemplate;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $blogActive;
+
+    /**
      * @ORM\Column(type="string", length=100, nullable=true)
      */
     protected $name;
@@ -258,5 +263,28 @@ class User extends BaseUser{
     public function getFamily()
     {
         return $this->family;
+    }
+
+    /**
+     * Set blogActive
+     *
+     * @param boolean $blogActive
+     * @return User
+     */
+    public function setBlogActive($blogActive)
+    {
+        $this->blogActive = $blogActive;
+    
+        return $this;
+    }
+
+    /**
+     * Get blogActive
+     *
+     * @return boolean 
+     */
+    public function getBlogActive()
+    {
+        return $this->blogActive;
     }
 }

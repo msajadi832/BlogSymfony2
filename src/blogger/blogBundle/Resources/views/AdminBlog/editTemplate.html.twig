@@ -1,0 +1,22 @@
+{% extends "bloggerblogBundle:AdminBlog:AdminBlogBase.html.twig" %}
+{% block head_page %}
+    <script language="javascript" type="text/javascript" src="{{ asset('bundles/bloggerblog/js/edit_area/edit_area_full.js') }}"></script>
+    <script language="javascript" type="text/javascript">
+        editAreaLoader.init({
+            id : "form_blogTemplate"		// textarea id
+            ,syntax: "html"			// syntax to be uses for highgliting
+            ,start_highlight: true		// to display with highlight mode on start-up
+            ,allow_toggle: false
+        });
+    </script>
+{% endblock %}
+{% block content %}
+
+    <div class="headers_wrapper">
+        ویرایش قالب</div>
+    <div class="content_in">
+        <div class="width_100_percent">
+            {{ form(template_form) }}
+        </div>
+    </div>
+{% endblock %}

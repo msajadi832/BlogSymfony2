@@ -1,7 +1,3 @@
-bloggerblog_blogAdmin_index:
-    path:     /
-    defaults: { _controller: bloggerblogBundle:adminBlog:dashboard}
-
 bloggerblog_blogShowAdmin:
     path:     /showArticles
     defaults: { _controller: bloggerblogBundle:adminBlog:dashboard}
@@ -34,10 +30,19 @@ bloggerblog_blogAdminApproveComment:
     path:     /approveComment/{id}/{articleId}
     defaults: { _controller: bloggerblogBundle:adminBlog:approveComment}
 
+bloggerblog_blogAdminEditTemplate:
+    path:     /editTemplate
+    defaults: { _controller: bloggerblogBundle:adminBlog:editTemplate}
+
 bloggerblog_blogAdminEditProfile:
     path:     /editProfile/
     defaults: { _controller: bloggerblogBundle:adminBlog:editProfile}
 
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /editProfile
+
 bloggerblog_blogAdminEditComment:
     path:     /editComment/{id}/{articleId}
     defaults: { _controller: bloggerblogBundle:adminBlog:editComment}
+

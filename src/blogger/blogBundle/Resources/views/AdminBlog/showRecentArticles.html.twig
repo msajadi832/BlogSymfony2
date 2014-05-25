@@ -26,7 +26,7 @@
                     <td style="width: 60px"><a href="{{ path('bloggerblog_blogAdminShowRecentComments',{'articleId': article.article_id}) }}">{{ article.article_comment_count }} نظر</a></td>
                     {% endif %}
                     <td><div class="btn btn-danger" onclick="removeArticle('{{ article.article_address }}','{{ article.article_title }}')" title="حذف مقاله"><i class="icon-trash"></i></div></td>
-                    <td><a class="btn btn-info" href="{{ path('bloggerblog_blogArticle',{'blog_name':blog_info.address,'article_name' : article.article_address}) }}" title="مشاهده مقاله"><i class="icon-search"></i></a></td>
+                    <td><a class="btn btn-info" href="{{ path('bloggerblog_blogArticle',{'blog_name':app.user.username,'article_name' : article.article_address}) }}" title="مشاهده مقاله"><i class="icon-search"></i></a></td>
                 </tr>
             {% endfor %}
             </tbody>

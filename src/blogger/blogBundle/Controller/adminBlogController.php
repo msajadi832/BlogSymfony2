@@ -9,28 +9,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class adminBlogController extends Controller
 {
-
-    public function dashboardAction()
-    {
-        $user = $this->getUser();
-        $commentsRes = $this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId()),array("date" => 'DESC',"id" => 'DESC'));
-        $comments = array();
-        foreach($commentsRes as $singleComment){
-            $article_comment = $singleComment->getArticle();
-//            $article_comment = new Article();
-            $comments[] = array("id" =>$singleComment->getId(),
-                "name" => $singleComment->getName(),
-                "date" => date_format($singleComment->getDate(),"Y-m-d"),
-                "confirmed" => $singleComment->getConfirmed(),
-                "articleTitle" => $article_comment->getTitle(),
-                "articleAddress" => $article_comment->getAddress());
-        }
-        return $this->render('bloggerblogBundle:AdminBlog:dashboard.html.twig',
-            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getUsername()),
-            'comments' => $comments));
-
-    }
-
     public function addArticleAction(Request $request)
     {
         $user = $this->getUser();
@@ -53,8 +31,7 @@ class adminBlogController extends Controller
             $this->get('session')->getFlashBag()->add('adminSuccess', 'مطلب '.$article->getTitle().' با موفقیت ثبت شد.');
         }
         return $this->render('bloggerblogBundle:AdminBlog:addArticle.html.twig',
-            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getUsername()),
-                "article_form" => $article_form->createView()));
+            array("article_form" => $article_form->createView()));
     }
 
     private $num_list_recent_articles = 10;
@@ -75,8 +52,7 @@ class adminBlogController extends Controller
                 "article_date" => $singleArticle->getPublishDate(), "article_comment_count" => $singleArticle->getComments()->count());
         }
         return $this->render('bloggerblogBundle:AdminBlog:showRecentArticles.html.twig',
-            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getUsername())
-            ,"articles" => $articles,"pagination" =>array("current" => $start ,"count" => $count)));
+            array("articles" => $articles,"pagination" =>array("current" => $start ,"count" => $count)));
 
     }
     public function removeArticleAction($address){
@@ -135,8 +111,7 @@ class adminBlogController extends Controller
             $this->get('session')->getFlashBag()->add('adminSuccess', 'مطلب '.$article->getTitle().' با موفقیت ویرایش شد.');
         }
         return $this->render('bloggerblogBundle:AdminBlog:editArticle.html.twig',
-            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getUsername()),
-                "article_form" => $article_form->createView()));
+            array("article_form" => $article_form->createView()));
     }
 
     private $num_list_recent_comments = 10;
@@ -164,8 +139,7 @@ class adminBlogController extends Controller
                 "articleAddress" => $article_comment->getAddress());
         }
         return $this->render('bloggerblogBundle:AdminBlog:showRecentComments.html.twig',
-            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getUsername()),
-                'comments' => $comments,'showType' => $articleId,"pagination" =>array("current" => $start ,"count" => $count)));
+            array('comments' => $comments,'showType' => $articleId,"pagination" =>array("current" => $start ,"count" => $count)));
     }
 
     public function approveCommentAction($id,$articleId){
@@ -189,7 +163,7 @@ class adminBlogController extends Controller
         $user_form = $this->createFormBuilder($user)
             ->add('blogName','text',array('label'  => 'عنوان وبلاگ', 'attr' => array('style' => 'height:25px')))
             ->add('blogDescription','textarea',array('label'  => 'درباره وبلاگ','required' => false, 'attr' => array('style' => 'max-width: 100%;min-width: 100%;min-height: 100px;')))
-            ->add('email','email',array('label'  => 'ایمیل', 'attr' => array('style' => 'height:25px; direction: ltr;text-align:left;height:30px')))
+            ->add('email','email',array('label'  => 'ایمیل', 'attr' => array('style' => 'height:25px; direction: ltr;text-align:left;')))
             ->add('name','text',array('label'  => 'نام','required' => false, 'attr' => array('style' => 'height:25px')))
             ->add('family','text',array('label'  => 'نام خانوادگی','required' => false, 'attr' => array('style' => 'height:25px')))
             ->add('submit', 'submit', array('label'  => 'ویرایش', 'attr' => array("class" => "btn")))
@@ -202,8 +176,7 @@ class adminBlogController extends Controller
             $this->get('session')->getFlashBag()->add('adminSuccess', 'پروفایل با موفقیت ویرایش شد.');
         }
         return $this->render('bloggerblogBundle:AdminBlog:editProfile.html.twig',
-            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getUsername()),
-                "user_form" => $user_form->createView()));
+            array("user_form" => $user_form->createView()));
     }
 
     public function editCommentAction($id,$articleId,Request $request){
@@ -229,8 +202,25 @@ class adminBlogController extends Controller
             return $this->redirect($this->generateUrl('bloggerblog_blogAdminShowRecentComments',array('articleId' => 'all')));
         }
         return $this->render('bloggerblogBundle:AdminBlog:editComment.html.twig',
-            array('blog_info' => array('name' => $user->getBlogName(), 'address'=> $user->getUsername()),
-                "comment_form" => $comment_form->createView(), "comment_name" => $comment->getName(),
+            array("comment_form" => $comment_form->createView(), "comment_name" => $comment->getName(),
                 "articleId" => $articleId));
+    }
+
+    public function editTemplateAction(Request $request)
+    {
+        $user = $this->getUser();
+        $template_form = $this->createFormBuilder($user)
+            ->add('blogTemplate','textarea',array('label'  => 'قالب وبلاگ', 'attr' => array('style' => 'direction:ltr;text-align:justify;height:500px;width:100%;')))
+            ->add('submit', 'submit', array('label'  => 'ویرایش', 'attr' => array("class" => "btn")))
+            ->getForm();
+        $template_form->handleRequest($request);
+        if ($template_form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+            $this->get('session')->getFlashBag()->add('adminSuccess', 'قالب با موفقیت ویرایش شد.');
+        }
+        return $this->render('bloggerblogBundle:AdminBlog:editTemplate.html.twig',
+            array("template_form" => $template_form->createView()));
     }
 }

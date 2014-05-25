@@ -2,9 +2,142 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="960b983e-0257-4860-88f9-61b72495d5a3" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/test/images/Thumbs.db" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/images/autocompletion.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/charmap/images/charmap.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/images/close.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/edit_area_full.gz" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/images/fullscreen.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/images/go_to_line.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/images/help.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/images/highlight.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/images/load.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/images/move.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/images/newdocument.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/images/opacity.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/images/processing.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/images/redo.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/images/reset_highlight.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/images/save.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/images/search.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/images/smooth_selection.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/images/spacer.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/images/statusbar_resize.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/test/images/test.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/images/undo.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/images/word_wrap.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/autocompletion.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/reg_syntax/basic.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/langs/bg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/charmap/langs/bg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/test/langs/bg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/reg_syntax/brainfuck.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/reg_syntax/c.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/charmap/css/charmap.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/charmap/charmap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/reg_syntax/coldfusion.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/reg_syntax/cpp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/langs/cs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/charmap/langs/cs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/test/langs/cs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/reg_syntax/css.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/langs/de.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/charmap/langs/de.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/test/langs/de.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/langs/dk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/charmap/langs/dk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/test/langs/dk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/editTemplate.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/edit_area.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/edit_area.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/edit_area_compressor.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/edit_area_full.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/edit_area_functions.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/edit_area_loader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/elements_functions.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/langs/en.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/charmap/langs/en.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/test/langs/en.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/langs/eo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/charmap/langs/eo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/test/langs/eo.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/langs/es.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/charmap/langs/es.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/test/langs/es.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/langs/fi.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/langs/fr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/charmap/langs/fr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/test/langs/fr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/highlight.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/langs/hr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/charmap/langs/hr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/test/langs/hr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/reg_syntax/html.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/langs/it.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/charmap/langs/it.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/test/langs/it.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/langs/ja.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/charmap/langs/ja.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/test/langs/ja.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/reg_syntax/java.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/reg_syntax/js.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/keyboard.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/license_apache.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/license_bsd.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/license_lgpl.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/manage_area.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/charmap/jscripts/map.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/langs/mk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/charmap/langs/mk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/test/langs/mk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/langs/nl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/charmap/langs/nl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/test/langs/nl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/reg_syntax/pas.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/reg_syntax/perl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/reg_syntax/php.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/langs/pl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/charmap/langs/pl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/test/langs/pl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/charmap/popup.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/langs/pt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/charmap/langs/pt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/test/langs/pt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/reg_syntax/python.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/reg_syntax.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/regexp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/resize_area.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/reg_syntax/robotstxt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/langs/ru.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/charmap/langs/ru.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/test/langs/ru.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/reg_syntax/ruby.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/search_replace.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/langs/sk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/charmap/langs/sk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/test/langs/sk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/reg_syntax/sql.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/template.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/test/css/test.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/test/test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/test/test2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/reg_syntax/tsql.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/reg_syntax/vb.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/reg_syntax/xml.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/langs/zh.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/charmap/langs/zh.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/plugins/test/langs/zh.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/AdminBlogBase.html.twig" afterPath="$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/AdminBlogBase.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/blogger/blogBundle/Handler/AuthenticationHandler.php" afterPath="$PROJECT_DIR$/src/blogger/blogBundle/Handler/AuthenticationHandler.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/blogger/blogBundle/EventListener/RegisterListener.php" afterPath="$PROJECT_DIR$/src/blogger/blogBundle/EventListener/RegisterListener.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/blogger/blogBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/blogger/blogBundle/Entity/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/services.yml" afterPath="$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/services.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/admin.yml" afterPath="$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/admin.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/blogger/blogBundle/Controller/adminBlogController.php" afterPath="$PROJECT_DIR$/src/blogger/blogBundle/Controller/adminBlogController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/blogger/blogBundle/Controller/blogController.php" afterPath="$PROJECT_DIR$/src/blogger/blogBundle/Controller/blogController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/ChangePassword/changePassword.html.twig" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/ChangePassword/changePassword.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login.html.twig" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/page.yml" afterPath="$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/page.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/showRecentArticles.html.twig" afterPath="$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/showRecentArticles.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="6b787c4b-daa0-4d8d-8bc9-f22063a0843e" name="New changelist" comment="" />
@@ -33,7 +166,59 @@
     <favorites_list name="blogTheme" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="masterAdminBlogController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Controller/masterAdminBlogController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="30" selection-start="360" selection-end="360" vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="391">
+              <folding>
+                <element signature="e#49#87#0" expanded="true" />
+                <element signature="e#359#414#1" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Entity/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="280" column="7" selection-start="5080" selection-end="5080" vertical-scroll-proportion="-11.692307" vertical-offset="4337" max-vertical-offset="4896">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="blogController.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Controller/blogController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="340" column="75" selection-start="18821" selection-end="18821" vertical-scroll-proportion="-0.15201466" vertical-offset="2497" max-vertical-offset="3298">
+              <folding>
+                <element signature="e#49#87#0" expanded="true" />
+                <element signature="e#429#878#0" expanded="false" />
+                <element signature="e#884#1096#0" expanded="false" />
+                <element signature="e#1102#1276#0" expanded="false" />
+                <element signature="e#1282#1565#0" expanded="false" />
+                <element signature="e#1571#1793#0" expanded="false" />
+                <element signature="e#2259#4393#0" expanded="false" />
+                <element signature="e#4399#8696#0" expanded="false" />
+                <element signature="e#8702#10193#0" expanded="false" />
+                <element signature="e#10199#11384#0" expanded="false" />
+                <element signature="e#11390#12871#0" expanded="false" />
+                <element signature="e#13299#13623#0" expanded="false" />
+                <element signature="e#14035#14062#1" expanded="true" />
+                <element signature="e#15058#15085#1" expanded="true" />
+                <element signature="e#15991#16015#1" expanded="true" />
+                <element signature="e#16377#16404#1" expanded="true" />
+                <element signature="e#17068#17095#1" expanded="true" />
+                <element signature="e#18654#18678#1" expanded="true" />
+                <element signature="e#19023#19050#1" expanded="true" />
+                <element signature="e#20001#20028#1" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -42,8 +227,6 @@
   </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
-      <command text="c install &quot;ce/jalali-date-bundle&quot;" />
-      <command text="c self-update " />
       <command text="c install &quot;ce/jalali-date-bundle&quot;" />
       <command text="c update &quot;ce/jalali-date-bundle&quot;" />
       <command text="c update " />
@@ -62,10 +245,20 @@
       <command text="c update friendsofsymfony/user-bundle" />
       <command text="c self-update " />
       <command text="c update friendsofsymfony/user-bundle" />
+      <command text="s doctrine:generate:entities bloggerblogBundle\entity\User" />
+      <command text="s doctrine:generate:entities bloggerblogBundle\Entity\User" />
+      <command text="s doctrine:generate:entities bloggerblogBundle\Entity\Use" />
+      <command text="s doctrine:generate:entities asd" />
+      <command text="s doctrine:generate:entities blogger\blogBundle\Entity\User" />
+      <command text="s doctrine:generate:entities blogger" />
+      <command text="s doctrine:schema:update --force" />
     </commandsHistory>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.txt" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
@@ -80,11 +273,7 @@
         <option value="$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/Default/homeBase.html.twig" />
         <option value="$PROJECT_DIR$/web/bundles/bloggerblog/css/style_admin.css" />
         <option value="$PROJECT_DIR$/web/bundles/bloggerblog/css/style_blog.css" />
-        <option value="$PROJECT_DIR$/src/blogger/blogBundle/Controller/adminBlogController.php" />
         <option value="$PROJECT_DIR$/src/blogger/blogBundle/Form/RegistrationFormType.php" />
-        <option value="$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/admin.yml" />
-        <option value="$PROJECT_DIR$/src/blogger/blogBundle/Handler/AuthenticationHandler.php" />
-        <option value="$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/AdminBlogBase.html.twig" />
         <option value="$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/MasterAdminBlog/dashboard.html.twig" />
         <option value="$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/master_admin.yml" />
         <option value="$PROJECT_DIR$/src/blogger/blogBundle/Controller/masterAdminBlogController.php" />
@@ -93,9 +282,6 @@
         <option value="$PROJECT_DIR$/src/blogger/blogBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/routing/security.xml" />
         <option value="$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/page.yml" />
-        <option value="$PROJECT_DIR$/src/blogger/blogBundle/Controller/blogController.php" />
-        <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register_content.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Resetting/reset_content.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/ChangePassword/changePassword_content.html.twig" />
@@ -104,9 +290,19 @@
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/src/blogger/blogBundle/EventListener/ResettingListener.php" />
         <option value="$PROJECT_DIR$/web/app_dev.php" />
-        <option value="$PROJECT_DIR$/src/blogger/blogBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/services.yml" />
         <option value="$PROJECT_DIR$/src/blogger/blogBundle/EventListener/RegisterListener.php" />
+        <option value="$PROJECT_DIR$/src/blogger/blogBundle/Handler/AuthenticationHandler.php" />
+        <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login.html.twig" />
+        <option value="$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/page.yml" />
+        <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/ChangePassword/changePassword.html.twig" />
+        <option value="$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/admin.yml" />
+        <option value="$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/showRecentArticles.html.twig" />
+        <option value="$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/AdminBlogBase.html.twig" />
+        <option value="$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/editTemplate.html.twig" />
+        <option value="$PROJECT_DIR$/src/blogger/blogBundle/Controller/adminBlogController.php" />
+        <option value="$PROJECT_DIR$/src/blogger/blogBundle/Entity/User.php" />
+        <option value="$PROJECT_DIR$/src/blogger/blogBundle/Controller/blogController.php" />
       </list>
     </option>
   </component>
@@ -207,240 +403,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blogTheme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blogTheme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bundles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blogTheme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blogTheme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bundles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blogTheme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blogTheme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bundles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bloggerblog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blogTheme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blogTheme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blogTheme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blogTheme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="friendsofsymfony" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user-bundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FOS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blogTheme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blogTheme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="friendsofsymfony" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user-bundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FOS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blogTheme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blogTheme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="friendsofsymfony" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user-bundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FOS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blogTheme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blogTheme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="friendsofsymfony" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user-bundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FOS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="routing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blogTheme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blogTheme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -492,6 +454,10 @@
               <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -519,7 +485,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Default" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -545,7 +515,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="EventListener" />
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdminBlog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="blogTheme" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="blogTheme" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="blogger" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="blogBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -601,38 +605,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blogTheme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blogTheme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blogTheme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blogTheme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope">
@@ -660,11 +632,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\blogTheme\web\bundles\bloggerblog\js" />
+      <recent name="C:\xampp\htdocs\blogTheme\src\blogger\blogBundle\Resources\views\AdminBlog" />
       <recent name="C:\xampp\htdocs\blogTheme\src\blogger\blogBundle\Controller" />
       <recent name="C:\xampp\htdocs\blogTheme\src\blogger\blogBundle\Resources\views\MasterAdminBlog" />
       <recent name="C:\xampp\htdocs\blogTheme\src\blogger\blogBundle\Resources\views" />
-      <recent name="C:\xampp\htdocs\blogTheme\src\blogger\blogBundle\Resources\config" />
-      <recent name="C:\wamp\www\blogTheme\web\bundles\bloggerblog" />
     </key>
   </component>
   <component name="RunManager" selected="PHP Web Application.blogTheme">
@@ -766,16 +738,20 @@
       <created>1400945411786</created>
       <updated>1400945411786</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="added pagination&#10;">
+      <created>1400997003356</created>
+      <updated>1400997003356</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32733223" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32952693" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32930514" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -784,18 +760,18 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6415712" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32569557" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1971299" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.244713" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35679215" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32733223" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35679215" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -845,86 +821,16 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Handler/DateConvertor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="23" selection-start="3704" selection-end="3704" vertical-scroll-proportion="0.7197802" vertical-offset="1545" max-vertical-offset="2091" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/validation.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="39" selection-start="578" selection-end="590" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3417" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/addArticle.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="33" selection-start="33" selection-end="33" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="272" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="32" selection-start="66" selection-end="66" vertical-scroll-proportion="0.094444446" vertical-offset="0" max-vertical-offset="629" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Registration/register_content.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="553" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Resetting/reset.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="12" selection-start="151" selection-end="151" vertical-scroll-proportion="0.09123435" vertical-offset="0" max-vertical-offset="559" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="47" selection-start="47" selection-end="47" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="35" selection-start="35" selection-end="35" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="187" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Form/Type/RegistrationFormType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="20" selection-start="692" selection-end="692" vertical-scroll-proportion="0.33273703" vertical-offset="154" max-vertical-offset="918" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Form/RegistrationFormType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="116" selection-start="850" selection-end="850" vertical-scroll-proportion="0.44160584" vertical-offset="47" max-vertical-offset="595" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Handler/AuthenticationHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="92" selection-start="1610" selection-end="1610" vertical-scroll-proportion="-14.384615" vertical-offset="238" max-vertical-offset="799">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/AdminBlogBase.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="81" selection-start="2561" selection-end="2561" vertical-scroll-proportion="0.09677419" vertical-offset="816" max-vertical-offset="1343" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/Default/homeBase.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="27" selection-start="365" selection-end="365" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="1139" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Controller/adminBlogController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="20" selection-start="300" selection-end="300" vertical-scroll-proportion="0.29032257" vertical-offset="0" max-vertical-offset="4063" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/master_admin.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="72" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Controller/masterAdminBlogController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="285" selection-end="285" vertical-scroll-proportion="0.33333334" vertical-offset="0" max-vertical-offset="561" />
+        <state line="2" column="72" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/MasterAdminBlog/dashboard.html.twig">
@@ -949,12 +855,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.fa.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.5856644" vertical-offset="907" max-vertical-offset="1734" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.5856644" vertical-offset="907" max-vertical-offset="1734">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="105" selection-start="1129" selection-end="1129" vertical-scroll-proportion="0.5915751" vertical-offset="255" max-vertical-offset="901" />
+        <state line="34" column="105" selection-start="1129" selection-end="1129" vertical-scroll-proportion="0.5915751" vertical-offset="255" max-vertical-offset="901">
+          <folding>
+            <element signature="e#49#84#0" expanded="false" />
+            <element signature="e#339#382#1" expanded="false" />
+            <element signature="e#461#504#1" expanded="false" />
+            <element signature="e#718#742#0" expanded="false" />
+            <element signature="e#1089#1113#1" expanded="false" />
+            <element signature="e#1671#1721#0" expanded="false" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/routing/security.xml">
@@ -969,31 +886,6 @@
         <state line="1" column="36" selection-start="49" selection-end="49" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="170" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/page.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="20" selection-start="495" selection-end="495" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="309" selection-end="309" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Controller/blogController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="295" column="18" selection-start="16099" selection-end="16099" vertical-scroll-proportion="0.3021978" vertical-offset="1484" max-vertical-offset="3145" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="48" selection-start="1726" selection-end="1738" vertical-scroll-proportion="0.6813187" vertical-offset="155" max-vertical-offset="714" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/ChangePassword/changePassword_content.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="40" selection-start="205" selection-end="205" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="204" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Resetting/request_content.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="0" selection-start="826" selection-end="826" vertical-scroll-proportion="0.45617172" vertical-offset="0" max-vertical-offset="559" />
@@ -1002,11 +894,6 @@
     <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Resetting/reset_content.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="40" selection-start="223" selection-end="223" vertical-scroll-proportion="0.093406595" vertical-offset="0" max-vertical-offset="546" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register_content.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="40" selection-start="217" selection-end="217" vertical-scroll-proportion="0.09123435" vertical-offset="0" max-vertical-offset="559" />
       </provider>
     </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/plugins/sass/lib/stubs/sass_functions.scss">
@@ -1046,13 +933,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/theme.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="37" selection-start="1247" selection-end="1247" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="2771">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="20" selection-start="459" selection-end="459" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="986" />
@@ -1085,13 +965,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="42" selection-start="1357" selection-end="1357" vertical-scroll-proportion="0.0" vertical-offset="1139" max-vertical-offset="4539">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Event/GetResponseUserEvent.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="6" selection-start="348" selection-end="348" vertical-scroll-proportion="0.2527881" vertical-offset="0" max-vertical-offset="538">
@@ -1120,17 +993,243 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/admin.yml">
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Routing/Generator/UrlGeneratorInterface.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="27" selection-start="0" selection-end="27" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="833">
+        <state line="85" column="20" selection-start="3568" selection-end="3568" vertical-scroll-proportion="0.80322003" vertical-offset="826" max-vertical-offset="1411">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="20" selection-start="0" selection-end="20" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Handler/AuthenticationHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="80" selection-start="1559" selection-end="1598" vertical-scroll-proportion="0.66547406" vertical-offset="240" max-vertical-offset="799">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/EventListener/RegisterListener.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="5" selection-start="1414" selection-end="1414" vertical-scroll-proportion="0.5264624" vertical-offset="491" max-vertical-offset="850">
+        <state line="35" column="5" selection-start="1055" selection-end="1055" vertical-scroll-proportion="-7.1153846" vertical-offset="291" max-vertical-offset="850">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/page.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="22" selection-start="330" selection-end="330" vertical-scroll-proportion="0.2905983" vertical-offset="0" max-vertical-offset="585">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/addArticle.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="291" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="538">
+          <folding>
+            <element signature="e#12#63#0" expanded="true" />
+            <marker date="1389368174249" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1389368174249" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/ChangePassword/changePassword_content.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="43" selection-start="43" selection-end="43" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="204">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/routing/change_password.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="39" selection-start="275" selection-end="299" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/ChangePasswordController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.2628572" vertical-offset="663" max-vertical-offset="1309">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register_content.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="40" selection-start="217" selection-end="217" vertical-scroll-proportion="0.09123435" vertical-offset="0" max-vertical-offset="559">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="35" selection-start="35" selection-end="35" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="559">
+          <folding>
+            <element signature="e#144#197#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="26" selection-start="575" selection-end="575" vertical-scroll-proportion="0.3041145" vertical-offset="0" max-vertical-offset="799">
+          <folding>
+            <element signature="e#12#56#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="46" selection-start="437" selection-end="445" vertical-scroll-proportion="0.21428572" vertical-offset="53" max-vertical-offset="714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/ChangePassword/changePassword.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="19" selection-start="360" selection-end="360" vertical-scroll-proportion="0.24329159" vertical-offset="0" max-vertical-offset="559">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/showRecentArticles.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="58" selection-start="2018" selection-end="2023" vertical-scroll-proportion="0.33205375" vertical-offset="456" max-vertical-offset="1054">
+          <folding>
+            <element signature="e#787#819#0" expanded="true" />
+            <element signature="e#1116#1155#0" expanded="true" />
+            <element signature="e#1535#1558#0" expanded="true" />
+            <element signature="e#2146#2185#0" expanded="true" />
+            <element signature="e#2447#2486#0" expanded="true" />
+            <element signature="e#2608#2647#0" expanded="true" />
+            <element signature="e#2851#2890#0" expanded="true" />
+            <element signature="e#2989#3028#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/config/admin.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="69" selection-start="1330" selection-end="1342" vertical-scroll-proportion="0.0" vertical-offset="333" max-vertical-offset="918">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/bloggerblog/js/edit_area/langs/bg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/theme.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="0" selection-start="2469" selection-end="2469" vertical-scroll-proportion="-11.769231" vertical-offset="272" max-vertical-offset="2771">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/AdminBlogBase.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="4" selection-start="415" selection-end="450" vertical-scroll-proportion="-0.6849817" vertical-offset="510" max-vertical-offset="1207">
+          <folding>
+            <element signature="e#553#577#0" expanded="true" />
+            <element signature="e#2043#2067#0" expanded="true" />
+            <element signature="e#2183#2214#0" expanded="true" />
+            <element signature="e#2301#2340#0" expanded="true" />
+            <element signature="e#2429#2468#0" expanded="true" />
+            <element signature="e#2592#2631#0" expanded="true" />
+            <element signature="e#2743#2776#0" expanded="true" />
+            <element signature="e#2859#2891#0" expanded="true" />
+            <element signature="e#2977#3001#0" expanded="true" />
+            <element signature="e#3088#3112#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Resources/views/AdminBlog/editTemplate.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="35" selection-start="352" selection-end="352" vertical-scroll-proportion="0.15567766" vertical-offset="0" max-vertical-offset="546">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Controller/adminBlogController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="212" column="145" selection-start="12042" selection-end="12042" vertical-scroll-proportion="0.47069597" vertical-offset="3296" max-vertical-offset="3893">
+          <folding>
+            <element signature="e#1428#1478#0" expanded="true" />
+            <element signature="e#1741#1768#1" expanded="true" />
+            <element signature="e#2631#2689#0" expanded="true" />
+            <element signature="e#2977#3004#1" expanded="true" />
+            <element signature="e#3666#3693#1" expanded="true" />
+            <element signature="e#4388#4415#1" expanded="true" />
+            <element signature="e#5552#5603#0" expanded="true" />
+            <element signature="e#5924#5951#1" expanded="true" />
+            <element signature="e#6094#6121#1" expanded="true" />
+            <element signature="e#6394#6421#1" expanded="true" />
+            <element signature="e#6585#6612#1" expanded="true" />
+            <element signature="e#6876#6903#1" expanded="true" />
+            <element signature="e#7070#7097#1" expanded="true" />
+            <element signature="e#7914#7972#0" expanded="true" />
+            <element signature="e#8292#8319#1" expanded="true" />
+            <element signature="e#10207#10258#0" expanded="true" />
+            <element signature="e#10522#10549#1" expanded="true" />
+            <element signature="e#11534#11585#0" expanded="true" />
+            <element signature="e#12532#12584#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Controller/masterAdminBlogController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="30" selection-start="360" selection-end="360" vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="391">
+          <folding>
+            <element signature="e#49#87#0" expanded="true" />
+            <element signature="e#359#414#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="280" column="7" selection-start="5080" selection-end="5080" vertical-scroll-proportion="-11.692307" vertical-offset="4337" max-vertical-offset="4896">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/blogger/blogBundle/Controller/blogController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="340" column="75" selection-start="18821" selection-end="18821" vertical-scroll-proportion="-0.15201466" vertical-offset="2497" max-vertical-offset="3298">
+          <folding>
+            <element signature="e#49#87#0" expanded="true" />
+            <element signature="e#429#878#0" expanded="false" />
+            <element signature="e#884#1096#0" expanded="false" />
+            <element signature="e#1102#1276#0" expanded="false" />
+            <element signature="e#1282#1565#0" expanded="false" />
+            <element signature="e#1571#1793#0" expanded="false" />
+            <element signature="e#2259#4393#0" expanded="false" />
+            <element signature="e#4399#8696#0" expanded="false" />
+            <element signature="e#8702#10193#0" expanded="false" />
+            <element signature="e#10199#11384#0" expanded="false" />
+            <element signature="e#11390#12871#0" expanded="false" />
+            <element signature="e#13299#13623#0" expanded="false" />
+            <element signature="e#14035#14062#1" expanded="true" />
+            <element signature="e#15058#15085#1" expanded="true" />
+            <element signature="e#15991#16015#1" expanded="true" />
+            <element signature="e#16377#16404#1" expanded="true" />
+            <element signature="e#17068#17095#1" expanded="true" />
+            <element signature="e#18654#18678#1" expanded="true" />
+            <element signature="e#19023#19050#1" expanded="true" />
+            <element signature="e#20001#20028#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

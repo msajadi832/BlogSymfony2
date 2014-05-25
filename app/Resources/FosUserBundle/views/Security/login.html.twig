@@ -9,7 +9,7 @@
             با نام کاربری زیر وارد شده اید:
             <br />{{ app.user.username }}<br />
             {% if "ROLE_ADMIN" not in app.user.roles %}
-                <a href="{{ path('bloggerblog_blogAdmin_index') }}">مدیریت وبلاگ</a> |
+                <a href="{{ path('bloggerblog_blogAdminShowRecentComments', {'articleId' : 'all'}) }}">مدیریت وبلاگ</a> |
             {% else %}
                 <a href="{{ path('bloggerblog_blog_masterAdmin_index') }}">مدیریت سیستم وبلاگ</a> |
             {% endif %}

@@ -7,7 +7,7 @@ use blogger\blogBundle\Entity\Comment;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 class blogController extends Controller
 {
@@ -296,6 +296,9 @@ class blogController extends Controller
         if(!$user)
             throw $this->createNotFoundException('صفحه مورد نظر پیدا نشد');
 
+        if(!$user->getBlogActive())
+            throw new AccessDeniedHttpException('این وبلاگ به علت نقض قوانین موقتا غیر فعال شده است.');
+
         $article = $this->getDoctrine()->getRepository('bloggerblogBundle:Article');
         $qb = $article->createQueryBuilder('a')
             ->where("a.user = :user")
@@ -333,6 +336,12 @@ class blogController extends Controller
     {
         $params = $request->request->all();
         $user = $this->getDoctrine()->getRepository('bloggerblogBundle:User') ->findOneBy(array('username' => $blog_name));
+
+        if(!$user)
+            throw $this->createNotFoundException('صفحه مورد نظر پیدا نشد');
+        if(!$user->getBlogActive())
+            throw new AccessDeniedHttpException('این وبلاگ به علت نقض قوانین موقتا غیر فعال شده است.');
+
         $articleRepo = $this->getDoctrine() ->getRepository('bloggerblogBundle:Article');
         $article = $articleRepo->findOneBy(array("user" => $user->getId(),"address" => $article_name));
 
