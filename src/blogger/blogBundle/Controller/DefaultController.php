@@ -25,7 +25,7 @@ class DefaultController extends Controller
     }
 
     public function showBlogListAction($start){
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $blog_list_base = $em->createQueryBuilder()
             ->select('user')
             ->from('bloggerblogBundle:User','user')

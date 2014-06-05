@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Symfony\Component\Validator\Constraints\False;
 
 class blogController extends Controller
 {
@@ -315,10 +316,11 @@ class blogController extends Controller
         $articles = array();
         foreach($articlesa as $singleArticle){
             $comment_article_count = count($this->getDoctrine() ->getRepository('bloggerblogBundle:Comment') ->findBy(array("user" => $user->getId(),"article" => $singleArticle->getId(),"confirmed" => true)));
+            $body_show_len = mb_strpos($singleArticle->getBody(),"page-break-after", null, 'UTF-8');
             $articles[] = array("article_title" => $singleArticle->getTitle(),
                 "article_address" => $this->generateUrl('bloggerblog_blogArticle', array('blog_name'=>$user->getUsername(),'article_name' => $singleArticle->getAddress())),
                 "article_date" => $this->get('my_date_convert')->MiladiToShamsi($singleArticle->getPublishDate()),
-                "article_body" => (strlen($singleArticle->getBody())> 500)?mb_substr($singleArticle->getBody(),0,500, 'UTF-8')." ...":$singleArticle->getBody(),
+                "article_body" => ($body_show_len != False)?mb_substr($singleArticle->getBody(),0,$body_show_len-12, 'UTF-8')." ...":$singleArticle->getBody(),
                 "article_comment_count" => $comment_article_count);
         }
 
