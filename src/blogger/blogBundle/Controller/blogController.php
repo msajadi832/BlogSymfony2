@@ -146,6 +146,7 @@ class blogController extends Controller
                 #New Comment For Article
                 if(strpos($retTemplate,'<PostDetailNewComment>')){
                     if(strpos($retTemplate,'</PostDetailNewComment>')){
+                        $retTemplate = $this->replaceText($retTemplate, 'PostDetailNewCommentData','action="{{ path("bloggerblog_blogArticle",{ "blog_name": Blog.name, "article_name":PostDetail.address}) }}"');
                         $retTemplate = $this->replaceText($retTemplate, 'PostDetailNewCommentName','name="NewCommentName" required="required"');
                         $retTemplate = $this->replaceText($retTemplate, 'PostDetailNewCommentContent','name="NewCommentContent" required="required"');
                     }
