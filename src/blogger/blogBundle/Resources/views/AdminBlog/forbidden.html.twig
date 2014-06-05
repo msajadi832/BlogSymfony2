@@ -1,0 +1,33 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="text/html">
+    <title>نقض قوانین</title>
+    <link rel="stylesheet" href="{{ asset("bundles/bloggerblog/css/bootstrap.css") }}">
+</head>
+<body>
+<div class="container">
+    <div class="wrapper">
+        <div class="content_out">
+            <div class="content" style="margin-top: 20px;direction: rtl;">
+                <div class="hero-unit">
+                    <h1>نقض قوانین</h1>
+                    <p style="font-family: 'BYekan', tahoma;">
+                        این وبلاگ به علت نقض قوانین غیر فعال شده است.
+                    </p>
+                    <p>
+                        <a class="btn btn-primary btn-large" href="{{ path('bloggerblog_showBlogList') }}">
+                            مشاهده دیگر وبلاگ ها
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block before_end_body %}{% endblock %}
+<script src="{{ asset("bundles/bloggerblog/js/jquery.min.js") }}" ></script>
+<script src="{{ asset("bundles/bloggerblog/js/bootstrap.js") }}" ></script>
+</body>
+</html>

@@ -29,6 +29,7 @@ class adminBlogController extends Controller
             $em->persist($article);
             $em->flush();
             $this->get('session')->getFlashBag()->add('adminSuccess', 'مطلب '.$article->getTitle().' با موفقیت ثبت شد.');
+            return $this->redirect($this->generateUrl('bloggerblog_blogAdminAddArticle'));
         }
         return $this->render('bloggerblogBundle:AdminBlog:addArticle.html.twig',
             array("article_form" => $article_form->createView()));

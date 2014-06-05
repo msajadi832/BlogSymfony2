@@ -299,7 +299,7 @@ class blogController extends Controller
             throw $this->createNotFoundException('صفحه مورد نظر پیدا نشد');
 
         if(!$user->getBlogActive())
-            throw new AccessDeniedHttpException('این وبلاگ به علت نقض قوانین موقتا غیر فعال شده است.');
+            return $this->render('bloggerblogBundle:AdminBlog:forbidden.html.twig');
 
         $article = $this->getDoctrine()->getRepository('bloggerblogBundle:Article');
         $qb = $article->createQueryBuilder('a')
@@ -343,7 +343,7 @@ class blogController extends Controller
         if(!$user)
             throw $this->createNotFoundException('صفحه مورد نظر پیدا نشد');
         if(!$user->getBlogActive())
-            throw new AccessDeniedHttpException('این وبلاگ به علت نقض قوانین موقتا غیر فعال شده است.');
+            return $this->render('bloggerblogBundle:AdminBlog:forbidden.html.twig');
 
         $articleRepo = $this->getDoctrine() ->getRepository('bloggerblogBundle:Article');
         $article = $articleRepo->findOneBy(array("user" => $user->getId(),"address" => $article_name));
