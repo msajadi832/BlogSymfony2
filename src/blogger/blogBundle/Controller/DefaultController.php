@@ -8,7 +8,7 @@ use Symfony\Component\Security\Core\SecurityContext;
 
 class DefaultController extends Controller
 {
-    private $num_list = 2;
+    private $num_list = 20;
 
     public function indexAction()
     {

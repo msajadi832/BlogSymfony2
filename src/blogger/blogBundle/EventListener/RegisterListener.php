@@ -47,7 +47,7 @@ class RegisterListener implements EventSubscriberInterface
 
     public function onRegisterCompleted(FilterUserResponseEvent $response)
     {
-        $url = $this->router->generate('bloggerblog_blogAdminShowRecentComments', array('articleId' => 'all'));
+        $url = $this->router->generate('bloggerblog_blogAdminAddArticle');
         $response->getResponse()->headers->set('Location',$url);
     }
 

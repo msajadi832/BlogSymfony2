@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Constraints\False;
 
 class blogController extends Controller
 {
-    private $num_list_blog = 2;
+    private $num_list_blog = 10;
 
 
     private function hideBlock($retTemplate, $name){
